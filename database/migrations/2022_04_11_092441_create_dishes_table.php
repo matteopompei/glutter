@@ -14,13 +14,14 @@ class CreateDishesTable extends Migration
     public function up()
     {
         Schema::create('dishes', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->primary();
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('image')->nullable();
             $table->string('ingredients');
             $table->float('price');
             $table->boolean('visible');
+            $table->timestamps();
         });
     }
 
