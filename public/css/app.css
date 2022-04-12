@@ -10957,3 +10957,67 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background: #81b29a;
+}
+
+nav .user a {
+  margin: 0 15px;
+  font-size: 1rem;
+}
+
+nav .user a:hover {
+  text-decoration: none;
+}
+
+.dashboard > .row:first-child .title {
+  color: #f8f9fa;
+}
+
+.dashboard > .row:first-child .title i {
+  margin-right: 20px;
+}
+
+.dashboard > .row:nth-child(2) {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard .title {
+  margin-bottom: 15px;
+  padding: 5px 15px;
+}
+
+.dashboard .info,
+.dashboard .welcome {
+  padding: 30px 10px;
+}
+
+.dashboard .info {
+  background: #fff;
+  border-top: 15px solid #e07a5f;
+  z-index: 3;
+}
+
+.dashboard .info .avatar {
+  padding: 10%;
+  margin-bottom: 25px;
+}
+
+.dashboard .info ul {
+  list-style: none;
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-bottom: 25px;
+}
+
+.dashboard .info .edit {
+  display: block;
+  margin: 0 auto;
+}
+
+.dashboard .welcome {
+  background: #f8f9fa;
+  box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
+  padding-left: 45px;
+}
+
