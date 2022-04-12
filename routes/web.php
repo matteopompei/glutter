@@ -18,6 +18,12 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+// Route::middleware('auth')->name('users.')->prefix('users')->group(function () {
+//     Route::get('/{user}', 'UserController@edit');
+//     Route::patch('/{user}/update', 'UserController@update');
+// });
+
 Route::get('users/{user}',  ['as' => 'auth.edit', 'uses' => 'UserController@edit']);
 
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);

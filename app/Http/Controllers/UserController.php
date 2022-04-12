@@ -72,8 +72,13 @@ class UserController extends Controller
             'state' => $temp_address[3],
             'cap' => $temp_address[4],
         ];
-        
+
         return view('auth.edit', compact('user', 'address'));
+    }
+
+    protected function getAddress($street, $number, $city, $state, $cap)
+    {
+        return $street . ", " . $number . ", " . $city . ", " . $state . ", " . $cap;
     }
 
     /**
@@ -85,27 +90,51 @@ class UserController extends Controller
      */
     public function update(User $user)
     {
-        $this->validate(request(), [
-            'business_name' => 'required|string|max:255|min:3',
-            'street' => 'required|string|max:160',
-            'civic' => 'required|string|max:10',
-            'city' => 'required|string|max:40',
-            'state' => 'required|string|max:40',
-            'cap' => 'required|numeric|digits:5',
-            'p_iva' => 'required|numeric|digits:11',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
+        if (Auth::user()->email == request('email')) {
+            $this->validate(request(), [
+                'business_name' => 'required|string|max:255|min:3',
+                'street' => 'required|string|max:160',
+                'civic' => 'required|string|max:10',
+                'city' => 'required|string|max:40',
+                'state' => 'required|string|max:40',
+                'cap' => 'required|numeric|digits:5',
+                'p_iva' => 'required|numeric|digits:11',
+                //'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
 
-        $user->business_name = request('business_name');
-        $user->address = request('address');
-        $user->p_iva = request('p_iva');
-        $user->email = request('email');
-        $user->password = bcrypt(request('password'));
+            $user->business_name = request('business_name');
+            $user->address = $this->getAddress(request('street'), request('civic'), request('city'), request('state'), request('cap'));
+            $user->p_iva = request('p_iva');
+            //$user->email = request('email');
+            $user->password = bcrypt(request('password'));
 
-        $user->save();
+            $user->save();
+            return back();
+        } else {
+            $this->validate(request(), [
+                'business_name' => 'required|string|max:255|min:3',
+                'street' => 'required|string|max:160',
+                'civic' => 'required|string|max:10',
+                'city' => 'required|string|max:40',
+                'state' => 'required|string|max:40',
+                'cap' => 'required|numeric|digits:5',
+                'p_iva' => 'required|numeric|digits:11',
+                'email' => 'required|string|email|max:255|unique:users',
+                'password' => 'required|string|min:8|confirmed',
+            ]);
 
-        return back();
+            $user->business_name = request('business_name');
+            $user->address = request('address');
+            $user->p_iva = request('p_iva');
+            $user->email = request('email');
+            $user->password = bcrypt(request('password'));
+
+            $user->save();
+
+            dd($user);
+            return back();
+        }
     }
 
     /**

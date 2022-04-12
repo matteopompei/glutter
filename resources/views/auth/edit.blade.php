@@ -9,8 +9,9 @@
 
                     {{-- Form di registrazione --}}
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('users.update', $user) }}">
                             @csrf
+                            @method('PATCH')
 
                             {{-- Campo business_name --}}
                             <div class="form-group row">
