@@ -64,6 +64,8 @@ class RegisterController extends Controller
             'state' => ['required', 'string', 'max:40'],
             'cap' => ['required', 'numeric', 'digits:5'],
             'p_iva' => ['required', 'numeric', 'digits:11'],
+            'address' => ['required', 'string', 'max:255'],
+            'p_iva' => ['required', 'string', 'min:11','max:11'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
