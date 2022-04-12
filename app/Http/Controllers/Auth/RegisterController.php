@@ -41,6 +41,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    // Crea indirizzo
+    protected function getAddress($street, $number, $city, $state, $cap)
+    {
+        return $street . ", " . $number . ", " . $city . ", " . $state . ", " . $cap;
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -49,11 +55,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-    // modifica dati da validare. Aggiunti p_iva, address, business_name
-        return Validator::make($data, [ 
+        // modifica dati da validare. Aggiunti p_iva, address, business_name
+        return Validator::make($data, [
             'business_name' => ['required', 'string', 'max:255', 'min:3'],
-            'address' => ['required', 'string', 'max:255', 'confirmed'],
-            'p_iva' => ['required', 'string', 'min:11','max:11', 'confirmed'],
+            'street' => ['required', 'string', 'max:160'],
+            'civic' => ['required', 'string', 'max:10'],
+            'city' => ['required', 'string', 'max:40'],
+            'state' => ['required', 'string', 'max:40'],
+            'cap' => ['required', 'numeric', 'digits:5'],
+            'p_iva' => ['required', 'numeric', 'digits:11'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -70,7 +80,7 @@ class RegisterController extends Controller
         // modifica dati da creare. Aggiunti p_iva, address, business_name
         return User::create([
             'business_name' => $data['business_name'],
-            'address' => $data['address'],
+            'address' => $this->getAddress($data['street'], $data['civic'], $data['city'], $data['state'], $data['cap']),
             'p_iva' => $data['p_iva'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
