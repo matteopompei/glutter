@@ -49,8 +49,11 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+    // modifica dati da validare. Aggiunti p_iva, address, business_name
+        return Validator::make($data, [ 
+            'business_name' => ['required', 'string', 'max:255', 'min:3'],
+            'address' => ['required', 'string', 'max:255', 'confirmed'],
+            'p_iva' => ['required', 'string', 'min:11','max:11', 'confirmed'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,8 +67,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        // modifica dati da creare. Aggiunti p_iva, address, business_name
         return User::create([
-            'name' => $data['name'],
+            'business_name' => $data['business_name'],
+            'address' => $data['address'],
+            'p_iva' => $data['p_iva'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
