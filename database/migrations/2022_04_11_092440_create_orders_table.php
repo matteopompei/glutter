@@ -22,7 +22,7 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->string('shipment');
             $table->float('total');
-            $table->boolean('payed');
+            $table->boolean('payed')->default(false);
             $table->timestamps();
         });
     }
