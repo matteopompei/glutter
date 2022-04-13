@@ -10988,29 +10988,34 @@ nav .user a:hover {
 }
 
 .dashboard .info,
-.dashboard .welcome {
+.dashboard .welcome,
+.dashboard .login-form {
   padding: 30px 10px;
 }
 
-.dashboard .info {
+.dashboard .info,
+.dashboard .login-form {
   background: #fff;
   border-top: 15px solid #e07a5f;
   z-index: 3;
 }
 
-.dashboard .info .avatar {
+.dashboard .info .avatar,
+.dashboard .login-form .avatar {
   padding: 10%;
   margin-bottom: 25px;
 }
 
-.dashboard .info ul {
+.dashboard .info ul,
+.dashboard .login-form ul {
   list-style: none;
   font-size: 1.2rem;
   line-height: 2;
   margin-bottom: 25px;
 }
 
-.dashboard .info .edit {
+.dashboard .info .edit,
+.dashboard .login-form .edit {
   display: block;
   margin: 0 auto;
 }
