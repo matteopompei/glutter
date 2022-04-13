@@ -46,7 +46,7 @@ class RegisterController extends Controller
     protected function getRegisterForm()
     {
         $categories = Category::all();
-        return view('auth.register')->with('categories', $categories);
+        return view('auth.register', compact('categories'));
     }
 
     /**
