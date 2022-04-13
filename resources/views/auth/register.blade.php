@@ -27,20 +27,22 @@
                   @enderror
                 </div>
               </div>
-              {{-- form categorie --}}
+
+              {{-- Campo category --}}
               <div class="form-group">
-                <label>Tipologia</label>
-                @foreach($categories as $category)
-                    
+                <label for="" class="col-md-4 col-form-label text-md-right">Categorie</label>
+
+                <div class="col-md-6">
+                  @foreach ($categories as $category)
                     <div class="form-check">
-                        <input class="form-check-input" name="categories[]" type="checkbox" value="{{$category->id }}">
-                        <label class="form-check-label" for="{{$category->name}}">
-                            {{$category->name}}
-                        </label>
+                      <input class="form-check-input" name="categories[]" type="checkbox" value="{{ $category->id }}">
+                      <label class="form-check-label" for="{{ $category->name }}">
+                        {{ $category->name }}
+                      </label>
                     </div>
-        
-                @endforeach
-            </div>
+                  @endforeach
+                </div>
+              </div>
 
               {{-- Campo Via --}}
               <div class="form-group row">
