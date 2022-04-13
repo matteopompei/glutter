@@ -37,6 +37,16 @@
           <h5>Da qui puoi amministrare la pagina della tua attività.</h5>
           <div class="row text-center">
             <div class="col-lg">
+              <a href="#"><i class="fa-solid fa-house"></i>
+                Home</a>
+            </div>
+            <div class="col-lg">
+              <a href="#"><i class="fa-solid fa-eye"></i>
+                Anteprima attività</a>
+            </div>
+          </div>
+          <div class="row text-center">
+            <div class="col-lg">
               <a href="#"><i class="fa-solid fa-utensils"></i>
                 Visualizza menù</a>
             </div>

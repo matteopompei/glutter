@@ -11097,16 +11097,16 @@ nav .user a:hover {
 .dashboard .welcome {
   background: #f8f9fa;
   box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
-  padding-left: 45px;
+  padding: 25px 45px;
 }
 
 .dashboard .welcome h5 {
-  margin-bottom: 50px;
+  margin-bottom: 15px;
 }
 
 .dashboard .welcome a {
   color: #3d405b;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-decoration: none;
   transition: 0.3s;
 }
@@ -11117,7 +11117,7 @@ nav .user a:hover {
 
 .dashboard .welcome i {
   display: block;
-  margin-top: 50px;
+  margin: 50px 0 20px 0;
   font-size: 3rem;
 }
 

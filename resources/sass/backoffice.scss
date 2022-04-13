@@ -1,115 +1,114 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 // Variables
-@import '_variables.scss';
+@import "_variables.scss";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
+@import "~bootstrap/scss/bootstrap";
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background: $color4;
+    background: $color4;
 }
 
 nav {
+    .user {
+        a {
+            margin: 0 15px;
+            font-size: 1rem;
 
-  .user {
-    a {
-      margin: 0 15px;
-      font-size: 1rem;
-      
-      &:hover {
-        text-decoration: none;
-      }
+            &:hover {
+                text-decoration: none;
+            }
+        }
     }
-  }
 }
 
 .dashboard {
-  & > .row:first-child {
+    & > .row:first-child {
+        .title {
+            color: $grey1;
+
+            i {
+                margin-right: 20px;
+            }
+        }
+    }
+
+    & > .row:nth-child(2) {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
     .title {
-      color: $grey1;
-
-      i {
-        margin-right: 20px;
-      }
-    }
-  }
-
-  & > .row:nth-child(2) {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  }
-
-  .title {
-    margin-bottom: 50px;
-  }
-
-  .info, .welcome, .login-form {
-    padding: 25px 15px;
-  }
-  
-  .info, .login-form {
-    background: $white;
-    border-top: 15px solid $color2;
-    z-index: 1;
-
-    .avatar {
-      padding: 0 15%;
-      margin-bottom: 25px;
+        margin-bottom: 50px;
     }
 
-    ul {
-      margin: 0 15px;
-      list-style: none;
-      // font-size: 1.5vw;
-      line-height: 2;
-      margin-bottom: 25px;
-    
-    li  {
-      border-bottom: 1px dotted $grey2;
-    }
+    .info,
+    .welcome,
+    .login-form {
+        padding: 25px 15px;
     }
 
-    .edit {
-      display: block;
-      margin: 0 25px;
+    .info,
+    .login-form {
+        background: $white;
+        border-top: 15px solid $color2;
+        z-index: 1;
+
+        .avatar {
+            padding: 0 15%;
+            margin-bottom: 25px;
+        }
+
+        ul {
+            margin: 0 15px;
+            list-style: none;
+            line-height: 2;
+            margin-bottom: 25px;
+
+            li {
+                border-bottom: 1px dotted $grey2;
+            }
+        }
+
+        .edit {
+            display: block;
+            margin: 0 25px;
+        }
     }
-  }
-  
-  .welcome {
-    background: $grey1;
-    box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
-    padding-left: 45px;
 
-    h5 {
-      margin-bottom: 50px;
+    .welcome {
+        background: $grey1;
+        box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
+        padding: 25px 45px;
+
+        h5 {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: $color3;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: 0.3s;
+
+            &:hover {
+                color: $color5;
+            }
+        }
+
+        i {
+            display: block;
+            margin: 50px 0 20px 0;
+            font-size: 3rem;
+        }
     }
-
-    a  {
-      color: $color3;
-      font-size: 1.5rem;
-      text-decoration: none;
-      transition: 0.3s;
-
-      &:hover {
-        color: $color5;
-      }
-    }
-
-    i {
-      display: block;
-      margin-top: 50px;
-      font-size: 3rem;
-    }
-  }
-
 }
 
 // Small devices (landscape phones, 576px and up)
