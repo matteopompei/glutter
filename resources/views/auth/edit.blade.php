@@ -31,6 +31,28 @@
                                 </div>
                             </div>
 
+                            {{-- Campo category --}}
+                            <div class="form-group">
+                                <label for="categories" class="col-md-4 col-form-label text-md-right">Categorie</label>
+
+                                <div class="col-md-6">
+                                    @foreach ($categories as $category)
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" name="categories[]" type="checkbox"
+                                                value="{{ $category->id }}" id="category{{ $category->id }}"
+                                                {{-- Se la validation fallisce recupera i valori old --}}
+                                                @if ($errors->any()) {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}
+                            {{-- Altrimenti recupera le categorie dell'utente --}}
+                            @else
+                            {{ $user->categories->contains($category) ? 'checked' : '' }} @endif>
+                                            <label class="form-check-label" for="category{{ $category->id }}">
+                                                {{ $category->name }}
+                                            </label>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+
                             {{-- Campo Via --}}
                             <div class="form-group row">
                                 <label for="street"
@@ -147,34 +169,6 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                                </div>
-                            </div>
-
-                            {{-- Campo password --}}
-                            <div class="form-group row">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
 
