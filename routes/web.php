@@ -42,3 +42,8 @@ Route::get('users/{user}',  ['as' => 'auth.edit', 'uses' => 'UserController@edit
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/auth/dish/index', 'DishController@index');
+Route::get('/auth/dish/create', 'DishController@create');
+Route::get('/auth/dish/edit', 'DishController@edit');
+Route::get('/auth/dish/show', 'DishController@show');

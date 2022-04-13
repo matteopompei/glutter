@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use App\Dish;
 
@@ -14,7 +15,10 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        $dishes = Dish::all();
+        $categories = Category::all();
+
+        return view('auth.dish.index', compact('dishes', 'categories'));
     }
 
     /**
@@ -24,7 +28,10 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+
+        return view('auth.dish.create', compact('categories'));
+
     }
 
     /**
@@ -46,7 +53,10 @@ class DishController extends Controller
      */
     public function show(Dish $dish)
     {
-        //
+        $dishes = Dish::all();
+
+        return view('auth.dish.show', compact('dishes'));
+
     }
 
     /**
