@@ -5,9 +5,9 @@
         <nav>
           <ul>
             <li><div class="nav_button"><i class="fa-solid fa-arrow-down"></i>Lavora con noi</div></li>
-            <li><div class="nav_button"></div></li>
-            <li></li>
-            <li></li>
+            <li><div class="nav_button">placeholder carrello</div></li>
+            <li><div class="nav_button">registrati o accedi</div></li>
+            <li><div class="nav_button">menu</div></li>
           </ul>
         </nav>
       </header>
@@ -29,11 +29,29 @@ header{
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 
 }
 .logo{
-  margin-left: 50px;
+  margin-left: 120px;
   font-size: 20px;
+}
+nav{
+  margin-right: 120px;
+  ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    li{
+      margin: 0px 10px;
+      background-color: $grey1;
+      padding: 8px 12px;
+      border-radius: 5px;
+      &:hover{
+        outline: 1px solid $grey3;
+        cursor: pointer;
+      }
+    }
+  }
 }
 </style>

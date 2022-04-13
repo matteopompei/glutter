@@ -4,7 +4,7 @@
 <div class="container">
     <h3 class="text-center my-5">Crea il tuo piatto</h3>
 
-    <form  method="POST" enctype="multipart/form-data">
+    <form action="{{route('auth.dish.store')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -29,7 +29,7 @@
         </div>
 
         <div class="text-center">
-            <a ><button type="button" class="btn btn-secondary">Torna alla home</button></a>
+            <a  href="{{route("auth.dish.index")}}"><button type="button" class="btn btn-secondary">Torna alla home</button></a>
         </div>
     </form>
 </div>

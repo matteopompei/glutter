@@ -27,7 +27,7 @@
           @else
             <a href="{{ route('logout') }}" class="btn btn-danger text-uppercase"
               onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              Logout
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
               @csrf

@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <main class="ms_main_container">
       <router-view></router-view>
       
-  </div>
+  </main>
 </template>
 
 <script>
