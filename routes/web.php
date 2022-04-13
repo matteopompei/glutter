@@ -47,3 +47,7 @@ Route::get('/auth/dish/index', 'DishController@index');
 Route::get('/auth/dish/create', 'DishController@create');
 Route::get('/auth/dish/edit', 'DishController@edit');
 Route::get('/auth/dish/show', 'DishController@show');
+
+Route::get("{any?}", function(){
+    return view("front");
+})->where("any", ".*");
