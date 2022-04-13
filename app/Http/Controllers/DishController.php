@@ -88,8 +88,12 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dish $dish)
+    public function destroy($id)
     {
-        //
+        $dish = Dish::find($id);
+
+        $dish->delete();
+
+        return redirect()->route('auth.dish.index');
     }
 }
