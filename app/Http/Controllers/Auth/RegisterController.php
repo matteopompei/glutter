@@ -52,12 +52,6 @@ class RegisterController extends Controller
         return view('auth.register')->with('categories', $categories);
     }
 
-    // Ritorna indirizzo concatenando strada, numero, città, provincia e cap
-    protected function getAddress($street, $number, $city, $state, $cap)
-    {
-        return $street . ", " . $number . ", " . $city . ", " . $state . ", " . $cap;
-    }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -79,6 +73,12 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+    }
+
+    // Ritorna indirizzo concatenando strada, numero, città, provincia e cap
+    protected function getAddress($street, $number, $city, $state, $cap)
+    {
+        return $street . ", " . $number . ", " . $city . ", " . $state . ", " . $cap;
     }
 
     /**
