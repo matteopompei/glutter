@@ -42,7 +42,15 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newDish = new Dish;
+
+        $newDish->fill($data);
+        $newDish->save();
+        $newDish->tags()->sync($data['categories']);
+
+        return redirect()->route('auth.dish.show', $newDish->id);
     }
 
     /**
@@ -65,9 +73,13 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dish $dish)
+    public function edit($id)
     {
-        //
+        $dish = Dish::find($id);
+
+        $categories = Category::all();
+
+        return view('auth.dish.edit', compact('dish', 'categories'));
     }
 
     /**
