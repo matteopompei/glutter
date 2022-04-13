@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Category;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -73,7 +74,9 @@ class UserController extends Controller
             'cap' => $temp_address[4],
         ];
 
-        return view('auth.edit', compact('user', 'address'));
+        $categories = Category::all();
+
+        return view('auth.edit', compact('user', 'address', 'categories'));
     }
 
     protected function getAddress($street, $number, $city, $state, $cap)
@@ -93,6 +96,7 @@ class UserController extends Controller
         if (Auth::user()->email == request('email')) {
             $this->validate(request(), [
                 'business_name' => 'required|string|max:255|min:3',
+                'categories' => 'exists:categories,id',
                 'street' => 'required|string|max:160',
                 'civic' => 'required|string|max:10',
                 'city' => 'required|string|max:40',
@@ -100,20 +104,24 @@ class UserController extends Controller
                 'cap' => 'required|numeric|digits:5',
                 'p_iva' => 'required|numeric|digits:11',
                 //'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|confirmed',
             ]);
 
             $user->business_name = request('business_name');
             $user->address = $this->getAddress(request('street'), request('civic'), request('city'), request('state'), request('cap'));
             $user->p_iva = request('p_iva');
             //$user->email = request('email');
-            $user->password = bcrypt(request('password'));
 
             $user->save();
+
+            $categories = request('categories');
+
+            $user->categories()->sync(isset($categories) ? $categories : []);
+
             return back();
         } else {
             $this->validate(request(), [
                 'business_name' => 'required|string|max:255|min:3',
+                'categories' => 'exists:categories,id',
                 'street' => 'required|string|max:160',
                 'civic' => 'required|string|max:10',
                 'city' => 'required|string|max:40',
@@ -121,18 +129,19 @@ class UserController extends Controller
                 'cap' => 'required|numeric|digits:5',
                 'p_iva' => 'required|numeric|digits:11',
                 'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:8|confirmed',
             ]);
 
             $user->business_name = request('business_name');
             $user->address = request('address');
             $user->p_iva = request('p_iva');
             $user->email = request('email');
-            $user->password = bcrypt(request('password'));
 
             $user->save();
 
-            dd($user);
+            $categories = request('categories');
+
+            $user->categories()->sync(isset($categories) ? $categories : []);
+
             return back();
         }
     }
