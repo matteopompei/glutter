@@ -117,7 +117,7 @@ class UserController extends Controller
 
             $user->categories()->sync(isset($categories) ? $categories : []);
 
-            return back();
+            return view('home');
         } else {
             $this->validate(request(), [
                 'business_name' => 'required|string|max:255|min:3',
@@ -142,7 +142,7 @@ class UserController extends Controller
 
             $user->categories()->sync(isset($categories) ? $categories : []);
 
-            return back();
+            return view('home');
         }
     }
 
