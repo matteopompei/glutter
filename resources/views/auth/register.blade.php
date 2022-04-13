@@ -37,7 +37,7 @@
                         <div class="form-group">
                             <label for="categories" class="col-md-4 col-form-label text-md-right">Categorie</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 d-inline-block">
                                 @foreach ($categories as $category)
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" name="categories[]" type="checkbox"
