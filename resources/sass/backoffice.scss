@@ -43,7 +43,7 @@ nav {
   }
 
   .info, .welcome, .login-form {
-    padding: 30px 10px;
+    padding: 30px 0;
   }
   
   .info, .login-form {
@@ -58,14 +58,14 @@ nav {
 
     ul {
       list-style: none;
-      font-size: 1.2rem;
+      font-size: 1.5vw;
       line-height: 2;
       margin-bottom: 25px;
     }
 
     .edit {
       display: block;
-      margin: 0 auto;
+      margin: 0 1vw;
     }
   }
   
@@ -73,6 +73,55 @@ nav {
     background: $grey1;
     box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
     padding-left: 45px;
+
+    h5 {
+      margin-bottom: 50px;
+    }
+
+    a  {
+      color: $color3;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: 0.3s;
+
+      &:hover {
+        color: $color5;
+      }
+    }
+
+    i {
+      display: block;
+      margin-top: 50px;
+      font-size: 3rem;
+    }
   }
 
 }
+
+// Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   body {
+//     background: red;
+//   }
+// }
+
+// Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   body {
+//     background: blue;
+//   }
+// }
+
+// Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   body {
+//     background: yellow;
+//   }
+// }
+
+// Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   body {
+//     background: orange;
+//   }
+// }

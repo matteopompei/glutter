@@ -29,9 +29,16 @@
         </div>
         <div class="col-8 welcome">
           <h2>Bentornato!</h2>
-          <div class="row">
-            <div class="col"><a href="#" class="btn btn-primary">Visualizza menù</a></div>
-            <div class="col"><a href="#" class="btn btn-primary">Visualizza ordini</a></div>
+          <h5>Da qui puoi amministrare la pagina della tua attività.</h5>
+          <div class="row text-center">
+            <div class="col-lg">
+              <a href="#"><i class="fa-solid fa-utensils"></i>
+                Visualizza menù</a>
+            </div>
+            <div class="col-lg">
+              <a href="#"><i class="fa-solid fa-list-check"></i>
+                Visualizza ordini</a>
+            </div>
           </div>
         </div>
       </div>
