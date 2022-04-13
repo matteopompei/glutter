@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
@@ -42,6 +45,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    protected function getRegisterForm()
+    {
+        $categories = Category::all();
+        return view('auth.register')->with('categories', $categories);
+    }
+
     // Crea indirizzo
     protected function getAddress($street, $number, $city, $state, $cap)
     {
@@ -79,18 +88,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         // modifica dati da creare. Aggiunti p_iva, address, business_name
-        return User::create([
+        $new_user = User::create([
             'business_name' => $data['business_name'],
             'address' => $this->getAddress($data['street'], $data['civic'], $data['city'], $data['state'], $data['cap']),
             'p_iva' => $data['p_iva'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-    }
-    protected function getRegisterForm()
-    {
-        $categories = Category::all();
 
-        return view('auth.register')->with('categories',$categories);
+        $new_user->categories()->sync($data['categories']);
+        return $new_user;
     }
 }
