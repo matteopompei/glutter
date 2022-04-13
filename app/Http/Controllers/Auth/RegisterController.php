@@ -45,13 +45,14 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    // Ritorna il form di registrazione
     protected function getRegisterForm()
     {
         $categories = Category::all();
         return view('auth.register')->with('categories', $categories);
     }
 
-    // Crea indirizzo
+    // Ritorna indirizzo concatenando strada, numero, città, provincia e cap
     protected function getAddress($street, $number, $city, $state, $cap)
     {
         return $street . ", " . $number . ", " . $city . ", " . $state . ", " . $cap;
@@ -65,9 +66,10 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        // modifica dati da validare. Aggiunti p_iva, address, business_name
+        // Valida gli elementi del form
         return Validator::make($data, [
             'business_name' => ['required', 'string', 'max:255', 'min:3'],
+            'categories' => 'exists:categories,id',
             'street' => ['required', 'string', 'max:160'],
             'civic' => ['required', 'string', 'max:10'],
             'city' => ['required', 'string', 'max:40'],
@@ -87,7 +89,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // modifica dati da creare. Aggiunti p_iva, address, business_name
+        // Crea un nuovo utente con business_name, address, p_iva, email, password
         $new_user = User::create([
             'business_name' => $data['business_name'],
             'address' => $this->getAddress($data['street'], $data['civic'], $data['city'], $data['state'], $data['cap']),
@@ -96,7 +98,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        $new_user->categories()->sync($data['categories']);
+        //Se $data['categories'] è settato ne fa il sync, altrimenti lo fa con un array vuoto
+        $new_user->categories()->sync(isset($data['categories']) ? $data['categories'] : []);
         return $new_user;
     }
 }
