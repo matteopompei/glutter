@@ -11021,6 +11021,12 @@ a.text-dark:focus {
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   background: #81b29a;
 }
@@ -11047,41 +11053,45 @@ nav .user a:hover {
 }
 
 .dashboard .title {
-  margin-bottom: 15px;
-  padding: 5px 15px;
+  margin-bottom: 50px;
 }
 
 .dashboard .info,
 .dashboard .welcome,
 .dashboard .login-form {
-  padding: 30px 0;
+  padding: 25px 15px;
 }
 
 .dashboard .info,
 .dashboard .login-form {
   background: #fff;
   border-top: 15px solid #e07a5f;
-  z-index: 3;
+  z-index: 1;
 }
 
 .dashboard .info .avatar,
 .dashboard .login-form .avatar {
-  padding: 10%;
+  padding: 0 15%;
   margin-bottom: 25px;
 }
 
 .dashboard .info ul,
 .dashboard .login-form ul {
+  margin: 0 15px;
   list-style: none;
-  font-size: 1.5vw;
   line-height: 2;
   margin-bottom: 25px;
+}
+
+.dashboard .info ul li,
+.dashboard .login-form ul li {
+  border-bottom: 1px dotted #DCDCDC;
 }
 
 .dashboard .info .edit,
 .dashboard .login-form .edit {
   display: block;
-  margin: 0 1vw;
+  margin: 0 25px;
 }
 
 .dashboard .welcome {

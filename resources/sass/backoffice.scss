@@ -8,11 +8,11 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-// * {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background: $color4;
@@ -48,34 +48,38 @@ nav {
   }
 
   .title {
-    margin-bottom: 15px;
-    padding: 5px 15px;
+    margin-bottom: 50px;
   }
 
   .info, .welcome, .login-form {
-    padding: 30px 0;
+    padding: 25px 15px;
   }
   
   .info, .login-form {
     background: $white;
     border-top: 15px solid $color2;
-    z-index: 3;
+    z-index: 1;
 
     .avatar {
-      padding: 10%;
+      padding: 0 15%;
       margin-bottom: 25px;
     }
 
     ul {
+      margin: 0 15px;
       list-style: none;
-      font-size: 1.5vw;
+      // font-size: 1.5vw;
       line-height: 2;
       margin-bottom: 25px;
+    
+    li  {
+      border-bottom: 1px dotted $grey2;
+    }
     }
 
     .edit {
       display: block;
-      margin: 0 1vw;
+      margin: 0 25px;
     }
   }
   
