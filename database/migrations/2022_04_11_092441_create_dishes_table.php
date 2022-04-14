@@ -20,7 +20,7 @@ class CreateDishesTable extends Migration
             $table->string('image')->nullable();
             $table->string('ingredients');
             $table->float('price');
-            $table->boolean('visible');
+            $table->boolean('visible')->default(false);
             $table->timestamps();
         });
     }
