@@ -18,6 +18,10 @@ body {
 }
 
 nav {
+    .logo {
+        width: 250px;
+    }
+
     .user {
         a {
             margin: 0 15px;
@@ -33,20 +37,16 @@ nav {
 .dashboard {
     & > .row:first-child {
         .title {
-            color: $grey1;
+            color: $white;
 
             i {
-                margin-right: 20px;
+                margin-right: 25px;
             }
         }
     }
 
     & > .row:nth-child(2) {
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .title {
-        margin-bottom: 50px;
     }
 
     .left,
@@ -59,9 +59,27 @@ nav {
         border-top: 15px solid $color2;
         z-index: 1;
 
+        .avatar-container {
+            padding-top: 100%;
+            position: relative;
+        }
+
         .avatar {
-            padding: 0 15%;
-            margin-bottom: 25px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            background-color: $grey1;
+            border-radius: 100%;
+            border: 5px solid $white;
+            box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+        }
+
+        .placeholder-avatar {
+            padding: 15% 20%;
         }
 
         ul {
@@ -77,33 +95,40 @@ nav {
 
         .edit {
             display: block;
-            margin: 0 25px;
+            margin: 10% 25px 0 25px;
         }
     }
 
     .right {
         background: $grey1;
-        box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
         padding: 25px 45px;
 
         h5 {
-            margin-bottom: 15px;
+            margin-bottom: 20%;
         }
 
         a {
             display: block;
-            color: $color3;
+            margin: 15px;
+            padding: 10px;
+            color: $grey4;
             font-size: 1.2rem;
             text-decoration: none;
             transition: 0.3s;
 
             &:hover {
-                color: $color5;
+                color: $color2;
+            }
+
+            &:active {
+                background: rgba($color: #000000, $alpha: 0.1);
+                color: $color3;
             }
 
             i {
                 display: block;
-                margin: 50px 0 20px 0;
+                margin-bottom: 20px;
                 font-size: 3rem;
             }
         }

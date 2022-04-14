@@ -16,7 +16,9 @@
   <div id="app">
     <header>
       <nav class="navbar navbar-light bg-light py-3">
-        <a class="navbar-brand" href="/">Glutter</a>
+        <a class="navbar-brand" href="/">
+          <img src="{{ asset('./images/Glutter1-dashboard.png') }}" alt="Glutter" class="logo">
+        </a>
 
         <div class="form-inline user">
           @guest

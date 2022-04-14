@@ -11031,6 +11031,10 @@ body {
   background: #81b29a;
 }
 
+nav .logo {
+  width: 250px;
+}
+
 nav .user a {
   margin: 0 15px;
   font-size: 1rem;
@@ -11041,19 +11045,15 @@ nav .user a:hover {
 }
 
 .dashboard > .row:first-child .title {
-  color: #f8f9fa;
+  color: #fff;
 }
 
 .dashboard > .row:first-child .title i {
-  margin-right: 20px;
+  margin-right: 25px;
 }
 
 .dashboard > .row:nth-child(2) {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-.dashboard .title {
-  margin-bottom: 50px;
 }
 
 .dashboard .left,
@@ -11067,9 +11067,28 @@ nav .user a:hover {
   z-index: 1;
 }
 
+.dashboard .left .avatar-container {
+  padding-top: 100%;
+  position: relative;
+}
+
 .dashboard .left .avatar {
-  padding: 0 15%;
-  margin-bottom: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  transform: translate(-50%, -50%);
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #f8f9fa;
+  border-radius: 100%;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .left .placeholder-avatar {
+  padding: 15% 20%;
 }
 
 .dashboard .left ul {
@@ -11085,34 +11104,41 @@ nav .user a:hover {
 
 .dashboard .left .edit {
   display: block;
-  margin: 0 25px;
+  margin: 10% 25px 0 25px;
 }
 
 .dashboard .right {
   background: #f8f9fa;
-  box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
   padding: 25px 45px;
 }
 
 .dashboard .right h5 {
-  margin-bottom: 15px;
+  margin-bottom: 20%;
 }
 
 .dashboard .right a {
   display: block;
-  color: #3d405b;
+  margin: 15px;
+  padding: 10px;
+  color: #2F4F4F;
   font-size: 1.2rem;
   text-decoration: none;
   transition: 0.3s;
 }
 
 .dashboard .right a:hover {
-  color: #f2cc8f;
+  color: #e07a5f;
+}
+
+.dashboard .right a:active {
+  background: rgba(0, 0, 0, 0.1);
+  color: #3d405b;
 }
 
 .dashboard .right a i {
   display: block;
-  margin: 50px 0 20px 0;
+  margin-bottom: 20px;
   font-size: 3rem;
 }
 
