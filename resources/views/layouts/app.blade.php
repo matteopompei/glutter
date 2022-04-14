@@ -43,6 +43,8 @@
       @yield('content')
     </main>
   </div>
+
+  <script src="{{ asset('js/backoffice.js') }}" defer></script>
 </body>
 
 </html>
