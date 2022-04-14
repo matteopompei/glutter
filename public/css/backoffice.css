@@ -11056,66 +11056,60 @@ nav .user a:hover {
   margin-bottom: 50px;
 }
 
-.dashboard .info,
-.dashboard .welcome,
-.dashboard .login-form {
+.dashboard .left,
+.dashboard .right {
   padding: 25px 15px;
 }
 
-.dashboard .info,
-.dashboard .login-form {
+.dashboard .left {
   background: #fff;
   border-top: 15px solid #e07a5f;
   z-index: 1;
 }
 
-.dashboard .info .avatar,
-.dashboard .login-form .avatar {
+.dashboard .left .avatar {
   padding: 0 15%;
   margin-bottom: 25px;
 }
 
-.dashboard .info ul,
-.dashboard .login-form ul {
+.dashboard .left ul {
   margin: 0 15px;
   list-style: none;
   line-height: 2;
   margin-bottom: 25px;
 }
 
-.dashboard .info ul li,
-.dashboard .login-form ul li {
+.dashboard .left ul li {
   border-bottom: 1px dotted #DCDCDC;
 }
 
-.dashboard .info .edit,
-.dashboard .login-form .edit {
+.dashboard .left .edit {
   display: block;
   margin: 0 25px;
 }
 
-.dashboard .welcome {
+.dashboard .right {
   background: #f8f9fa;
   box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
   padding: 25px 45px;
 }
 
-.dashboard .welcome h5 {
+.dashboard .right h5 {
   margin-bottom: 15px;
 }
 
-.dashboard .welcome a {
+.dashboard .right a {
   color: #3d405b;
   font-size: 1.2rem;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.dashboard .welcome a:hover {
+.dashboard .right a:hover {
   color: #f2cc8f;
 }
 
-.dashboard .welcome i {
+.dashboard .right i {
   display: block;
   margin: 50px 0 20px 0;
   font-size: 3rem;
