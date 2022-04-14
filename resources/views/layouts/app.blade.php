@@ -16,7 +16,7 @@
   <div id="app">
     <header>
       <nav class="navbar navbar-light bg-light py-3">
-        <a class="navbar-brand" href="#">Glutter</a>
+        <a class="navbar-brand" href="/">Glutter</a>
 
         <div class="form-inline user">
           @guest

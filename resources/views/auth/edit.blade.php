@@ -173,6 +173,7 @@
                             </div>
                         </div>
 
+                        {{-- Campo immagine --}}
                         <div class="form-group">
                             <label for="image">Image (jpeg, png) - max: 2MB</label>
                             <input type="file" name="image" id="image"
@@ -187,14 +188,11 @@
                                 <button type="submit" class="btn btn-primary">
                                     Salva
                                 </button>
-                                <a href="/home" class="btn btn-danger">
+                                <a href="/dashboard" class="btn btn-danger">
                                     Indietro
                                 </a>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-@endsection
+        @endsection
