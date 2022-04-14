@@ -8,7 +8,7 @@
 
     <div class="form-group">
         <label for="title">Nome piatto</label>
-        <input class="form-control" type="text" placeholder="Nome del piatto" id="name" name="name" value="{{$dish->namee}}">
+        <input class="form-control" type="text" placeholder="Nome del piatto" id="name" name="name" value="{{$dish->name}}">
     </div>
 
     <div class="form-group">
