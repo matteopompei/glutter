@@ -1,14 +1,18 @@
 <template>
   <div class="container-fluid ms_home_container_bg">
-    <div class="ms_jumbotron">
-      <form class="ms_search_bar_form"> 
+    <div class="ms_jumbotron d-flex justify-content-center align-items-center row">
+      <form class="ms_search_bar_form col-4 col-md"> 
         <h6>Cosa ti va di mangiare? Cerca tra i ristoranti o per tipologia.</h6>
-        <div class="ms_search_bar_container">
-          <input class="ms_search_bar" type="search" placeholder="Search" aria-label="Search">
-          <button class="ms_search_btn" type="submit">Search</button>
+        <div class="ms_search_bar_container row">
+          <div class="col">
+            <input class="ms_search_bar col-8" type="search" placeholder="Search" aria-label="Search">
+          </div>
+          <div class="col">
+           <button class="btn ms_search_btn col-4" type="submit">Search</button>
+          </div>
         </div>        
       </form>
-      <div class="ms_jumbo_img_container">
+      <div class="ms_jumbo_img_container col-8 ">
         <div class="ms_hashtag">
           <h4>#aCasaTuaConBernardini</h4>
         </div>
@@ -46,15 +50,12 @@ name: "Home"
   .ms_search_btn{
     background-color: $cyan;
     color: black;
-    padding: 5px 10px;
     border-radius: 5px;
     border: 1px solid $blue;
   }
   .ms_search_bar{
-    width: 400px;
     height: 36px;
     border: 0px;
-    padding-left: 10px;
     border-radius: 5px;
     box-shadow: inset 0 0 5px rgba($color: #000000, $alpha: 0.2);
   }
