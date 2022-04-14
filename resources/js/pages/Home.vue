@@ -1,22 +1,6 @@
 <template>
   <div class="container-fluid ms_home_container_bg">
-    <div class="ms_jumbotron d-flex justify-content-center align-items-center row">
-      <form class="ms_search_bar_form col-4 col-md"> 
-        <h6>Cosa ti va di mangiare? Cerca tra i ristoranti o per tipologia.</h6>
-        <div class="ms_search_bar_container row">
-          <div class="col">
-            <input class="ms_search_bar col-8" type="search" placeholder="Search" aria-label="Search">
-          </div>
-          <div class="col">
-           <button class="btn ms_search_btn col-4" type="submit">Search</button>
-          </div>
-        </div>        
-      </form>
-      <div class="ms_jumbo_img_container col-8 ">
-        <div class="ms_hashtag">
-          <h4>#aCasaTuaConBernardini</h4>
-        </div>
-      </div>
+    <div class="">
     </div>
   </div>
 </template>
@@ -29,62 +13,5 @@ name: "Home"
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-.ms_home_container_bg{
-  background-color: $color4;
-}
-.ms_jumbotron{
-  margin: 0px 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-    .ms_search_bar_form{
-      background-color: white;
-      height: 200px;
-      width: 600px;
-      border-radius: 5px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  .ms_search_btn{
-    background-color: $cyan;
-    color: black;
-    border-radius: 5px;
-    border: 1px solid $blue;
-  }
-  .ms_search_bar{
-    height: 36px;
-    border: 0px;
-    border-radius: 5px;
-    box-shadow: inset 0 0 5px rgba($color: #000000, $alpha: 0.2);
-  }
-  .ms_jumbo_img_container{
-    background-image: url("@~/images/home_jumbo.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 500px;
-    width: 500px;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-    position: relative;
-    .ms_hashtag{
-      background-color: $color3;
-      height: 130px;
-      transform: rotate(10deg);
-      width: 400px;
-      color: white;
-      position: absolute;
-      bottom: -35px;
-      left: 42px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      h4{
-        transform: rotate(-10deg);
-      }
-    }
-  }
-}
+
 </style>
