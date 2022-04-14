@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
@@ -104,12 +105,19 @@ class UserController extends Controller
                 'cap' => 'required|numeric|digits:5',
                 'p_iva' => 'required|numeric|digits:11',
                 //'email' => 'required|string|email|max:255|unique:users',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2040',
             ]);
 
             $user->business_name = request('business_name');
             $user->address = $this->getAddress(request('street'), request('civic'), request('city'), request('state'), request('cap'));
             $user->p_iva = request('p_iva');
             //$user->email = request('email');
+
+            $image = request('image');
+            if (isset($image)) {
+                $img_path = Storage::put('uploads', $image);
+                $user->image = $img_path;
+            }
 
             $user->save();
 
@@ -129,12 +137,19 @@ class UserController extends Controller
                 'cap' => 'required|numeric|digits:5',
                 'p_iva' => 'required|numeric|digits:11',
                 'email' => 'required|string|email|max:255|unique:users',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2040',
             ]);
 
             $user->business_name = request('business_name');
             $user->address = request('address');
             $user->p_iva = request('p_iva');
             $user->email = request('email');
+
+            $image = request('image');
+            if (isset($image)) {
+                $img_path = Storage::put('uploads', $image);
+                $user->image = $img_path;
+            }
 
             $user->save();
 
