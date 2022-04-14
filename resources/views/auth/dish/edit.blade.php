@@ -13,7 +13,13 @@
 
     <div class="form-group">
         <label for="content">Ingredienti</label>
-        <textarea class="form-control" id="ingredients" name="ingredients" rows="30" placeholder="Descrizione del piatto">{{$dissh->ingredients}}</textarea>
+        <textarea class="form-control" id="ingredients" name="ingredients" rows="30" placeholder="Descrizione del piatto">{{$dish->ingredients}}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="ingredients">Prezzo</label>
+        <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
+            rows="1" placeholder="Prezzo">
     </div>
 
     <div class="form-group">

@@ -90,9 +90,7 @@ class DishController extends Controller
     {
         $dish = Dish::find($id);
 
-        $categories = Category::all();
-
-        return view('auth.dish.edit', compact('dish', 'categories'));
+        return view('auth.dish.edit', compact('dish'));
     }
 
     /**
@@ -109,8 +107,6 @@ class DishController extends Controller
         $data = $request->all();
 
         $dish->update($data);
-
-        $dish->categories()->sync($data);
 
         return redirect()->route('auth.dish.show', $dish);
     }

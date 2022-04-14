@@ -2,13 +2,15 @@
 
 @section('content')
 <div class="container text-center my-5">
-    <h1>{{$dish->name}}</h1>
+    <h1>Nome piatto: {{$dish->name}}</h1>
     <p>{{$dish->ingredients}}</p>
     <div>
         @if ($dish->image)
             <img src="{{asset("storage/{$dish->image}")}}" alt="{{$dish->name}}">
         @endif
     </div>
+
+    <p>Prezzo: {{$dish->price}}</p>
 
     {{-- <div>
         <h3>Categorie</h3>
