@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col login-form">
+        <div class="col left">
           <form method="POST" action="{{ route('login') }}">
             @csrf
 

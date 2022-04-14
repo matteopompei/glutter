@@ -49,14 +49,12 @@ nav {
         margin-bottom: 50px;
     }
 
-    .info,
-    .welcome,
-    .login-form {
+    .left,
+    .right {
         padding: 25px 15px;
     }
 
-    .info,
-    .login-form {
+    .left {
         background: $white;
         border-top: 15px solid $color2;
         z-index: 1;
@@ -83,7 +81,7 @@ nav {
         }
     }
 
-    .welcome {
+    .right {
         background: $grey1;
         box-shadow: inset 10px 0 20px rgba(0, 0, 0, 0.15);
         padding: 25px 45px;
