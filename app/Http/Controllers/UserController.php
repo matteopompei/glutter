@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Category;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -105,7 +105,7 @@ class UserController extends Controller
                 'cap' => 'required|numeric|digits:5',
                 'p_iva' => 'required|numeric|digits:11',
                 //'email' => 'required|string|email|max:255|unique:users',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2040',
+                'image' => 'nullable|mimes:bmp,jpg,jpeg,png|max:2040',
             ]);
 
             $user->business_name = request('business_name');
@@ -114,8 +114,9 @@ class UserController extends Controller
             //$user->email = request('email');
 
             $image = request('image');
+
             if (isset($image)) {
-                $img_path = Storage::put('uploads', $image);
+                $img_path = Storage::put('uploads', request('image'));
                 $user->image = $img_path;
             }
 
@@ -137,7 +138,7 @@ class UserController extends Controller
                 'cap' => 'required|numeric|digits:5',
                 'p_iva' => 'required|numeric|digits:11',
                 'email' => 'required|string|email|max:255|unique:users',
-                'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2040',
+                'image' => 'nullable|mimes:bmp,jpg,jpeg,png|max:2040',
             ]);
 
             $user->business_name = request('business_name');
@@ -147,7 +148,7 @@ class UserController extends Controller
 
             $image = request('image');
             if (isset($image)) {
-                $img_path = Storage::put('uploads', $image);
+                $img_path = Storage::put('uploads', request('image'));
                 $user->image = $img_path;
             }
 
