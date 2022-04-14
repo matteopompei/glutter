@@ -11099,6 +11099,7 @@ nav .user a:hover {
 }
 
 .dashboard .right a {
+  display: block;
   color: #3d405b;
   font-size: 1.2rem;
   text-decoration: none;
@@ -11109,7 +11110,7 @@ nav .user a:hover {
   color: #f2cc8f;
 }
 
-.dashboard .right i {
+.dashboard .right a i {
   display: block;
   margin: 50px 0 20px 0;
   font-size: 3rem;

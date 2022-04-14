@@ -91,6 +91,7 @@ nav {
         }
 
         a {
+            display: block;
             color: $color3;
             font-size: 1.2rem;
             text-decoration: none;
@@ -99,12 +100,12 @@ nav {
             &:hover {
                 color: $color5;
             }
-        }
 
-        i {
-            display: block;
-            margin: 50px 0 20px 0;
-            font-size: 3rem;
+            i {
+                display: block;
+                margin: 50px 0 20px 0;
+                font-size: 3rem;
+            }
         }
     }
 }
