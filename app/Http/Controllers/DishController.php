@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Dish;
@@ -13,7 +14,7 @@ class DishController extends Controller
         "ingredients" => 'required',
         "user_id" => 'nullable|exists:categories,id',
         "image" => 'nullable|mimes:jpeg,jpg,bmp,png',
-        "price" => 'float',
+        "price" => 'numeric',
         "visible" => 'boolean'
     ];
     /**
@@ -39,7 +40,6 @@ class DishController extends Controller
         $categories = Category::all();
 
         return view('auth.dish.create', compact('categories'));
-
     }
 
     /**
@@ -50,6 +50,7 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate($this->validation);
 
         $data = $request->all();
@@ -57,8 +58,11 @@ class DishController extends Controller
         $newDish = new Dish;
 
         $newDish->fill($data);
+
+        $user = Auth::user();
+        $newDish->user()->associate($user);
+        $newDish->visible = true;
         $newDish->save();
-        $newDish->vategories()->sync($data['categories']);
 
         return redirect()->route('auth.dish.show', $newDish->id);
     }
@@ -74,7 +78,6 @@ class DishController extends Controller
         $dish = Dish::find($id);
 
         return view('auth.dish.show', compact('dish'));
-
     }
 
     /**

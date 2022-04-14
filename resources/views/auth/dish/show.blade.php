@@ -10,12 +10,12 @@
         @endif
     </div>
 
-    <div>
+    {{-- <div>
         <h3>Categorie</h3>
         @foreach ($dish->categories as $category)
             <h6>{{$category["name"]}}</h6>
         @endforeach
-    </div>
+    </div> --}}
     <a href="{{route("auth.dish.index")}}"><button type="button" class="btn btn-secondary my-5">Torna alla home</button></a>
 </div>
 
