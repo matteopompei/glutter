@@ -8,6 +8,14 @@ use App\Dish;
 
 class DishController extends Controller
 {
+    protected $validation = [
+        "name" => 'required|max:255',
+        "ingredients" => 'required',
+        "user_id" => 'nullable|exists:categories,id',
+        "image" => 'nullable|mimes:jpeg,jpg,bmp,png',
+        "price" => 'float',
+        "visible" => 'boolean'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -42,13 +50,15 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate($this->validation);
+
         $data = $request->all();
 
         $newDish = new Dish;
 
         $newDish->fill($data);
         $newDish->save();
-        $newDish->tags()->sync($data['categories']);
+        $newDish->vategories()->sync($data['categories']);
 
         return redirect()->route('auth.dish.show', $newDish->id);
     }
@@ -59,11 +69,11 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function show(Dish $dish)
+    public function show($id)
     {
-        $dishes = Dish::all();
+        $dish = Dish::find($id);
 
-        return view('auth.dish.show', compact('dishes'));
+        return view('auth.dish.show', compact('dish'));
 
     }
 
@@ -91,7 +101,15 @@ class DishController extends Controller
      */
     public function update(Request $request, Dish $dish)
     {
-        //
+        $request->validate($this->validation);
+
+        $data = $request->all();
+
+        $dish->update($data);
+
+        $dish->categories()->sync($data);
+
+        return redirect()->route('auth.dish.show', $dish);
     }
 
     /**

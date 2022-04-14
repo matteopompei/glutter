@@ -8,13 +8,13 @@ class Dish extends Model
 {
     protected $table = 'dishes';
     protected $fillable = [
+        'id',
+        'user_id',
         'name',
         'image',
         'ingredients',
         'price',
-        'visible',
-        'id',
-        'user_id'
+        'visible'
     ];
 
     public function users()

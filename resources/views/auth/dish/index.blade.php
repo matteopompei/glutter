@@ -2,39 +2,37 @@
 
 @section('content')
     <div>
-        <!--
-        <h1>
-            Index
-            {{$categories}}
-            {{$dishes}}
-
-        </h1>
-    -->
         <table class="table table-bordered table-white">
             <thead>
               <tr>
                 <th class="align-middle text-center" scope="col">ID</th>
-                <th class="align-middle text-center" scope="col">name</th>
+                <th class="align-middle text-center" scope="col">Nome piatto</th>
+                <th class="align-middle text-center" scope="col">Modifica il piatto</th>
+                <th class="align-middle text-center" scope="col">Elimina il piatto</th>
               </tr>
             </thead>
         
             <tbody>
-                @foreach ($categories as $category)
+                @foreach ($dishes as $dish)
                     <tr>
-                        <th class="align-middle text-center" scope="row">{{$category["id"]}}</th>
-                        <td class="align-middle text-center">{{$category["name"]}}</td>
-                        <td class="align-middle text-center"><a ><button type="button" class="btn btn-secondary">TEST</button></a></td>
-                        <td class="align-middle text-center"><a ><button type="button" class="btn btn-secondary">TEST</button></a></td>
-                        <td class="align-middle text-center">
-                          
-                        </td>
+                        <th class="align-middle text-center" scope="row">{{$dish["id"]}}</th>
+                        <td class="align-middle text-center">{{$dish["name"]}}</td>
+                        <td class="align-middle text-center"><button type="button" class="btn btn-secondary">Modifica</button></a></td>
+                        <form action="{{route("auth.dish.destroy", $dish->id)}}" method="post">
+
+                            @csrf
+                            @method("DELETE")
+                            <button type="submit" class="btn btn-secondary" onclick="return confirm('Sei sicuro? Il prodotto verrà eliminato definitivamente')">Delete</button>
+        
+                        </form>
+
                      </tr>
                 @endforeach
             </tbody>
           </table>
         
           <div class="text-center my-5">
-            <a ><button type="button" class="btn btn-secondary">Aggiungi piatto al menù</button></a>
+            <a href="{{route("auth.dish.create")}}"><button type="button" class="btn btn-secondary">Aggiungi piatto al menù</button></a>
           </div>
     </div>
 @endsection

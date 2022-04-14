@@ -9,19 +9,25 @@
         @csrf
 
         <div class="form-group">
-            <label for="title">Nome piatto</label>
-            <input class="form-control @error('title') is-invalid @enderror" type="text" placeholder="Nome piatto" id="title" name="title">
+            <label for="name">Nome piatto</label>
+            <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Nome piatto" id="name" name="name">
 
         </div>            
 
        
 
         <div class="form-group">
-            <label for="content">Descrizione piatto</label>
-            <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content" rows="10" placeholder="Desscrizione piatto"></textarea>
+            <label for="ingredients">Descrizione piatto</label>
+            <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="30" placeholder="Descrizione piatto"></textarea>
 
 
         </div>
+
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input @error('image') is-invalid @enderror type="file" class="form-control-file" name="image">
+        </div>
+
 
 
         <div class="text-center">
