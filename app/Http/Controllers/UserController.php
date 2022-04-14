@@ -117,7 +117,7 @@ class UserController extends Controller
 
             $user->categories()->sync(isset($categories) ? $categories : []);
 
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         } else {
             $this->validate(request(), [
                 'business_name' => 'required|string|max:255|min:3',
@@ -142,7 +142,7 @@ class UserController extends Controller
 
             $user->categories()->sync(isset($categories) ? $categories : []);
 
-            return redirect()->route('home');
+            return redirect()->route('dashboard');
         }
     }
 
