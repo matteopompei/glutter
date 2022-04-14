@@ -172,7 +172,7 @@
                 <button type="submit" class="btn btn-primary">
                   Salva
                 </button>
-                <a href="/home" class="btn btn-danger">
+                <a href="/dashboard" class="btn btn-danger">
                   Indietro
                 </a>
               </div>
