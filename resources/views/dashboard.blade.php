@@ -15,6 +15,7 @@
           <div class="text-center title">
             <h4>Riepilogo informazioni</h4>
           </div>
+          <a href=""></a>
           <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="Avatar" class="img-fluid avatar">
           <ul>
             <li><strong>Nome attività: </strong> {{ Auth::user()->business_name }}</li>
