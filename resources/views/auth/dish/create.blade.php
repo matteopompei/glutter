@@ -35,7 +35,7 @@
         </div>
 
         <div class="text-center">
-            <a  href="{{route("auth.dish.index")}}"><button type="button" class="btn btn-secondary">Torna alla home</button></a>
+            <a href="{{route("auth.dish.index")}}"><button type="button" class="btn btn-secondary">Torna alla home</button></a>
         </div>
     </form>
 </div>
