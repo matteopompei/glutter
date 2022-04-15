@@ -17,7 +17,7 @@
           @endif
 
           <h4 class="mb-4">Ingredienti</h4>
-          <div class="p-3 mb-5 bg-light text-body">{{ $dish->ingredients }}</div>
+          <div class="p-3 mb-5 bg-light text-body rounded">{{ $dish->ingredients }}</div>
 
           <h4 class="mb-2">Prezzo: {{ $dish->price }}€</h4>
 
