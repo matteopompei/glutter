@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
-use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Category;
 use App\Dish;
 
 class DishController extends Controller
@@ -13,7 +14,7 @@ class DishController extends Controller
         "name" => 'required|max:255',
         "ingredients" => 'required',
         "user_id" => 'nullable|exists:categories,id',
-        "image" => 'nullable|mimes:jpeg,jpg,bmp,png',
+        "image" => 'nullable|mimes:jpeg,jpg,bmp,png|max:2040',
         'price' => "required|regex:/^\d+(\.\d{1,2})?$/",
         "visible" => 'boolean'
     ];
@@ -62,6 +63,13 @@ class DishController extends Controller
         $user = Auth::user();
         $newDish->user()->associate($user);
         $newDish->visible = true;
+
+        $image = request('image');
+        if (isset($image)) {
+            $img_path = Storage::put('uploads/dishes', request('image'));
+            $newDish->image = $img_path;
+        }
+
         $newDish->save();
 
         return redirect()->route('auth.dish.show', $newDish->id);
@@ -106,6 +114,12 @@ class DishController extends Controller
 
         $data = $request->all();
 
+        $image = request('image');
+        if (isset($image)) {
+            $img_path = Storage::put('uploads/dishes', request('image'));
+            $data['image'] = $img_path;
+        }
+
         $dish->update($data);
 
         return redirect()->route('auth.dish.show', $dish);
@@ -117,10 +131,8 @@ class DishController extends Controller
      * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Dish $dish)
     {
-        $dish = Dish::find($id);
-
         $dish->delete();
 
         return redirect()->route('auth.dish.index');
