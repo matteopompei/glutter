@@ -31,7 +31,7 @@
                   <td class="align-middle text-center"><a href="{{ route('auth.dish.edit', $dish->id) }}"><button
                         type="button" class="btn btn-success">Modifica</button></a></td>
                   <td class="align-middle text-center"><a href="{{ route('auth.dish.show', $dish->id) }}"><button
-                        type="button" class="btn btn-info">Visualizza</button></a></td>
+                        type="button" class="btn btn-info text-white">Visualizza</button></a></td>
                   <td class="align-middle text-center">
                     <form action="{{ route('auth.dish.destroy', $dish->id) }}" method="post">
 
