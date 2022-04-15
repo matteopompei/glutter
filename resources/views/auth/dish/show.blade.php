@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col left">
           @if ($dish->image)
-            <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="mb-5 my_center-image-show">
+            <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="mb-5 my_center-image-show img-thumbnail rounded">
           @endif
 
           <h4 class="mb-4">Ingredienti</h4>

@@ -30,7 +30,7 @@
                     <td class="align-middle text-center">{{ $dish['name'] }}</td>
                     <td class="align-middle text-center">
                       @if ($dish->image)
-                        <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="my_preview-image">
+                        <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="my_preview-image img-thumbnail rounded">
                       @endif
                     </td>
                     <td class="align-middle text-center"><a href="{{ route('auth.dish.edit', $dish->id) }}"
