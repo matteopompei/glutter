@@ -5,7 +5,7 @@
     <div class="dashboard">
       <div class="row">
         <div class="col">
-          <div class="title">
+          <div class="title mb-5">
             <h3><i class="fa-solid fa-angle-right"></i> Modifica informazioni</h3>
           </div>
         </div>
@@ -181,7 +181,7 @@
 
             <div class="form-group row mb-0">
               <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary mr-2">
                   Salva
                 </button>
                 <a href="/dashboard" class="btn btn-danger">
