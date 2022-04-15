@@ -5,7 +5,7 @@
     <div class="dashboard">
       <div class="row">
         <div class="col">
-          <div class="title">
+          <div class="title mb-5">
             <h3><i class="fa-solid fa-angle-right"></i> Registrati</h3>
           </div>
         </div>
