@@ -9,7 +9,7 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-0 ">
+      <ul class="navbar-nav mr-0 text-right">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
