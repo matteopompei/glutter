@@ -33,8 +33,7 @@
                                 @method('PATCH')
 
                                 <label class="inputImageLabel" for="image"
-                                    class="col-md-4 col-form-label text-md-right">Cambia
-                                    immagine</label>
+                                    class="col-md-4 col-form-label text-md-right">(icona)</label>
                                 <input type="file" name="image" id="image" class="inputImage">
                                 @error('image')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -53,9 +52,11 @@
                         <li><strong>Email: </strong> {{ Auth::user()->email }}</li>
                         <li><strong>Partita IVA: </strong> {{ Auth::user()->p_iva }}</li>
                         <li><strong>Categorie: </strong>
-                            @foreach (Auth::user()->categories as $category)
+                            @forelse (Auth::user()->categories as $category)
                                 <span class="category">{{ $category->name }} </span>
-                            @endforeach
+                            @empty
+                                <span>Nessuna</span>
+                            @endforelse
                         </li>
                     </ul>
                     <a href="{{ route('auth.edit', [Auth::user()->id]) }}" class="btn btn-primary edit">Modifica
