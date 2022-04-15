@@ -22,8 +22,7 @@
           <h4>Prezzo: {{ $dish->price }}</h4>
 
           <div class="text-center mt-5 mb-1">
-            <a href="{{ route('auth.dish.index') }}"><button type="button" class="btn btn btn-primary mr-2">Torna alla
-                home</button></a>
+            <a href="{{ route('auth.dish.edit', $dish->id) }}" class="btn btn btn-warning mr-2">Modifica piatto</a>
             <a href="{{ route('auth.dish.index') }}" class="btn btn-danger">Indietro</a>
           </div>
         </div>
