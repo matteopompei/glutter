@@ -34,7 +34,7 @@
                 <button class="btn btn-danger delete">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <label for="image" class="btn btn-primary update"><i class="fa-solid fa-camera"></i></label>
+                <label for="image" class="btn btn-primary mx-5 update"><i class="fa-solid fa-camera"></i></label>
                 <input type="file" name="image" id="image" class="d-none">
                 @error('image')
                   <div class="invalid-feedback">{{ $message }}</div>

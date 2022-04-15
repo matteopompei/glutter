@@ -11145,16 +11145,15 @@ nav .user a:hover {
   width: 100%;
   display: flex;
   justify-content: center;
-  transform: translatex(-50%);
+  transform: translatex(-50%) scale(1.4);
 }
 
 .dashboard .left .avatar-container form .delete,
 .dashboard .left .avatar-container form .update,
 .dashboard .left .avatar-container form .confirm {
   position: relative;
-  margin: 0 1.5vw;
-  height: 50px;
-  width: 50px;
+  height: 34px;
+  width: 34px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11213,6 +11212,10 @@ nav .user a:hover {
 
 .dashboard .left ul li {
   border-bottom: 1px dotted #dcdcdc;
+}
+
+.dashboard .left ul li .category {
+  text-transform: uppercase;
 }
 
 .dashboard .left .edit {

@@ -84,15 +84,14 @@ nav {
                 width: 100%;
                 display: flex;
                 justify-content: center;
-                transform: translatex(-50%);
+                transform: translatex(-50%) scale(1.4);
 
                 .delete,
                 .update,
                 .confirm {
                     position: relative;
-                    margin: 0 1.5vw;
-                    height: 50px;
-                    width: 50px;
+                    height: 34px;
+                    width: 34px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -153,6 +152,10 @@ nav {
 
             li {
                 border-bottom: 1px dotted $grey2;
+
+                .category {
+                    text-transform: uppercase;
+                }
             }
         }
 
