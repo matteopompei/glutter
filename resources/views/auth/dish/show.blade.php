@@ -1,25 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container text-center my-5">
-    <h1>Nome piatto: {{$dish->name}}</h1>
-    <p>{{$dish->ingredients}}</p>
-    <div>
-        @if ($dish->image)
-            <img src="{{asset("storage/{$dish->image}")}}" alt="{{$dish->name}}">
-        @endif
+  <div class="container">
+    <div class="dashboard">
+      <div class="row">
+        <div class="col">
+          <div class="title mb-5">
+            <h3><i class="fa-solid fa-angle-right"></i> {{ $dish->name }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col left">
+          @if ($dish->image)
+            <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="mb-5">
+          @endif
+
+          <h4>Ingredienti</h4>
+          <p>{{ $dish->ingredients }}</p>
+
+          <h4>Prezzo: {{ $dish->price }}</h4>
+
+          <div class="text-center mt-5 mb-1">
+            <a href="{{ route('auth.dish.index') }}"><button type="button" class="btn btn btn-primary mr-2">Torna alla
+                home</button></a>
+            <a href="{{ route('auth.dish.index') }}" class="btn btn-danger">Indietro</a>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <p>Prezzo: {{$dish->price}}</p>
-
-    {{-- <div>
-        <h3>Categorie</h3>
-        @foreach ($dish->categories as $category)
-            <h6>{{$category["name"]}}</h6>
-        @endforeach
-    </div> --}}
-    <a href="{{route("auth.dish.index")}}"><button type="button" class="btn btn-secondary my-5">Torna alla home</button></a>
-</div>
-
-
+  </div>
 @endsection
