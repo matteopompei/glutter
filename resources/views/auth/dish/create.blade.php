@@ -45,6 +45,18 @@
                             <input @error('image') is-invalid @enderror type="file" class="form-control-file" name="image">
                         </div>
 
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="visible" id="visible" value="1">
+                          <label class="visible" for="visible">
+                            Visibile in pagina
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="visible" id="visible" value="0" checked>
+                          <label class="visible" for="visible">
+                            Non visibile in pagina
+                          </label>
+                        </div>
 
                         <div class="text-center mt-5 mb-1">
                             <button type="submit" class="btn btn btn-primary mr-2">Aggiungi</button>

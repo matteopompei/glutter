@@ -28,9 +28,12 @@
                 @foreach ($dishes as $dish)
                   <tr>
                     <td class="align-middle text-center">{{ $dish['name'] }}</td>
-                    <td class="align-middle text-center">
+                    <td class="align-middle text-center thumbnail-food">
                       @if ($dish->image)
-                        <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="my_preview-image img-thumbnail rounded">
+                        <div class="avatar-container">
+                          <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}"
+                            class="img-thumbnail">
+                        </div>
                       @endif
                     </td>
                     <td class="align-middle text-center"><a href="{{ route('auth.dish.edit', $dish->id) }}"
