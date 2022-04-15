@@ -16,56 +16,16 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit()
     {
         $user = Auth::user();
+
+        // Splitta la stringa dell'address in array
         $temp_address = explode(", ", $user->address);
         $address = [
             'street' => $temp_address[0],
@@ -76,10 +36,10 @@ class UserController extends Controller
         ];
 
         $categories = Category::all();
-
         return view('auth.edit', compact('user', 'address', 'categories'));
     }
 
+    // Ritorna una stringa formattata per l'indirizzo
     protected function getAddress($street, $number, $city, $state, $cap)
     {
         return $street . ", " . $number . ", " . $city . ", " . $state . ", " . $cap;
@@ -92,10 +52,13 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(User $user)
+    public function update(Request $request)
     {
-        if (Auth::user()->email == request('email')) {
-            $this->validate(request(), [
+        $user = Auth::user();
+
+        // Valida la richiesta controllando se è stata modificata l'email
+        if ($user->email == $request['email']) {
+            $request->validate([
                 'business_name' => 'required|string|max:255|min:3',
                 'categories' => 'exists:categories,id',
                 'street' => 'required|string|max:160',
@@ -104,30 +67,10 @@ class UserController extends Controller
                 'state' => 'required|string|max:40',
                 'cap' => 'required|numeric|digits:5',
                 'p_iva' => 'required|numeric|digits:11',
-                //'email' => 'required|string|email|max:255|unique:users',
             ]);
-
-            $user->business_name = request('business_name');
-            $user->address = $this->getAddress(request('street'), request('civic'), request('city'), request('state'), request('cap'));
-            $user->p_iva = request('p_iva');
-            //$user->email = request('email');
-
-            $image = request('image');
-
-            if (isset($image)) {
-                $img_path = Storage::put('uploads', request('image'));
-                $user->image = $img_path;
-            }
-
-            $user->save();
-
-            $categories = request('categories');
-
-            $user->categories()->sync(isset($categories) ? $categories : []);
-
-            return redirect()->route('dashboard');
+            $form_data = $request->all();
         } else {
-            $this->validate(request(), [
+            $request->validate([
                 'business_name' => 'required|string|max:255|min:3',
                 'categories' => 'exists:categories,id',
                 'street' => 'required|string|max:160',
@@ -138,51 +81,44 @@ class UserController extends Controller
                 'p_iva' => 'required|numeric|digits:11',
                 'email' => 'required|string|email|max:255|unique:users',
             ]);
-
-            $user->business_name = request('business_name');
-            $user->address = request('address');
-            $user->p_iva = request('p_iva');
-            $user->email = request('email');
-
-            $image = request('image');
-            if (isset($image)) {
-                $img_path = Storage::put('uploads', request('image'));
-                $user->image = $img_path;
-            }
-
-            $user->save();
-
-            $categories = request('categories');
-
-            $user->categories()->sync(isset($categories) ? $categories : []);
-
-            return redirect()->route('dashboard');
+            $form_data = $request->all();
+            $user->email = $form_data['email'];
         }
-    }
 
-    public function imageUpdate(User $user)
-    {
-        $this->validate(request(), [
-            'image' => 'nullable|mimes:bmp,jpg,jpeg,png|max:2040',
-        ]);
+        // Aggiorna il business name
+        $user->business_name = $form_data['business_name'];
 
-        $image = request('image');
-        if (isset($image)) {
-            $img_path = Storage::put('uploads', request('image'));
-            $user->image = $img_path;
-        }
+        // Aggiorna le categorie
+        $user->categories()->sync(isset($form_data['categories']) ? $form_data['categories'] : []);
+
+        // Aggiorna l'indirizzo
+        $user->address = $this->getAddress($form_data['street'],  $form_data['civic'], $form_data['city'],  $form_data['state'],  $form_data['cap']);
+
+        // Aggiorna la partita iva
+        $user->p_iva = $form_data['p_iva'];
+
+        // Salva
         $user->save();
         return redirect()->route('dashboard');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function imageUpdate(Request $request)
     {
-        //
+        $user = Auth::user();
+
+        // Valida l'immagine
+        $request->validate([
+            'image' => 'nullable|mimes:bmp,jpg,jpeg,png|max:2040',
+        ]);
+
+        //Imposta l'immagine
+        $image = $request['image'];
+        if (isset($image)) {
+            $img_path = Storage::put('uploads', $request['image']);
+            $user->image = $img_path;
+        }
+
+        $user->save();
+        return redirect()->route('dashboard');
     }
 }
