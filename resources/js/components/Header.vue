@@ -10,19 +10,19 @@
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav mr-0  ms_ul_nav inline-block">
-        <li class="nav-item active inline-block">
+        <li class="nav-item active mb-1">
           <a href="#" class="btn ms_cart py-2 px-3 mx-1 ms_btn_header">
                 <i class="fa-solid fa-cart-shopping mr-1"></i>
                 00,00€
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mb-1">
           <a href="#" class="btn py-2 px-3 mx-1 ms_btn_header">
               <i class="fa-solid fa-user mr-1"></i>
               Accedi
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item mb-1">
             <a href="#" class="btn py-2 px-3 mx-1 ms_btn_header">
               <i class="fa-solid fa-user mr-1"></i>
               Registrati
