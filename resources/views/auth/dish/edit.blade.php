@@ -18,8 +18,8 @@
 
     <div class="form-group">
         <label for="ingredients">Prezzo</label>
-        <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
-            rows="1" placeholder="Prezzo">
+        <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{$dish->price}}" 
+        rows="1" placeholder="Prezzo">
     </div>
 
     <div class="form-group">
