@@ -40,6 +40,7 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('users/{user}',  ['as' => 'auth.edit', 'uses' => 'UserController@edit']);
 
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+Route::patch('users/{user}/imageupdate',  ['as' => 'users.imageupdate', 'uses' => 'UserController@imageUpdate']);
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
