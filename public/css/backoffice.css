@@ -215,6 +215,13 @@ img {
   width: 100px;
 }
 
+.my_center-image-show{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
 svg {
   overflow: hidden;
   vertical-align: middle;
