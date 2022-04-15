@@ -38,9 +38,9 @@ class DishController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $dish = Dish::all();
 
-        return view('auth.dish.create', compact('categories'));
+        return view('auth.dish.create', compact('dish'));
     }
 
     /**
@@ -62,7 +62,6 @@ class DishController extends Controller
 
         $user = Auth::user();
         $newDish->user()->associate($user);
-        $newDish->visible = true;
 
         $image = request('image');
         if (isset($image)) {
