@@ -2,10 +2,13 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Poppins', sans-serif;
+$font-family-sans-serif: "Poppins", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 $enable-responsive-font-sizes: true;
+
+// Abilita sfumature
+$enable-gradients: true;
 
 // Colors
 $blue: #3490dc;
@@ -29,7 +32,7 @@ $color5: #f2cc8f;
 // Grey
 $white: #fff;
 $grey1: #f8f9fa;
-$grey2: #DCDCDC;
+$grey2: #dcdcdc;
 $grey3: #808080;
-$grey4: #2F4F4F;
+$grey4: #2f4f4f;
 $black: #000;
