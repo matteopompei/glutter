@@ -135,6 +135,10 @@
                 display: none;
             }
 
+            .category {
+                text-transform: capitalize;
+            }
+
         </style>
     </div>
 @endsection
