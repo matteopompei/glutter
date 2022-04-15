@@ -46,6 +46,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+
+
 article,
 aside,
 figcaption,
@@ -207,6 +209,10 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
+}
+
+.my_preview-image{
+  width: 100px;
 }
 
 svg {
