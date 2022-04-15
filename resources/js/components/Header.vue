@@ -1,11 +1,11 @@
 <template>
   
-  <nav class="navbar navbar-expand-lg navbar-light ms_navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark ms_navbar">
       <div class="ms_logo">
             <img src="images/Glutter1.png" class="img-fluid" alt="">
       </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon ms_hamburger_icon"></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
@@ -55,6 +55,9 @@ export default {
       display: inline-block !important;
       text-align: right;
     }
+  }
+  .ms_hamburger_icon{
+    color: $color1!important;
   }
   // a{
   //       all: unset;
