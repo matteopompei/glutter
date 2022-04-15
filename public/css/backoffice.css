@@ -11127,15 +11127,45 @@ nav .user a:hover {
   position: absolute;
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   width: 80%;
   height: 80%;
-  transform: translate(-50%, -50%);
   -o-object-fit: cover;
      object-fit: cover;
   background-color: #f8f9fa;
-  border-radius: 100%;
   border: 5px solid #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .left .thumbnail-food .avatar-container {
+  padding-top: 56.25%;
+}
+
+.dashboard .left .thumbnail-food .avatar-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #f8f9fa;
+}
+
+.dashboard .left .img-food {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-color: #f8f9fa;
+  border-radius: 10%;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard .left .placeholder-avatar {

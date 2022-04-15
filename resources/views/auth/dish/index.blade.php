@@ -17,6 +17,7 @@
               <thead class="thead-light">
                 <tr>
                   <th class="align-middle text-center" scope="col">Nome piatto</th>
+                  <th class="align-middle text-center" scope="col">Antemprima piatto</th>
                   <th class="align-middle text-center" scope="col">Modifica il piatto</th>
                   <th class="align-middle text-center" scope="col">Visualizza il piatto</th>
                   <th class="align-middle text-center" scope="col">Elimina il piatto</th>
@@ -27,6 +28,14 @@
                 @foreach ($dishes as $dish)
                   <tr>
                     <td class="align-middle text-center">{{ $dish['name'] }}</td>
+                    <td class="align-middle text-center thumbnail-food">
+                      @if ($dish->image)
+                        <div class="avatar-container">
+                          <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}"
+                            class="img-thumbnail">
+                        </div>
+                      @endif
+                    </td>
                     <td class="align-middle text-center"><a href="{{ route('auth.dish.edit', $dish->id) }}"
                         class="btn btn-success">Modifica</a></td>
                     <td class="align-middle text-center"><a href="{{ route('auth.dish.show', $dish->id) }}"
