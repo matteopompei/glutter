@@ -16,13 +16,13 @@
             <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="mb-5">
           @endif
 
-          <h4>Ingredienti</h4>
-          <p>{{ $dish->ingredients }}</p>
+          <h4 class="mb-4">Ingredienti</h4>
+          <div class="p-3 mb-5 bg-light text-body">{{ $dish->ingredients }}</div>
 
-          <h4>Prezzo: {{ $dish->price }}</h4>
+          <h4 class="mb-2">Prezzo: {{ $dish->price }}€</h4>
 
-          <div class="text-center mt-5 mb-1">
-            <a href="{{ route('auth.dish.edit', $dish->id) }}" class="btn btn btn-warning mr-2">Modifica piatto</a>
+          <div class="text-center mb-1">
+            <a href="{{ route('auth.dish.edit', $dish->id) }}" class="btn btn btn-success mr-2">Modifica piatto</a>
             <a href="{{ route('auth.dish.index') }}" class="btn btn-danger">Indietro</a>
           </div>
         </div>
