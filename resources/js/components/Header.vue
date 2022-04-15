@@ -9,17 +9,29 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-0 text-right">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      <ul class="navbar-nav mr-0  ms_ul_nav inline-block">
+        <li class="nav-item active inline-block">
+          <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+          <a href="#" class="btn ms_cart py-2 px-3 mx-1 ms_btn_header">
+                <i class="fa-solid fa-cart-shopping mr-1"></i>
+                00,00€
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Dropdown
+          <!-- <a class="nav-link" href="#">Link</a> -->
+          <a href="#" class="btn py-2 px-3 mx-1 ms_btn_header">
+              <i class="fa-solid fa-user mr-1"></i>
+              Accedi
           </a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="btn py-2 px-3 mx-1 ms_btn_header">
+              <i class="fa-solid fa-user mr-1"></i>
+              Registrati
+            </a>
+          <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a> -->
           <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
@@ -27,9 +39,9 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div> -->
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link disabled">Disabled</a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </nav>
@@ -52,14 +64,15 @@ export default {
       height: 60px;
     }
   }
-  a{
-        all: unset;
-      }
-  .ms_nav{
-    position: absolute;
-    right: 20px;
-    
+  .ms_ul_nav{
+    li{
+      display: inline-block !important;
+      text-align: right;
+    }
   }
+  // a{
+  //       all: unset;
+  //     }
 }
 .ms_btn_header{
       background-color: white !important;
