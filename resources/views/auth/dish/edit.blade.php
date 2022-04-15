@@ -41,6 +41,19 @@
                             <input type="file" class="form-control-file" name="image" id="image">
                         </div>
 
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="visible" id="visible" value="1">
+                            <label class="visible" for="visible">
+                              Visibile in pagina
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="visible" id="visible" value="0" checked>
+                            <label class="visible" for="visible">
+                              Non visibile in pagina
+                            </label>
+                          </div>
+
                         <div class="text-center mt-5 mb-1">
                             <button type="submit" class="btn btn btn btn-primary mr-2">Salva le modifiche</button>
                             <a href="{{ route('auth.dish.index') }}" class="btn btn-danger">Indietro</a>
