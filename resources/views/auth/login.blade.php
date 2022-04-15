@@ -5,7 +5,7 @@
     <div class="dashboard">
       <div class="row">
         <div class="col">
-          <div class="title">
+          <div class="title mb-5">
             <h3><i class="fa-solid fa-angle-right"></i> Login</h3>
           </div>
         </div>
@@ -52,7 +52,7 @@
                     {{ old('remember') ? 'checked' : '' }}>
 
                   <label class="form-check-label" for="remember">
-                    {{ __('Remember Me') }}
+                    Ricordati
                   </label>
                 </div>
               </div>
@@ -61,12 +61,12 @@
             <div class="form-group row mb-0">
               <div class="col-md-8 offset-md-4">
                 <button type="submit" class="btn btn-primary">
-                  {{ __('Login') }}
+                  Login
                 </button>
 
                 @if (Route::has('password.request'))
                   <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
+                    Password dimenticata?
                   </a>
                 @endif
               </div>
