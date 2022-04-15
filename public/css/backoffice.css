@@ -11123,7 +11123,7 @@ nav .user a:hover {
   position: relative;
 }
 
-.dashboard .left .avatar {
+.dashboard .left .avatar-container .avatar {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -11135,6 +11135,38 @@ nav .user a:hover {
   background-color: #f8f9fa;
   border: 5px solid #fff;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .left .avatar-container form {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform: translatex(-50%);
+}
+
+.dashboard .left .avatar-container form .delete,
+.dashboard .left .avatar-container form .update,
+.dashboard .left .avatar-container form .confirm {
+  position: relative;
+  margin: 0 1.5vw;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.dashboard .left .avatar-container form .update {
+  top: 50%;
 }
 
 .dashboard .left .thumbnail-food .avatar-container {
