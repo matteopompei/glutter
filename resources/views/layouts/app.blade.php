@@ -15,27 +15,34 @@
 <body>
   <div id="app">
     <header>
-      <nav class="navbar navbar-light bg-light py-3">
+      <nav class="navbar navbar-expand-md navbar-light bg-light py-3">
         <a class="navbar-brand" href="/">
           <img src="{{ asset('./images/Glutter1-dashboard.png') }}" alt="Glutter" class="logo">
         </a>
 
-        <div class="form-inline user">
-          @guest
-            <a href="{{ route('login') }}">Accedi</a>
-            @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="btn btn-primary text-uppercase">Registrati</a>
-            @endif
-          @else
-            <a href="{{ route('logout') }}" class="btn btn-danger text-uppercase"
-              onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              <i class="fa-solid fa-right-from-bracket"></i> Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-              @csrf
-            </form>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <div class="form-inline mt-5 mb-3 my-md-2 justify-content-center user">
+            @guest
+              <a href="{{ route('login') }}">Accedi</a>
+              @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="btn btn-primary text-uppercase">Registrati</a>
+              @endif
+            @else
+              <a href="{{ route('logout') }}" class="btn btn-danger text-uppercase"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                <i class="fa-solid fa-right-from-bracket"></i> Logout
+              </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+            @endguest
           </div>
-        @endguest
+        </div>
       </nav>
     </header>
 
