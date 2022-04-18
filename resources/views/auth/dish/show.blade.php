@@ -31,7 +31,13 @@
               <div class="p-3 mb-5 bg-light text-body rounded">
                 <h4>{{ $dish->price }}€</h4>
               </div>
-            </div>
+
+              @if ($dish->visible == 0)
+              <h3 class="mb-2">Questo piatto non è visibile dagli utenti.</h3>              
+              @else
+              <h3 class="mb-2">Questo piatto è visibile dagli utenti.</h3>     
+              @endif
+            </div>            
           </div>
 
           <div class="text-center mt-5 mb-1">

@@ -41,13 +41,13 @@
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="visible" id="visible" value="1">
+              <input class="form-check-input" type="radio" name="visible" id="visible" value="1" {{ ($dish->visible == 1) ? " checked" : ""}}>
               <label for="visible">
                 Visibile in pagina
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="visible" id="not-visible" value="0" checked>
+              <input class="form-check-input" type="radio" name="visible" id="not-visible" value="0" {{ ($dish->visible == 0) ? " checked" : ""}}>
               <label for="not-visible">
                 Non visibile in pagina
               </label>
