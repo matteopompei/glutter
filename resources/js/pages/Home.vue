@@ -1,89 +1,36 @@
 <template>
-<div class="container-fluid m-0 p-0">
-    <div class="container-fluid d-flex justify-content-around align-items-center m-0 px-5 pt-5  ms_jumbo_bg row">
-        <div class="ms_search d-flex flex-column align-items-center justify-content-center col-12 col-lg-6">
-            <p>Cerca tra i ristoranti o tra le tipologie.</p>
-            <div class="d-flex align-items-center" style="width: 80%">
-                <input class="form-control mr-sm-2" type="search" placeholder="Cerca" aria-label="Search">
-                <button class="btn ms_btn_search my-2 ml-1 my-sm-0" type="submit">Cerca</button>
+    <div class="jumbotron jumbotron-fluid custom-jumbo">
+        <div class="container-xl">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <h1 class="display-4 mb-5">#FoodIsComing</h1>
+                    <blockquote class="blockquote p-3">
+                        <p class="mb-0">
+                            A tavola perdonerei chiunque. Anche i miei parenti.
+                        </p>
+                        <footer class="blockquote-footer">Oscar Wilde</footer>
+                    </blockquote>
+                </div>
+                <div class="col-md-7">
+                    <div class="search p-5">
+                        <p class="lead">Inserisci un nome o un alimento.</p>
+                        <div class="input-group">
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Es. pizza"
+                                aria-label="Recipient's username"
+                                aria-describedby="basic-addon2"
+                            />
+                            <div class="input-group-append">
+                                <button class="btn" type="button">Cerca</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="ms_jumbo d-none d-lg-block col-lg-6"></div> 
     </div>
-    <div class="ms_selection container py-5 d-flex row">
-
-    </div>
-     <div class="container-fluid ms_favorite py-5">
-            <h3>I piatti preferiti di <span class="ms_bernardini"> Lorenzo Bernardini</span></h3>     
-          <div class="ms_food_cards d-flex flex-wrap justify-content-center">
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>    
-        </div>  
-    </div>
-</div>
-    
 </template>
 
 <script>
@@ -94,55 +41,58 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-// sezione jumbotron
-.ms_jumbo_bg{
-    background-color: $color4;
-    height: 350px;
-}
-.ms_btn_search{
-    background-color: $color3;
-    color: white;
-}
-.ms_jumbo{
-    background-image: url("@~/images/Home-Jumbo.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    height: 100%;
 
-    bottom: -65px;
-}
-.ms_search{
-    background-color: $white;
-    height: 200px;
-    border-radius: 10px;
-    max-width: 500px;
-}
-.form-control:focus {
-  border-color: #019798;
-  box-shadow: none;
-}
-.btn:focus{
-    box-shadow: none;
-    &:hover{
-        outline: 1px solid #019798;
+.custom-jumbo {
+    background: $color4;
+    color: $white;
+
+    blockquote {
+        width: fit-content;
+        background: rgba($color: #000000, $alpha: 0.1);
+        border-radius: 10px;
+
+        footer {
+            color: $white;
+        }
     }
-}
-//sezione ristoranti in primo piano
-.ms_favorite{
-text-align: center;
-background-color: $color5;
-h3{
-font-size: 40px;
-color: $grey4;
-}
 
-}
-.ms_bernardini{
-    color: $color3;
-}
-.ms_btn_color3{
-    background-color: $color3;
-    color: white;
+    .search {
+        background: $white;
+        border-radius: 20px;
+        box-shadow: 0 15px 20px rgba($color: #000000, $alpha: 0.1);
+        color: $grey4;
+
+        & > div {
+            box-shadow: 0 1px 3px rgba($color: #000000, $alpha: 0.1);
+            border-radius: 5px;
+        }
+
+        button {
+            background: $color2;
+            border-color: none;
+            box-shadow: none;
+            font-weight: 600;
+            color: $white;
+            text-transform: uppercase;
+
+            &:hover {
+                background: rgba($color: $color2, $alpha: 0.9);
+            }
+
+            &:active {
+                background: $color5;
+            }
+        }
+
+        input {
+            border-color: $grey2;
+            box-shadow: inset 0 0 5px rgba($color: #000000, $alpha: 0.05);
+
+            &:focus {
+                border-color: $color2;
+                box-shadow: 0 0 0 3px rgba($color: $color2, $alpha: 0.2);
+            }
+        }
+    }
 }
 </style>
