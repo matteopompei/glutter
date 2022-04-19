@@ -108,6 +108,9 @@
             let buttons = document.querySelectorAll(".image-selector .image-btn");
             let btnDelete = document.querySelector(".image-selector .btn.delete");
 
+            // Tipi di file supportati
+            var fileTypes = /(\.jpg|\.jpeg|\.png)$/i;
+
             imageUpdate();
 
             // Gestisce la modifica dell'immagine
@@ -116,25 +119,30 @@
                 profilePictureInput.onchange = evt => {
                     // Salva il file caricato
                     let [file] = profilePictureInput.files;
-                    // Se è presente un file esegue le istruzioni seguenti
-                    if (file) {
-                        profilePicture.src = URL.createObjectURL(file);
+                    // Controlla se il file è di uno dei tipi supportati
+                    if (fileTypes.exec(file.name)) {
+                        // Se è presente un file esegue le istruzioni seguenti
+                        if (file) {
+                            profilePicture.src = URL.createObjectURL(file);
 
-                        // Mostra i bottoni
-                        buttons.forEach(button => {
-                            button.classList.remove("d-none");
-                        });
-
-                        // Gestisce il bottone annulla
-                        btnDelete.onclick = function() {
-                            // Reimposta l'immagine originale
-                            profilePicture.src = ogProfilePictureURL;
-                            // Rimuove i bottoni e svuota il file input
-                            buttons.forEach(element => {
-                                element.classList.add("d-none");
+                            // Mostra i bottoni
+                            buttons.forEach(button => {
+                                button.classList.remove("d-none");
                             });
-                            profilePictureInput.value = "";
+
+                            // Gestisce il bottone annulla
+                            btnDelete.onclick = function() {
+                                // Reimposta l'immagine originale
+                                profilePicture.src = ogProfilePictureURL;
+                                // Rimuove i bottoni e svuota il file input
+                                buttons.forEach(element => {
+                                    element.classList.add("d-none");
+                                });
+                                profilePictureInput.value = "";
+                            }
                         }
+                    } else {
+                        alert("È possibile caricare solo file jpeg, jpg o png");
                     }
                 }
             }
