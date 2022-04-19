@@ -21,12 +21,20 @@
               <label for="title">Nome piatto</label>
               <input class="form-control" type="text" placeholder="Nome del piatto" id="name" name="name"
                 value="{{ $dish->name }}">
+
+              @error('name')
+                <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="form-group">
               <label for="content">Ingredienti</label>
               <textarea class="form-control" id="ingredients" name="ingredients" rows="30"
                 placeholder="Descrizione del piatto">{{ $dish->ingredients }}</textarea>
+
+              @error('ingredients')
+                <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="form-group">
@@ -38,6 +46,10 @@
             <div class="form-group">
               <label for="image">Image</label>
               <input type="file" class="form-control-file" name="image" id="image">
+
+              @error('image')
+                <div class="alert alert-danger">{{ $message }}</div>
+              @enderror
             </div>
 
             <div class="form-check">
