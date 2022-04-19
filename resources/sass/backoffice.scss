@@ -62,6 +62,7 @@ nav {
         .avatar-container {
             padding-top: 100%;
             position: relative;
+            margin-bottom: 5vh;
 
             .avatar {
                 position: absolute;
@@ -93,35 +94,52 @@ nav {
                 right: 0;
                 display: flex;
                 justify-content: center;
-                // transform: translatex(-50%) scale(1.4);
                 // background: rgba($color: #ff0000, $alpha: 0.3);
 
                 .delete,
                 .update,
                 .confirm {
-                    position: relative;
-                    height: 34px;
-                    width: 34px;
+                    position: absolute;
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    border-radius: 50%;
                     color: $white;
-                    border: 1px solid $white;
-                    box-shadow: 0 3px 5px rgba($color: #000000, $alpha: 0.1);
                     cursor: pointer;
                 }
 
                 .update {
-                    position: absolute;
                     top: 50%;
                     left: 50%;
-                    transform: translate(-50%, -50%) scale(3);
+                    transform: translate(-50%, -50%) scale(2);
+                    height: 64px;
+                    width: 64px;
+                    border-radius: 50%;
+                    border: 2px solid $white;
+                    box-shadow: 0 3px 5px rgba($color: #000000, $alpha: 0.1);
+                    opacity: 0.8;
                     visibility: hidden;
+
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
 
                 &:hover .update {
                     visibility: visible;
+                }
+
+                .delete,
+                .confirm {
+                    height: 50px;
+                    bottom: 0;
+                    transform: translateY(30px);
+                }
+
+                .delete {
+                    left: 0;
+                }
+                .confirm {
+                    right: 0;
                 }
             }
         }
@@ -167,10 +185,6 @@ nav {
                 border-bottom: 1px dotted $grey2;
 
                 .category {
-                    &:nth-child(2) {
-                        text-transform: capitalize;
-                    }
-
                     &:not(.category:last-child)::after {
                         content: ", ";
                     }
