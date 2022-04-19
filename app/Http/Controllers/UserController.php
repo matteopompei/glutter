@@ -109,7 +109,7 @@ class UserController extends Controller
 
         // Valida l'immagine
         $request->validate([
-            'image' => 'nullable|mimes:bmp,jpg,jpeg,png|max:2040',
+            'image' => 'nullable|mimes:jpg,jpeg,png|max:2040',
         ]);
 
         //Imposta l'immagine

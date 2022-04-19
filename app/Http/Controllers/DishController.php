@@ -14,7 +14,7 @@ class DishController extends Controller
         "name" => 'required|max:255',
         "ingredients" => 'required',
         "user_id" => 'nullable|exists:categories,id',
-        "image" => 'nullable|mimes:jpeg,jpg,bmp,png|max:2040',
+        "image" => 'nullable|mimes:jpeg,jpg,png|max:2040',
         'price' => "required|regex:/^\d+(\.\d{1,2})?$/",
         "visible" => 'boolean'
     ];
