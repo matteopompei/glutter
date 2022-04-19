@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Modifica informazioni {{ $user->business_name }}
+@endsection
+
 @section('content')
     <div class="container">
         <div class="dashboard">
@@ -183,6 +187,9 @@
                                 </a>
                             </div>
                         </div>
+                    </form>
                 </div>
             </div>
-        @endsection
+        </div>
+    </div>
+@endsection

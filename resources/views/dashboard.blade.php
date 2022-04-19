@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Dashboard {{ $user->business_name }}
+@endsection
+
 @section('content')
     <div class="container">
         <div class="dashboard">
@@ -17,8 +21,8 @@
                         <h3>Riepilogo informazioni</h3>
                     </div>
                     <div class="avatar-container">
-                        @if (Auth::user()->image)
-                            <img id="profilePicture" src="{{ asset('storage/' . Auth::user()->image) }}" alt="Avatar"
+                        @if ($user->image)
+                            <img id="profilePicture" src="{{ asset('storage/' . $user->image) }}" alt="Avatar"
                                 class="img-fluid rounded-circle avatar">
                         @else
                             <img id="profilePicture" src="{{ asset('./images/restaurant-placeholder.png') }}" alt="Avatar"
@@ -26,8 +30,8 @@
                         @endif
 
                         {{-- Cambia immagine --}}
-                        <form method="POST" enctype="multipart/form-data"
-                            action="{{ route('users.imageupdate', Auth::user()) }}" class="image-selector">
+                        <form method="POST" enctype="multipart/form-data" action="{{ route('users.imageupdate', $user) }}"
+                            class="image-selector">
                             <div class="form-group row">
                                 @csrf
                                 @method('PATCH')
@@ -49,19 +53,19 @@
                     </div>
 
                     <ul>
-                        <li><strong>Nome attività: </strong> {{ Auth::user()->business_name }}</li>
-                        <li><strong>Indirizzo: </strong> {{ Auth::user()->address }}</li>
-                        <li><strong>Email: </strong> {{ Auth::user()->email }}</li>
-                        <li><strong>Partita IVA: </strong> {{ Auth::user()->p_iva }}</li>
+                        <li><strong>Nome attività: </strong> {{ $user->business_name }}</li>
+                        <li><strong>Indirizzo: </strong> {{ $user->address }}</li>
+                        <li><strong>Email: </strong> {{ $user->email }}</li>
+                        <li><strong>Partita IVA: </strong> {{ $user->p_iva }}</li>
                         <li><strong>Categorie: </strong>
-                            @forelse (Auth::user()->categories as $category)
+                            @forelse ($user->categories as $category)
                                 <span class="category">{{ $category->name }}</span>
                             @empty
                                 <span>Nessuna</span>
                             @endforelse
                         </li>
                     </ul>
-                    <a href="{{ route('auth.edit', [Auth::user()->id]) }}" class="btn btn-primary edit"><i
+                    <a href="{{ route('auth.edit', [$user->id]) }}" class="btn btn-primary edit"><i
                             class="fa-solid fa-user-pen mx-2"></i> Modifica
                         informazioni</a>
                 </div>
