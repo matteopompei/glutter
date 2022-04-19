@@ -90,7 +90,7 @@ class DishController extends Controller
 		}else{
             $dish = Dish::findOrFail($id);
 
-			return redirect('/dashboard');
+			return redirect('auth/dish');
 		}
     }
 
@@ -109,7 +109,7 @@ class DishController extends Controller
 		}else{
             $dish = Dish::findOrFail($id);
 
-			return redirect('/dashboard');
+			return redirect('auth/dish');
 		}
     }
 
