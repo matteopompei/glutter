@@ -1,35 +1,53 @@
 <template>
-    <div class="jumbotron jumbotron-fluid custom-jumbo">
-        <div class="container-xl">
-            <div class="row align-items-center">
-                <div class="col-md-5">
-                    <h1 class="display-4 mb-5">#FoodIsComing</h1>
-                    <blockquote class="blockquote p-3">
-                        <p class="mb-0">
-                            A tavola perdonerei chiunque. Anche i miei parenti.
-                        </p>
-                        <footer class="blockquote-footer">Oscar Wilde</footer>
-                    </blockquote>
-                </div>
-                <div class="col-md-7">
-                    <div class="search p-5">
-                        <p class="lead">Inserisci un nome o un alimento.</p>
-                        <div class="input-group">
-                            <input
-                                type="text"
-                                class="form-control"
-                                placeholder="Es. pizza"
-                                aria-label="Recipient's username"
-                                aria-describedby="basic-addon2"
-                            />
-                            <div class="input-group-append">
-                                <button class="btn" type="button">Cerca</button>
+    <div>
+        <section class="jumbotron jumbotron-fluid custom-jumbo">
+            <div class="container-xl">
+                <div class="row align-items-center">
+                    <div class="col-md-7 mx-auto">
+                        <h1 class="display-2 d-none d-lg-block mb-5">
+                            #FoodIsComing
+                        </h1>
+                        <h1 class="display-3 d-none d-md-block d-lg-none mb-5">
+                            #FoodIsComing
+                        </h1>
+                        <h1
+                            class="display-4 d-sm-block d-md-none text-center mb-5"
+                        >
+                            #FoodIsComing
+                        </h1>
+                        <blockquote class="blockquote mx-auto mx-md-0 p-3">
+                            <p class="mb-0">
+                                A tavola perdonerei chiunque. Anche i miei
+                                parenti.
+                            </p>
+                            <footer class="blockquote-footer">
+                                Oscar Wilde
+                            </footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="search mt-5 mt-md-0 p-5">
+                            <p class="lead">Inserisci un nome o un alimento.</p>
+                            <div class="input-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Es. pizza"
+                                    aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2"
+                                />
+                                <div class="input-group-append">
+                                    <button class="btn" type="button">
+                                        Cerca
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+        <section></section>
     </div>
 </template>
 
@@ -43,6 +61,7 @@ export default {
 @import "../../sass/_variables.scss";
 
 .custom-jumbo {
+    position: relative;
     background: $color4;
     color: $white;
 
@@ -50,6 +69,7 @@ export default {
         width: fit-content;
         background: rgba($color: #000000, $alpha: 0.1);
         border-radius: 10px;
+        box-shadow: 0 5px 5px rgba($color: $color3, $alpha: 0.1);
 
         footer {
             color: $white;
@@ -94,5 +114,23 @@ export default {
             }
         }
     }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: url("~/images/food-pattern.png") repeat-x;
+        background-size: contain;
+        box-shadow: inset 0 10px 20px $color4;
+        filter: blur(2px);
+        opacity: 0.1;
+    }
+}
+
+section {
+    background: red;
 }
 </style>
