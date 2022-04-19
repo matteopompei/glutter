@@ -111,13 +111,14 @@ footer {
         }
 
         a {
+            display: inline-block;
             font-size: 2.3rem;
             color: $white;
-            transition: 0.2s;
+            transition: 0.3s;
 
             &:hover {
                 color: $color2;
-                transform: scale(2);
+                transform: scale(1.2);
             }
         }
     }
