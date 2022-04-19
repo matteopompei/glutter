@@ -34,7 +34,7 @@
 
                         <div class="form-group">
                             <label for="content">Ingredienti</label>
-                            <textarea class="form-control" id="ingredients" name="ingredients" rows="30"
+                            <textarea class="form-control" id="ingredients" name="ingredients" rows="5"
                                 placeholder="Descrizione del piatto">{{ $dish->ingredients }}</textarea>
 
                             @error('ingredients')
