@@ -102,6 +102,7 @@ class UserController extends Controller
         return redirect()->route('dashboard');
     }
 
+    // Aggiorna l'immagine del profilo
     public function imageUpdate(Request $request)
     {
         $user = Auth::user();
@@ -117,6 +118,16 @@ class UserController extends Controller
             $img_path = Storage::put('uploads', $request['image']);
             $user->image = $img_path;
         }
+
+        $user->save();
+        return redirect()->route('dashboard');
+    }
+
+    // Rimuove l'immagine del profilo
+    public function imageRemove()
+    {
+        $user = Auth::user();
+        $user->image = null;
 
         $user->save();
         return redirect()->route('dashboard');
