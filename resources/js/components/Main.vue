@@ -1,5 +1,7 @@
 <template>
-    <main class="ms_main_container">
+    <main>
+        <div class="nav-space"></div>
+
         <router-view></router-view>
     </main>
 </template>
@@ -14,7 +16,9 @@ export default {
 @import "../../sass/_variables.scss";
 
 main {
-    padding-top: 100px;
-    background: $color4;
+    .nav-space {
+        padding-top: 100px;
+        background: $color4;
+    }
 }
 </style>

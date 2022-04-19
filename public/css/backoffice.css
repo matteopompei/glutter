@@ -11121,6 +11121,7 @@ nav .user a:hover {
 .dashboard .left .avatar-container {
   padding-top: 100%;
   position: relative;
+  margin-bottom: 5vh;
 }
 
 .dashboard .left .avatar-container .avatar {
@@ -11159,29 +11160,48 @@ nav .user a:hover {
 .dashboard .left .avatar-container form .delete,
 .dashboard .left .avatar-container form .update,
 .dashboard .left .avatar-container form .confirm {
-  position: relative;
-  height: 34px;
-  width: 34px;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
   color: #fff;
-  border: 1px solid #fff;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
 .dashboard .left .avatar-container form .update {
-  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(3);
+  transform: translate(-50%, -50%) scale(2);
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  opacity: 0.8;
   visibility: hidden;
+}
+
+.dashboard .left .avatar-container form .update:hover {
+  opacity: 1;
 }
 
 .dashboard .left .avatar-container form:hover .update {
   visibility: visible;
+}
+
+.dashboard .left .avatar-container form .delete,
+.dashboard .left .avatar-container form .confirm {
+  height: 50px;
+  bottom: 0;
+  transform: translateY(30px);
+}
+
+.dashboard .left .avatar-container form .delete {
+  left: 0;
+}
+
+.dashboard .left .avatar-container form .confirm {
+  right: 0;
 }
 
 .dashboard .left .thumbnail-food .avatar-container {
@@ -11224,10 +11244,6 @@ nav .user a:hover {
 
 .dashboard .left ul li {
   border-bottom: 1px dotted #dcdcdc;
-}
-
-.dashboard .left ul li .category:nth-child(2) {
-  text-transform: capitalize;
 }
 
 .dashboard .left ul li .category:not(.category:last-child)::after {

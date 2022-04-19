@@ -1,53 +1,108 @@
 <template>
-<div>
-     <footer class="ms_footer container-fluid d-flex justify-content-around align-items-center m-0 p-0">
-      <div class="team_member">
-        <h6>Lorenzo Bernardini</h6>
-        <a href="https://www.linkedin.com/in/lorenzo-bernardini-9026b6237/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/LorenzoBernardini88"><i class="fa-brands fa-github"></i></a>
-      </div>
-      <div class="team_member">
-        <h6>Lorenzo Guerrini</h6>
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/lorenzo-guerrini"><i class="fa-brands fa-github"></i></a>
-      </div>
-      <div class="team_member">
-        <h6>Vito Iannuzzi</h6>
-        <a href="https://www.linkedin.com/in/vito-iannuzzi-07b265236/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/Vito9009"><i class="fa-brands fa-github"></i></a>
-      </div>
-      <div class="team_member">
-        <h6>Matteo Pompei</h6>
-        <a href="https://www.linkedin.com/in/matteopompei/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/matteopompei"><i class="fa-brands fa-github"></i></a>
-      </div>
-      <div class="team_member">
-        <h6>Vincenzo Vitello</h6>
-        <a href="https://www.linkedin.com/in/vincenzo-vitello-25a963235/"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/VincenzoVitello"><i class="fa-brands fa-github"></i></a>
-      </div> 
-    </footer> 
-</div>
-  
-  
+    <footer class="py-5">
+        <div class="container-fluid">
+            <div class="row text-center credits">
+                <div class="col-md">
+                    <h5 class="mb-3">Lorenzo Bernardini</h5>
+                    <a
+                        href="https://github.com/LorenzoBernardini88"
+                        target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/lorenzo-bernardini-9026b6237/"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
+                </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Lorenzo Guerrini</h5>
+                    <a
+                        href="https://github.com/lorenzo-guerrini"
+                        target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a href="" target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
+                </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Matteo Pompei</h5>
+                    <a href="https://github.com/matteopompei" target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/matteopompei/"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
+                </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Vincenzo Vitello</h5>
+                    <a href="https://github.com/VincenzoVitello" target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/vincenzo-vitello-25a963235/"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
+                </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Vito Iannuzzi</h5>
+                    <a href="https://github.com/Vito9009" target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/vito-iannuzzi-07b265236"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </template>
 
 <script>
 export default {
-name: "Footer"
-}
+    name: "Footer",
+};
 </script>
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-.ms_footer{
-    height: 100px;
-    background-color: $color3;
-    color: white;
-    a{
-        all:unset;
-        &:hover{
-            cursor: pointer;
+
+footer {
+    background: $color3;
+    color: $white;
+    .credits {
+        h5 {
+            position: relative;
+            font-weight: 100;
+
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 10px);
+                height: 2px;
+                width: 35px;
+                background: $white;
+            }
+        }
+
+        a {
+            display: inline-block;
+            font-size: 2.3rem;
+            color: $white;
+            transition: 0.3s;
+
+            &:hover {
+                color: $color2;
+                transform: scale(1.2);
+            }
         }
     }
 }
