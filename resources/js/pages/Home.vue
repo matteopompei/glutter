@@ -1,8 +1,8 @@
 <template>
     <div>
-        <section class="jumbotron jumbotron-fluid custom-jumbo">
+        <section class="jumbotron jumbotron-fluid m-0 custom-jumbo">
             <div class="container-xl">
-                <div class="row align-items-center">
+                <div class="row align-items-center py-5">
                     <div class="col-md-7 mx-auto">
                         <h1 class="display-2 d-none d-lg-block mb-5">
                             #FoodIsComing
@@ -27,7 +27,9 @@
                     </div>
                     <div class="col-md-5">
                         <div class="search mt-5 mt-md-0 p-5">
-                            <p class="lead">Inserisci un nome o un alimento.</p>
+                            <p class="lead mb-3">
+                                Inserisci un nome o un alimento.
+                            </p>
                             <div class="input-group">
                                 <input
                                     type="text"
@@ -47,7 +49,48 @@
                 </div>
             </div>
         </section>
-        <section></section>
+        <section id="download" class="py-5">
+            <div class="container-xl">
+                <div class="row align-items-center py-5">
+                    <div class="col-md-8">
+                        <h2 class="display-4 text-center text-md-left mb-5">
+                            Hai già installato la nostra app?
+                        </h2>
+                        <div class="row text-left">
+                            <div
+                                class="col-md py-4 py-md-0 px-5 px-md-1 px-lg-4"
+                            >
+                                <a href="#" target="_blank">
+                                    <img
+                                        src="images/download-google-play-store.png"
+                                        alt="Google Play"
+                                        class="img-fluid"
+                                    />
+                                </a>
+                            </div>
+                            <div
+                                class="col-md py-4 py-md-0 px-5 px-md-1 px-lg-4"
+                            >
+                                <a href="#" target="_blank">
+                                    <img
+                                        src="images/download-apple-app-store.png"
+                                        alt="Apple App Store"
+                                        class="img-fluid"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none d-md-block">
+                        <img
+                            src="images/sticker-app.png"
+                            alt="App Glutter"
+                            class="img-fluid"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -67,7 +110,7 @@ export default {
 
     blockquote {
         width: fit-content;
-        background: rgba($color: #000000, $alpha: 0.1);
+        background: rgba($color: #000000, $alpha: 0.2);
         border-radius: 10px;
         box-shadow: 0 5px 5px rgba($color: $color3, $alpha: 0.1);
 
@@ -130,7 +173,11 @@ export default {
     }
 }
 
-section {
-    background: red;
+#download {
+    background: linear-gradient(90deg, $white, $grey1);
+
+    h2 {
+        color: $color3;
+    }
 }
 </style>
