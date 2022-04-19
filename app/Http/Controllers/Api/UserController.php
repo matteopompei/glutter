@@ -42,6 +42,10 @@ class UserController extends Controller
     {
         $user = User::where("id", $id)->with("categories", "dishes")->first();
 
+        if (empty($user)) {
+            return response()->json(["message" => "User Not Found"], 404);
+        }
+
         $tempUser = [
             'id' => $user['id'],
             'business_name' => $user['business_name'],

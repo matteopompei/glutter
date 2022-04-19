@@ -72,7 +72,7 @@ class DishController extends Controller
 
         $newDish->save();
 
-        return redirect()->route('auth.dish.show', $newDish->id);
+        return redirect()->route('auth.dish.show', $newDish->id)->with(['serverMessage' => '<div class="alert alert-success" role="alert">Piatto creato correttamente</div>']);
     }
 
     /**
@@ -133,7 +133,7 @@ class DishController extends Controller
 
         $dish->update($data);
 
-        return redirect()->route('auth.dish.show', $dish);
+        return redirect()->route('auth.dish.show', $dish)->with(['serverMessage' => '<div class="alert alert-success" role="alert">Piatto modificato correttamente</div>']);
     }
 
     /**
@@ -146,6 +146,6 @@ class DishController extends Controller
     {
         $dish->delete();
 
-        return redirect()->route('auth.dish.index');
+        return redirect()->route('auth.dish.index')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Piatto rimosso correttamente</div>']);
     }
 }

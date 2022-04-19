@@ -48,6 +48,7 @@
         </header>
 
         <main class="my-5">
+            {!! session()->get('serverMessage') !!}
             @yield('content')
         </main>
     </div>
