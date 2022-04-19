@@ -82,9 +82,16 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        $dish = Dish::findOrFail($id);
+                
+        if (Auth::user()->id == Dish::find($id)->user->id)
+		{
+			$dish = Dish::find($id);
+			return view('auth.dish.show', compact('dish'));
+		}else{
+            $dish = Dish::findOrFail($id);
 
-        return view('auth.dish.show', compact('dish'));
+			return redirect('/dashboard');
+		}
     }
 
     /**
@@ -95,9 +102,15 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        $dish = Dish::findOrFail($id);
+        if (Auth::user()->id == Dish::find($id)->user->id)
+		{
+			$dish = Dish::find($id);
+			return view('auth.dish.edit', compact('dish'));
+		}else{
+            $dish = Dish::findOrFail($id);
 
-        return view('auth.dish.edit', compact('dish'));
+			return redirect('/dashboard');
+		}
     }
 
     /**
