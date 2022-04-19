@@ -8,11 +8,12 @@
                 <button class="btn ms_btn_search my-2 my-sm-0" type="submit">Cerca</button>
             </div>
         </div>
-        <div class="ms_jumbo d-none d-lg-block col-lg-6"></div>
-        <div class="container ms_selection">
+        <div class="ms_jumbo d-none d-lg-block col-lg-6"></div> 
+    </div>
+     <div class="container-fluid ms_selection">
             <h3>La selezione di <span class="ms_bernardini"> Lorenzo Bernardini</span></h3>
         </div>
-        <div class="ms_food_cards d-flex flex-wrap justify-content-center">
+          <div class="ms_food_cards d-flex flex-wrap justify-content-center">
             <div class="card m-3" style="width: 18rem;">
                 <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -77,8 +78,7 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>    
-        </div>
-    </div>
+        </div>  
 </div>
     
 </template>
