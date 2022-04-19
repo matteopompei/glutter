@@ -42,7 +42,7 @@ Route::get('users/{user}',  ['as' => 'auth.edit', 'uses' => 'UserController@edit
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 Route::patch('users/{user}/imageupdate',  ['as' => 'users.imageupdate', 'uses' => 'UserController@imageUpdate']);
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::middleware('auth')
     ->name('auth.')
