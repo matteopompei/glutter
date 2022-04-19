@@ -65,7 +65,7 @@
                             @endforelse
                         </li>
                     </ul>
-                    <a href="{{ route('auth.edit', [$user->id]) }}" class="btn btn-primary edit"><i
+                    <a href="{{ route('auth.edit') }}" class="btn btn-primary edit"><i
                             class="fa-solid fa-user-pen mx-2"></i> Modifica
                         informazioni</a>
                 </div>
