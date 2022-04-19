@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::namespace('Api')->name('api.')->group(function () {
+    Route::get("/restaurants", "UserController@index")->name('restaurants');
+    // Route::get("/restaurants/", "UserController@index")->name('restaurants');
+    // Route::get("/posts/category/{category}", "PostController@index");
+    // Route::get("/posts/{id}/{category}", "PostController@filter");
+    // Route::get("/posts/{slug}", "PostController@show")->name('posts.show');
 });
