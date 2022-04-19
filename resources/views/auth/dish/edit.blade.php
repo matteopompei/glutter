@@ -12,7 +12,7 @@
       </div>
       <div class="row">
         <div class="col left">
-          <form action="{{ route('auth.dish.update', $dish->id) }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route('auth.dish.update', $dish['id']) }}" method="POST" enctype="multipart/form-data">
 
             @csrf
             @method('PUT')
