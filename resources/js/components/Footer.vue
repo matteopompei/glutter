@@ -1,80 +1,63 @@
 <template>
     <footer class="py-5">
-        <div class="row text-center credits">
-            <div class="col-md">
-                <h5 class="mb-3">Lorenzo Bernardini</h5>
-                <div class="row">
-                    <div class="col text-right">
-                        <a href="https://github.com/LorenzoBernardini88"
-                            ><i class="fa-brands fa-github"></i
-                        ></a>
-                    </div>
-                    <div class="col text-left">
-                        <a
-                            href="https://www.linkedin.com/in/lorenzo-bernardini-9026b6237/"
-                            ><i class="fa-brands fa-linkedin"></i
-                        ></a>
-                    </div>
+        <div class="container-fluid">
+            <div class="row text-center credits">
+                <div class="col-md">
+                    <h5 class="mb-3">Lorenzo Bernardini</h5>
+                    <a
+                        href="https://github.com/LorenzoBernardini88"
+                        target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/lorenzo-bernardini-9026b6237/"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
                 </div>
-            </div>
-            <div class="col-md">
-                <h5 class="mb-3 mt-5 mt-md-0">Lorenzo Guerrini</h5>
-                <div class="row">
-                    <div class="col text-right">
-                        <a href="https://github.com/lorenzo-guerrini"
-                            ><i class="fa-brands fa-github"></i
-                        ></a>
-                    </div>
-                    <div class="col text-left">
-                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                    </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Lorenzo Guerrini</h5>
+                    <a
+                        href="https://github.com/lorenzo-guerrini"
+                        target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a href="" target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
                 </div>
-            </div>
-            <div class="col-md">
-                <h5 class="mb-3 mt-5 mt-md-0">Matteo Pompei</h5>
-                <div class="row">
-                    <div class="col text-right">
-                        <a href="https://github.com/matteopompei"
-                            ><i class="fa-brands fa-github"></i
-                        ></a>
-                    </div>
-                    <div class="col text-left">
-                        <a href="https://www.linkedin.com/in/matteopompei/"
-                            ><i class="fa-brands fa-linkedin"></i
-                        ></a>
-                    </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Matteo Pompei</h5>
+                    <a href="https://github.com/matteopompei" target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/matteopompei/"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
                 </div>
-            </div>
-            <div class="col-md">
-                <h5 class="mb-3 mt-5 mt-md-0">Vincenzo Vitello</h5>
-                <div class="row">
-                    <div class="col text-right">
-                        <a href="https://github.com/VincenzoVitello"
-                            ><i class="fa-brands fa-github"></i
-                        ></a>
-                    </div>
-                    <div class="col text-left">
-                        <a
-                            href="https://www.linkedin.com/in/vincenzo-vitello-25a963235/"
-                            ><i class="fa-brands fa-linkedin"></i
-                        ></a>
-                    </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Vincenzo Vitello</h5>
+                    <a href="https://github.com/VincenzoVitello" target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/vincenzo-vitello-25a963235/"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
                 </div>
-            </div>
-            <div class="col-md">
-                <h5 class="mb-3 mt-5 mt-md-0">Vito Iannuzzi</h5>
-                <div class="row">
-                    <div class="col text-right">
-                        <a href="https://github.com/Vito9009"
-                            ><i class="fa-brands fa-github"></i
-                        ></a>
-                    </div>
-                    <div class="col text-left">
-                        <a
-                            href="https://www.linkedin.com/in/vito-iannuzzi-07b265236/"
-                            ><i class="fa-brands fa-linkedin"></i
-                        ></a>
-                    </div>
+                <div class="col-md">
+                    <h5 class="mb-3 mt-5 mt-md-0">Vito Iannuzzi</h5>
+                    <a href="https://github.com/Vito9009" target="_blank"
+                        ><i class="fa-brands fa-github mx-2"></i
+                    ></a>
+                    <a
+                        href="https://www.linkedin.com/in/vito-iannuzzi-07b265236"
+                        target="_blank"
+                        ><i class="fa-brands fa-linkedin mx-2"></i
+                    ></a>
                 </div>
             </div>
         </div>
