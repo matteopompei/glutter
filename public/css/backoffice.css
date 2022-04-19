@@ -11214,8 +11214,12 @@ nav .user a:hover {
   border-bottom: 1px dotted #dcdcdc;
 }
 
-.dashboard .left ul li .category {
-  text-transform: uppercase;
+.dashboard .left ul li .category:nth-child(2) {
+  text-transform: capitalize;
+}
+
+.dashboard .left ul li .category:not(.category:last-child)::after {
+  content: ", ";
 }
 
 .dashboard .left .edit {
