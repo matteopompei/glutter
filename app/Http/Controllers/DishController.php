@@ -82,7 +82,7 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        $dish = Dish::find($id);
+        $dish = Dish::findOrFail($id);
 
         return view('auth.dish.show', compact('dish'));
     }
@@ -95,7 +95,7 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        $dish = Dish::find($id);
+        $dish = Dish::findOrFail($id);
 
         return view('auth.dish.edit', compact('dish'));
     }

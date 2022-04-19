@@ -31,8 +31,8 @@
                 @csrf
                 @method('PATCH')
 
-                <button class="btn btn-danger delete">
-                  <i class="fa-solid fa-xmark"></i>
+                <button class="btn btn-danger m-1 delete">
+                  <i class="fa-solid fa-trash mx-2"></i>
                 </button>
                 <label for="image" class="btn btn-primary update"><i class="fa-solid fa-camera"></i></label>
                 <input type="file" name="image" id="image" class="d-none">
@@ -40,8 +40,8 @@
                   <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
 
-                <button type="submit" class="btn btn-success confirm">
-                  <i class="fa-solid fa-check"></i>
+                <button type="submit" class="btn btn-success m-1 confirm">
+                  <i class="fa-solid fa-check mx-2"></i>
                 </button>
               </div>
             </form>
