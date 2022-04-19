@@ -29,7 +29,9 @@
                     class="form-inline mt-5 mb-3 my-md-2 justify-content-center user"
                 >
                     <a href="/login" class="btn mx-2">Accedi</a>
-                    <a href="/register" class="btn btn-light mx-2"
+                    <a
+                        href="/register"
+                        class="btn btn-light text-uppercase mx-2"
                         >Registrati</a
                     >
                     <a href="#"

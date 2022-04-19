@@ -17,7 +17,7 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-light bg-light py-3">
         <a class="navbar-brand" href="/">
-          <img src="{{ asset('./images/Glutter1-dashboard.png') }}" alt="Glutter" class="logo">
+          <img src="{{ asset('./images/Glutter1-dashboard.png') }}" alt="Glutter" class="img-fluid logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -28,12 +28,12 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <div class="form-inline mt-5 mb-3 my-md-2 justify-content-center user">
             @guest
-              <a href="{{ route('login') }}">Accedi</a>
+              <a href="{{ route('login') }}" class="btn mx-2">Accedi</a>
               @if (Route::has('register'))
-                <a href="{{ route('register') }}" class="btn btn-primary text-uppercase">Registrati</a>
+                <a href="{{ route('register') }}" class="btn btn-success text-uppercase mx-2">Registrati</a>
               @endif
             @else
-              <a href="{{ route('logout') }}" class="btn btn-danger text-uppercase"
+              <a href="{{ route('logout') }}" class="btn btn-danger text-uppercase mx-2"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fa-solid fa-right-from-bracket"></i> Logout
               </a>
