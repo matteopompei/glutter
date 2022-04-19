@@ -1,6 +1,6 @@
 <template>
 <div>
-    <!-- <footer class="ms_footer container-fluid d-flex justify-content-around align-items-center m-0 p-0">
+     <footer class="ms_footer container-fluid d-flex justify-content-around align-items-center m-0 p-0">
       <div class="team_member">
         <h6>Lorenzo Bernardini</h6>
         <a href="https://www.linkedin.com/in/lorenzo-bernardini-9026b6237/"><i class="fa-brands fa-linkedin"></i></a>
@@ -26,7 +26,7 @@
         <a href="https://www.linkedin.com/in/vincenzo-vitello-25a963235/"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://github.com/VincenzoVitello"><i class="fa-brands fa-github"></i></a>
       </div> 
-    </footer> -->
+    </footer> 
 </div>
   
   
