@@ -14,7 +14,7 @@ export default {
 @import "../../sass/_variables.scss";
 
 main {
-    padding-top: 85px;
+    padding-top: 80px;
 
 }
 </style>

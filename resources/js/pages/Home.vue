@@ -3,16 +3,18 @@
     <div class="container-fluid d-flex justify-content-around align-items-center m-0 px-5 pt-5  ms_jumbo_bg row">
         <div class="ms_search d-flex flex-column align-items-center justify-content-center col-12 col-lg-6">
             <p>Cerca tra i ristoranti o tra le tipologie.</p>
-            <div class="d-flex" style="width: 80%">
+            <div class="d-flex align-items-center" style="width: 80%">
                 <input class="form-control mr-sm-2" type="search" placeholder="Cerca" aria-label="Search">
-                <button class="btn ms_btn_search my-2 my-sm-0" type="submit">Cerca</button>
+                <button class="btn ms_btn_search my-2 ml-1 my-sm-0" type="submit">Cerca</button>
             </div>
         </div>
         <div class="ms_jumbo d-none d-lg-block col-lg-6"></div> 
     </div>
-     <div class="container-fluid ms_selection">
-            <h3>La selezione di <span class="ms_bernardini"> Lorenzo Bernardini</span></h3>
-        </div>
+    <div class="ms_selection container py-5 d-flex row">
+
+    </div>
+     <div class="container-fluid ms_favorite py-5">
+            <h3>I piatti preferiti di <span class="ms_bernardini"> Lorenzo Bernardini</span></h3>     
           <div class="ms_food_cards d-flex flex-wrap justify-content-center">
             <div class="card m-3" style="width: 18rem;">
                 <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
@@ -79,6 +81,7 @@
                 </div>
             </div>    
         </div>  
+    </div>
 </div>
     
 </template>
@@ -107,7 +110,7 @@ export default {
     background-position: center;
     height: 100%;
 
-    bottom: -75px;
+    bottom: -65px;
 }
 .ms_search{
     background-color: $white;
@@ -126,9 +129,9 @@ export default {
     }
 }
 //sezione ristoranti in primo piano
-.ms_selection{
+.ms_favorite{
 text-align: center;
-margin-top: 100px;
+background-color: $color5;
 h3{
 font-size: 40px;
 color: $grey4;
