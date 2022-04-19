@@ -34,7 +34,7 @@
                 <button class="btn btn-danger delete">
                   <i class="fa-solid fa-xmark"></i>
                 </button>
-                <label for="image" class="btn btn-primary mx-5 update"><i class="fa-solid fa-camera"></i></label>
+                <label for="image" class="btn btn-primary update"><i class="fa-solid fa-camera"></i></label>
                 <input type="file" name="image" id="image" class="d-none">
                 @error('image')
                   <div class="invalid-feedback">{{ $message }}</div>
@@ -54,14 +54,14 @@
             <li><strong>Partita IVA: </strong> {{ Auth::user()->p_iva }}</li>
             <li><strong>Categorie: </strong>
               @forelse (Auth::user()->categories as $category)
-                <span class="category">{{ $category->name }} </span>
+                <span class="category">{{ $category->name }}</span>
               @empty
                 <span>Nessuna</span>
               @endforelse
             </li>
           </ul>
           <a href="{{ route('auth.edit', [Auth::user()->id]) }}" class="btn btn-primary edit"><i
-              class="fa-solid fa-user-pen"></i> Modifica
+              class="fa-solid fa-user-pen mx-2"></i> Modifica
             informazioni</a>
         </div>
 

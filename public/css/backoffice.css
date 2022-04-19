@@ -11137,15 +11137,23 @@ nav .user a:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard .left .avatar-container form {
+.dashboard .left .avatar-container .placeholder-avatar {
   position: absolute;
-  top: 70%;
+  top: 50%;
   left: 50%;
-  height: 25%;
-  width: 100%;
+  transform: translate(-50%, -50%);
+  padding: 15% 20%;
+}
+
+.dashboard .left .avatar-container form {
+  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: center;
-  transform: translatex(-50%) scale(1.4);
 }
 
 .dashboard .left .avatar-container form .delete,
@@ -11159,13 +11167,21 @@ nav .user a:hover {
   align-items: center;
   border-radius: 50%;
   color: #fff;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
 
 .dashboard .left .avatar-container form .update {
+  position: absolute;
   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(3);
+  visibility: hidden;
+}
+
+.dashboard .left .avatar-container form:hover .update {
+  visibility: visible;
 }
 
 .dashboard .left .thumbnail-food .avatar-container {
@@ -11197,10 +11213,6 @@ nav .user a:hover {
   border-radius: 10%;
   border: 5px solid #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.dashboard .left .placeholder-avatar {
-  padding: 15% 20%;
 }
 
 .dashboard .left ul {
