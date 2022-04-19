@@ -1,74 +1,73 @@
 <template>
-  
-  <nav class="navbar navbar-expand-lg navbar-dark ms_navbar">
-      <div class="ms_logo">
-            <img src="images/Glutter1.png" class="img-fluid" alt="">
-      </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon ms_hamburger_icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-0  ms_ul_nav inline-block">
-        <li class="nav-item active mb-1">
-          <a href="#" class="btn ms_cart py-2 px-3 mx-1 ms_btn_header">
-                <i class="fa-solid fa-cart-shopping mr-1"></i>
-                00,00€
-          </a>
-        </li>
-        <li class="nav-item mb-1">
-          <a href="#" class="btn py-2 px-3 mx-1 ms_btn_header">
-              <i class="fa-solid fa-user mr-1"></i>
-              Accedi
-          </a>
-        </li>
-        <li class="nav-item mb-1">
-            <a href="#" class="btn py-2 px-3 mx-1 ms_btn_header">
-              <i class="fa-solid fa-user mr-1"></i>
-              Registrati
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark py-3 fixed-top">
+            <a class="navbar-brand" href="/">
+                <img
+                    src="images/Glutter1.png"
+                    alt="Glutter"
+                    class="img-fluid logo"
+                />
             </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
+            <div
+                class="collapse navbar-collapse justify-content-end"
+                id="navbarSupportedContent"
+            >
+                <div
+                    class="form-inline mt-5 mb-3 my-md-2 justify-content-center user"
+                >
+                    <a href="/login" class="btn mx-2">Accedi</a>
+                    <a href="/register" class="btn btn-light mx-2"
+                        >Registrati</a
+                    >
+                    <a href="#"
+                        ><i class="fa-solid fa-cart-shopping mx-4 cart"></i
+                    ></a>
+                </div>
+            </div>
+        </nav>
+    </header>
 </template>
 
 <script>
 export default {
-  name: "Header",
+    name: "Header",
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-.ms_navbar{
-  background-color: $color4;
-  .ms_logo{
-    img{
-      height: 60px;
+
+nav {
+    background: rgba($color: $color4, $alpha: 0.9);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+
+    .logo {
+        max-width: 250px;
     }
-  }
-  .ms_ul_nav{
-    li{
-      display: inline-block !important;
-      text-align: right;
+
+    .cart {
+        font-size: 2rem;
+        color: #fff;
+        transition: 0.3s;
+
+        &:hover,
+        &:active {
+            transform: scale(1.1);
+        }
     }
-  }
-  .ms_hamburger_icon{
-    color: $color1!important;
-  }
-  // a{
-  //       all: unset;
-  //     }
 }
-.ms_btn_header{
-      background-color: white !important;
-      border-radius: 10px !important;
-      &:hover{
-        background-color: $grey2;
-        cursor: pointer;
-      }
-    }
 </style>
