@@ -25,7 +25,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
+        $dishes = Dish::where('user_id','=', Auth::id())->get();
         $categories = Category::all();
 
         return view('auth.dish.index', compact('dishes', 'categories'));
