@@ -20,9 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('Api')->name('api.')->group(function () {
-    Route::get("/restaurants", "UserController@index")->name('restaurants');
-    // Route::get("/restaurants/", "UserController@index")->name('restaurants');
-    // Route::get("/posts/category/{category}", "PostController@index");
-    // Route::get("/posts/{id}/{category}", "PostController@filter");
-    // Route::get("/posts/{slug}", "PostController@show")->name('posts.show');
+    Route::get("/restaurants", "UserController@index")->name("restaurants");
+    Route::get("/restaurants/{id}", "UserController@show")->name("restaurants.show");
+    // Route::get("/restaurants/category/{category}", "UserController@filter")->name("restaurants.filter");
+    Route::get("/categories", "CategoryController@index")->name("categories");
 });
