@@ -1,6 +1,6 @@
 <template>
 <div class="container-fluid m-0 p-0">
-    <div class="container-fluid d-flex justify-content-around align-items-center m-0 px-5  ms_jumbo_bg row">
+    <div class="container-fluid d-flex justify-content-around align-items-center m-0 px-5 pt-5  ms_jumbo_bg row">
         <div class="ms_search d-flex flex-column align-items-center justify-content-center col-12 col-lg-6">
             <p>Cerca tra i ristoranti o tra le tipologie.</p>
             <div class="d-flex" style="width: 80%">
@@ -8,7 +8,7 @@
                 <button class="btn ms_btn_search my-2 my-sm-0" type="submit">Cerca</button>
             </div>
         </div>
-        <div class="ms_jumbo col-12 col-lg-6"></div>
+        <div class="ms_jumbo d-none d-lg-block col-lg-6"></div>
         <div class="container ms_selection">
             <h3>La selezione di <span class="ms_bernardini"> Lorenzo Bernardini</span></h3>
         </div>
