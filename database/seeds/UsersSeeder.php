@@ -187,7 +187,11 @@ class UsersSeeder extends Seeder
             $new_user->image = $user['image'];
             $new_user->save();
             
-            $new_user->categories()->attach($category_id);
+            foreach($user['categories'] as $category){
+
+                $new_user->categories()->attach($category);
+            }
+
 
         }
     }
