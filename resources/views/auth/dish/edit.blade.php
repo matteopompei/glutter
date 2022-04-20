@@ -24,7 +24,7 @@
             <div class="form-group">
               <label for="title">Nome piatto</label>
               <input class="form-control" type="text" placeholder="Nome del piatto" id="name" name="name"
-                value="{{ $dish->name }}">
+                value="{{ $dish->name }}" required>
 
               @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -33,8 +33,8 @@
 
             <div class="form-group">
               <label for="content">Ingredienti</label>
-              <textarea class="form-control" id="ingredients" name="ingredients" rows="5"
-                placeholder="Descrizione del piatto">{{ $dish->ingredients }}</textarea>
+              <textarea class="form-control" id="ingredients" name="ingredients" rows="5" placeholder="Descrizione del piatto"
+                required>{{ $dish->ingredients }}</textarea>
 
               @error('ingredients')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -44,7 +44,7 @@
             <div class="form-group">
               <label for="ingredients">Prezzo</label>
               <input type="number" step="0.01" min="0.01" class="form-control @error('price') is-invalid @enderror"
-                id="price" name="price" value="{{ $dish->price }}" rows="1" placeholder="Prezzo">
+                id="price" name="price" value="{{ $dish->price }}" rows="1" placeholder="Prezzo" required>
             </div>
 
             <div class="form-group">

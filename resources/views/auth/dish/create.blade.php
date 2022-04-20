@@ -22,7 +22,7 @@
             <div class="form-group">
               <label for="name">Nome piatto</label>
               <input class="form-control @error('name') is-invalid @enderror" type="text" placeholder="Nome piatto"
-                id="name" name="name">
+                id="name" name="name" required>
 
               @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -32,7 +32,7 @@
             <div class="form-group">
               <label for="ingredients">Descrizione piatto</label>
               <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="5"
-                placeholder="Descrizione piatto"></textarea>
+                placeholder="Descrizione piatto" required></textarea>
 
               @error('ingredients')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
             <div class="form-group">
               <label for="price">Prezzo</label>
               <input type="number" step="0.01" min="0.01" class="form-control @error('price') is-invalid @enderror"
-                id="price" name="price" rows="1" placeholder="Prezzo">
+                id="price" name="price" rows="1" placeholder="Prezzo" required>
 
               @error('price')
                 <div class="alert alert-danger">{{ $message }}</div>
