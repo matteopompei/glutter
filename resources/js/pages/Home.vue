@@ -168,8 +168,18 @@ export default {
         background: url("~/images/food-pattern.png") repeat-x;
         background-size: contain;
         box-shadow: inset 0 10px 20px $color4;
-        filter: blur(2px);
-        opacity: 0.1;
+        filter: blur(3px);
+        opacity: 0.2;
+        animation: slide 15s infinite linear;
+    }
+
+    @keyframes slide {
+        from {
+            background-position: 0;
+        }
+        to {
+            background-position: 2456px;
+        }
     }
 }
 
