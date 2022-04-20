@@ -1,7 +1,7 @@
 <template>
-    <footer class="py-5">
+    <footer>
         <div class="container-fluid">
-            <div class="row text-center credits">
+            <div class="row text-center py-5 credits">
                 <div class="col-md">
                     <h5 class="mb-3">Lorenzo Bernardini</h5>
                     <a
@@ -60,6 +60,11 @@
                     ></a>
                 </div>
             </div>
+            <div class="row align-items-center text-center py-3 px-1 copy">
+                <div class="col">
+                    <p class="m-0 p-0">Copyright © 2022</p>
+                </div>
+            </div>
         </div>
     </footer>
 </template>
@@ -74,9 +79,9 @@ export default {
 @import "../../sass/_variables.scss";
 
 footer {
-    background: $color3;
     color: $white;
     .credits {
+        background: $color3;
         h5 {
             position: relative;
             font-weight: 100;
@@ -104,6 +109,10 @@ footer {
                 transform: scale(1.2);
             }
         }
+    }
+
+    .copy {
+        background: $black;
     }
 }
 </style>
