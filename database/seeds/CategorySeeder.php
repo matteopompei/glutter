@@ -13,7 +13,7 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = ['pizza', 'carne', 'pesce', 'sushi', 'poke', 'hamburger', 'kebab', 'italiano'];
-        foreach($categories as $element){
+        foreach ($categories as $element) {
             $new_category = new Category();
             $new_category->name = $element;
             // creiamo seed dello slug (?) : $new_category->slug = Str::of($element)->slug('-');
