@@ -156,10 +156,9 @@ class DishesSeeder extends Seeder
             ],
         ];
 
+        //Esegue il seed dei piatti
         foreach ($dishes as $element) {
-
             foreach ($element['dishes'] as $dish) {
-
                 $new_dish = new Dish();
                 $new_dish->name = $dish['name'];
                 $new_dish->image = $dish['image'];

@@ -33,7 +33,6 @@ class UsersSeeder extends Seeder
                 'p_iva' => 12345678912,
             ],
             [
-
                 'business_name' => "Sushi Love",
                 'address' => 'Via della Stazione, 10, Roma, RO, 00100',
                 'image' => NULL,
@@ -43,6 +42,8 @@ class UsersSeeder extends Seeder
                 'p_iva' => 12345678913,
             ],
         ];
+
+        //Esegue il seed degli utenti 
         foreach ($users as $user) {
             $new_user = new User();
             $new_user->business_name = $user['business_name'];
@@ -52,9 +53,9 @@ class UsersSeeder extends Seeder
             $new_user->p_iva = $user['p_iva'];
             $new_user->image = $user['image'];
             $new_user->save();
-
+            
+            //Sincronizza le categorie con gli utenti (relazione many to many fra le due tabelle)
             foreach ($user['categories'] as $category) {
-
                 $new_user->categories()->attach($category);
             }
         }
