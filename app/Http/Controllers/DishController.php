@@ -14,7 +14,7 @@ class DishController extends Controller
         "name" => 'required|max:255',
         "ingredients" => 'required',
         "user_id" => 'nullable|exists:categories,id',
-        "image" => 'nullable|mimes:jpeg,jpg,bmp,png|max:2040',
+        "image" => 'nullable|mimes:jpeg,jpg,png|max:2040',
         'price' => "required|regex:/^\d+(\.\d{1,2})?$/",
         "visible" => 'boolean'
     ];
@@ -25,10 +25,11 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::where('user_id','=', Auth::id())->get();
+        $user = Auth::user();
+        $dishes = Dish::where('user_id', '=', Auth::id())->get();
         $categories = Category::all();
 
-        return view('auth.dish.index', compact('dishes', 'categories'));
+        return view('auth.dish.index', compact('dishes', 'categories', 'user'));
     }
 
     /**
@@ -71,7 +72,7 @@ class DishController extends Controller
 
         $newDish->save();
 
-        return redirect()->route('auth.dish.show', $newDish->id);
+        return redirect()->route('auth.dish.show', $newDish->id)->with(['serverMessage' => '<div class="alert alert-success" role="alert">Piatto creato correttamente</div>']);
     }
 
     /**
@@ -82,16 +83,15 @@ class DishController extends Controller
      */
     public function show($id)
     {
-                
-        if (Auth::user()->id == Dish::find($id)->user->id)
-		{
-			$dish = Dish::find($id);
-			return view('auth.dish.show', compact('dish'));
-		}else{
+
+        if (Auth::user()->id == Dish::find($id)->user->id) {
+            $dish = Dish::find($id);
+            return view('auth.dish.show', compact('dish'));
+        } else {
             $dish = Dish::findOrFail($id);
 
-			return redirect('auth/dish');
-		}
+            return redirect('auth/dish');
+        }
     }
 
     /**
@@ -102,15 +102,14 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::user()->id == Dish::find($id)->user->id)
-		{
-			$dish = Dish::find($id);
-			return view('auth.dish.edit', compact('dish'));
-		}else{
+        if (Auth::user()->id == Dish::find($id)->user->id) {
+            $dish = Dish::find($id);
+            return view('auth.dish.edit', compact('dish'));
+        } else {
             $dish = Dish::findOrFail($id);
 
-			return redirect('auth/dish');
-		}
+            return redirect('auth/dish');
+        }
     }
 
     /**
@@ -134,7 +133,7 @@ class DishController extends Controller
 
         $dish->update($data);
 
-        return redirect()->route('auth.dish.show', $dish);
+        return redirect()->route('auth.dish.show', $dish)->with(['serverMessage' => '<div class="alert alert-success" role="alert">Piatto modificato correttamente</div>']);
     }
 
     /**
@@ -147,6 +146,6 @@ class DishController extends Controller
     {
         $dish->delete();
 
-        return redirect()->route('auth.dish.index');
+        return redirect()->route('auth.dish.index')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Piatto rimosso correttamente</div>']);
     }
 }
