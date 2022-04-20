@@ -95,8 +95,45 @@
 </template>
 
 <script>
+import { bus } from "../front.js";
 export default {
     name: "Home",
+    data: () => {
+        return {
+            cart: [],
+            products: [
+                {
+                    name: "Margherita",
+                    price: 5,
+                    image: "https://www.scattidigusto.it/wp-content/uploads/2018/03/pizza-margherita-originale-Scatti-di-Gusto-1568x821.jpg",
+                },
+                {
+                    name: "Marinara",
+                    price: 4,
+                    image: "https://wips.plug.it/cips/buonissimo.org/cms/2012/05/pizza-marinara-5.jpg",
+                },
+                {
+                    name: "Diavola",
+                    price: 6,
+                    image: "https://www.coopshop.it/p/wp-content/uploads/2021/02/Salame_940x450.jpg",
+                },
+                {
+                    name: "Pistacchiosa",
+                    price: 12,
+                    image: "https://www.cuochemabuone.it/wp-content/uploads/2022/01/pizza-con-mortadella-e-pistacchi.jpg",
+                },
+            ],
+        };
+    },
+    methods: {
+        addItemToCart(product) {
+            this.cart.push(product);
+            // console.log(this.cart);
+        },
+        getShoppingCart() {
+            bus.$emit("gotShoppingCart", this.cart);
+        },
+    },
 };
 </script>
 
