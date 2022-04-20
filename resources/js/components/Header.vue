@@ -3,7 +3,7 @@
         <nav class="navbar navbar-expand-md navbar-dark py-3 fixed-top">
             <a class="navbar-brand" href="/">
                 <img
-                    src="images/Glutter1.png"
+                    src="/images/Glutter1.png"
                     alt="Glutter"
                     class="img-fluid logo"
                 />
