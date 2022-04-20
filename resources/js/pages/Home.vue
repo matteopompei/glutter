@@ -10,74 +10,18 @@
         </div>
         <div class="ms_jumbo d-none d-lg-block col-lg-6"></div> 
     </div>
-    <div class="ms_selection container py-5 d-flex row">
+    <!-- <div class="ms_selection container py-5 d-flex row">
 
-    </div>
+    </div> -->
      <div class="container-fluid ms_favorite py-5">
             <h3>I piatti preferiti di <span class="ms_bernardini"> Lorenzo Bernardini</span></h3>     
           <div class="ms_food_cards d-flex flex-wrap justify-content-center">
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
+            <div v-for="product in products" :key="product" class="card m-3" style="width: 18rem;">
+                <img :src="product.image" class="card-img-top" style="height: 200px">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card m-3" style="width: 18rem;">
-                <img src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn ms_btn_color3">Go somewhere</a>
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text">{{product.price}},00€</p>
+                    <button @click="addItemToCart(product), getShoppingCart()" class="btn ms_btn_color3">Aggiungi al carrello</button>
                 </div>
             </div>    
         </div>  
@@ -87,8 +31,45 @@
 </template>
 
 <script>
+import { bus } from "../front.js";
 export default {
     name: "Home",
+    data: () => {
+        return { 
+            cart: [],
+            products: [
+                {
+                    name: "Margherita",
+                    price: 5,
+                    image: "https://www.scattidigusto.it/wp-content/uploads/2018/03/pizza-margherita-originale-Scatti-di-Gusto-1568x821.jpg"
+                },
+                {
+                    name: "Marinara",
+                    price: 4,
+                    image: "https://wips.plug.it/cips/buonissimo.org/cms/2012/05/pizza-marinara-5.jpg"
+                },
+                {
+                    name: "Diavola",
+                    price: 6,
+                    image: "https://www.coopshop.it/p/wp-content/uploads/2021/02/Salame_940x450.jpg"
+                },
+                {
+                    name: "Pistacchiosa",
+                    price: 12,
+                    image: "https://www.cuochemabuone.it/wp-content/uploads/2022/01/pizza-con-mortadella-e-pistacchi.jpg"
+                }
+            ]
+        }
+    },
+    methods: {
+        addItemToCart(product){
+            this.cart.push(product);
+            // console.log(this.cart);
+        },
+        getShoppingCart(){
+            bus.$emit('gotShoppingCart', this.cart);
+        }
+    }
 };
 </script>
 

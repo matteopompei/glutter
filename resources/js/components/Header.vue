@@ -34,9 +34,7 @@
                         class="btn btn-light text-uppercase mx-2"
                         >Registrati</a
                     >
-                    <a href="#"
-                        ><i class="fa-solid fa-cart-shopping mx-4 cart"></i
-                    ></a>
+                    <ShoppingCart />
                 </div>
             </div>
         </nav>
@@ -44,8 +42,10 @@
 </template>
 
 <script>
+import ShoppingCart from "./ShoppingCart.vue";
 export default {
-    name: "Header",
+    name: "Header", 
+    components: { ShoppingCart }
 };
 </script>
 
@@ -59,17 +59,6 @@ nav {
 
     .logo {
         max-width: 250px;
-    }
-
-    .cart {
-        font-size: 2rem;
-        color: #fff;
-        transition: 0.3s;
-
-        &:hover,
-        &:active {
-            transform: scale(1.1);
-        }
     }
 }
 </style>

@@ -5,6 +5,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.Vue = require('vue');
 
 import App from './App.vue';
+export const bus = new Vue();
 
 // aggiungiamo l'import del file router.js
 import router from "./router";
