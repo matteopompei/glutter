@@ -99,16 +99,17 @@ class UserController extends Controller
 
         // Salva
         $user->save();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Informazioni aggiornate correttamente</div>']);
     }
 
+    // Aggiorna l'immagine del profilo
     public function imageUpdate(Request $request)
     {
         $user = Auth::user();
 
         // Valida l'immagine
         $request->validate([
-            'image' => 'nullable|mimes:bmp,jpg,jpeg,png|max:2040',
+            'image' => 'nullable|mimes:jpg,jpeg,png|max:2040',
         ]);
 
         //Imposta l'immagine
@@ -119,6 +120,16 @@ class UserController extends Controller
         }
 
         $user->save();
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Immagine aggiornata correttamente</div>']);
+    }
+
+    // Rimuove l'immagine del profilo
+    public function imageRemove()
+    {
+        $user = Auth::user();
+        $user->image = null;
+
+        $user->save();
+        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Immagine rimossa correttamente</div>']);
     }
 }

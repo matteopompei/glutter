@@ -13,20 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Authentication Routes...
+// Autenticazione
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-// Registration Routes...
+// Registrazione
 Route::get('register', 'Auth\RegisterController@getRegisterForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-// Password Reset Routes...
+// Reset Password
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
@@ -37,21 +33,24 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 //     Route::patch('/{user}/update', 'UserController@update');
 // });
 
-Route::get('users/{user}',  ['as' => 'auth.edit', 'uses' => 'UserController@edit']);
+// Modifica utenti
+Route::get('users/edit', 'UserController@edit')->name('auth.edit');
+Route::patch('users/update', 'UserController@update')->name('users.update');
+Route::patch('users/imageupdate', 'UserController@imageUpdate')->name('users.imageupdate');
 
-Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
-Route::patch('users/{user}/imageupdate',  ['as' => 'users.imageupdate', 'uses' => 'UserController@imageUpdate']);
+//Dashboard
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-
+// Gestione piatti
 Route::middleware('auth')
     ->name('auth.')
     ->prefix('auth')
-    ->group(function() {
+    ->group(function () {
         Route::get('/dish', 'DishController@index');
         Route::resource('/dish', 'dishController');
     });
 
-Route::get("{any?}", function(){
+// Front
+Route::get("{any?}", function () {
     return view("front");
 })->where("any", ".*");
