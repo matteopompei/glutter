@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 
 import Home from "./pages/Home";
 import SingleUser from "./pages/SingleUser";
+import Error404 from "./pages/Error404";
 const router = new VueRouter({
     mode: "history",
     routes: [
@@ -17,6 +18,10 @@ const router = new VueRouter({
             name: "singleuser",
             component: SingleUser
         },
+        {   path: "/:pathMatch(.*)*",
+            name: "error404",
+            component: Error404
+        }
     ]
 });
 

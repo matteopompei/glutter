@@ -75,11 +75,7 @@
             </div>
 
             <div>
-                @if (Auth::check())
-                    <a href="{{ route('auth.dish.index') }}" class="btn my_404-btn text-uppercase mx-2">Torna alla lista dei piatti</a>
-                @else
-                    <a href="/" class="btn my_404-btn text-uppercase mx-2">Torna alla home</a>
-                @endif
+                <a href="{{ route('auth.dish.index') }}" class="btn my_404-btn text-uppercase mx-2">Torna alla lista dei piatti</a>
             </div>
         </div>
     </body>
