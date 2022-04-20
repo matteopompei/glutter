@@ -165,7 +165,7 @@ export default {
         bottom: 0;
         left: 0;
         right: 0;
-        background: url("~/images/food-pattern.png") repeat-x;
+        background: url("~/images/food-pattern.png") repeat;
         background-size: contain;
         box-shadow: inset 0 10px 20px $color4;
         filter: blur(3px);
