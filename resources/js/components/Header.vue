@@ -44,8 +44,8 @@
 <script>
 import ShoppingCart from "./ShoppingCart.vue";
 export default {
-    name: "Header", 
-    components: { ShoppingCart }
+    name: "Header",
+    components: { ShoppingCart },
 };
 </script>
 
@@ -53,8 +53,8 @@ export default {
 @import "../../sass/_variables.scss";
 
 nav {
-    background: rgba($color: $color4, $alpha: 0.9);
-    backdrop-filter: blur(20px);
+    background: rgba($color: $color4, $alpha: 0.7);
+    backdrop-filter: blur(10px);
     box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
 
     .logo {
