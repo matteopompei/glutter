@@ -11,7 +11,7 @@ class UsersSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
         $users=[
             [
@@ -175,8 +175,19 @@ class UsersSeeder extends Seeder
                     'price'=> 8,
                     'visible'=>true],
                 ]
-                ],
-
+            ],
         ];
+        foreach($users as $user){
+            $new_user = new User();
+            $new_user->id = $user['id'];
+            $new_user->business_name = $user['business_name'];
+            $new_user->address = $user['address'];
+            $new_user->email = $user['email'];
+            $new_user->password = $user['password'];
+            $new_user->p_iva = $user['p_iva'];
+            $new_user->image = $user['iamge'];
+            $new_user->categories = $user[''];
+
+        }
     }
 }
