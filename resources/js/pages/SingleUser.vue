@@ -35,47 +35,74 @@
         </div>
       </div>
     </div>
-
-    <div id="dishes" class="py-5">
-      <div class="container-fluid">
-        <div
-          class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 p-5"
-        >
-          <a
-            href="#"
-            v-for="dish in user.dishes"
-            :key="dish.id + dish.name"
-            class="col mb-4"
-          >
-            <div class="card h-100 dish">
-              <div class="card-body">
-                <img
-                  v-if="dish.image"
-                  :src="`/storage/${dish.image}`"
-                  :alt="dish.name"
-                  class="card-img-top"
-                />
-                <img
-                  v-else
-                  src="/images/dish-placeholder.png"
-                  :alt="dish.name"
-                  class="card-img-top"
-                />
-                <h5 class="card-title">{{ dish.name }}</h5>
-                <p class="card-text">
-                  {{ dish.ingredients }}
-                </p>
-                <button
-                  class="button is-success"
-                  @click.prevent="addToCart(dish)"
-                >
-                  Add to Cart
-                </button>
-                <button class="removeBtn" @click.prevent="removeFromCart(dish)">
-                  Rimuovi dal carrello
-                </button>
-                <h5 class="text-right mt-4">{{ formatPrice(dish.price) }} €</h5>
-              </div>
+        <div id="dishes" class="py-5">
+            <div class="container-fluid">
+                <div class="row py-5 px-3">
+                    <div class="col-md-5 col-lg-8">
+                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                            <a
+                                href="#"
+                                v-for="dish in user.dishes"
+                                :key="dish.id + dish.name"
+                                class="col mb-4"
+                            >
+                                <div class="card h-100 dish">
+                                    <div class="avatar-container">
+                                        <img
+                                            v-if="dish.image"
+                                            :src="`/storage/${dish.image}`"
+                                            :alt="dish.name"
+                                            class="card-img-top img-food"
+                                        />
+                                        <img
+                                            v-else
+                                            src="/images/dish-placeholder.png"
+                                            :alt="dish.name"
+                                            class="card-img-top img-food"
+                                        />
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            {{ dish.name }}
+                                        </h5>
+                                        <p class="card-text">
+                                            {{ dish.ingredients }}
+                                        </p>
+                                        <button
+                                            class="button is-success"
+                                            @click.prevent="addToCart(dish)"
+                                        >
+                                            Add to Cart
+                                        </button>
+                                        <button
+                                            class="removeBtn"
+                                            @click.prevent="
+                                                removeFromCart(dish)
+                                            "
+                                        >
+                                            Rimuovi dal carrello
+                                        </button>
+                                        <h5 class="text-right mt-4">
+                                            {{ formatPrice(dish.price) }} €
+                                        </h5>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-lg-4">
+                        <div class="rounded py-3 px-4 carrello">
+                            <h4 class="mb-3">Il tuo ordine</h4>
+                            <button
+                                type="button"
+                                class="btn btn-secondary btn-lg btn-block mt-5"
+                                disabled
+                            >
+                                Vai al pagamento
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
           </a>
         </div>
@@ -188,20 +215,25 @@ export default {
     }
 
     .avatar-container {
-      padding-top: 100%;
+      padding-top: 50%;
       position: relative;
 
-      .avatar {
+      .img-food {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        width: 90%;
-        height: 90%;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         background-color: $grey1;
       }
     }
+  }
+
+  .carrello {
+    background: #fff;
+    box-shadow: 0 5px 5px rgba($color: $grey3, $alpha: 0.1);
   }
 }
 </style>

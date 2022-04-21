@@ -22,6 +22,7 @@
                                 <tr>
                                     <th class="align-middle text-center" scope="col">Nome piatto</th>
                                     <th class="align-middle text-center" scope="col">Antemprima piatto</th>
+                                    <th class="align-middle text-center" scope="col">Piatto visibile in pagina</th>
                                     <th class="align-middle text-center" scope="col">Modifica il piatto</th>
                                     <th class="align-middle text-center" scope="col">Visualizza il piatto</th>
                                     <th class="align-middle text-center" scope="col">Elimina il piatto</th>
@@ -40,12 +41,24 @@
                                                 </div>
                                             @endif
                                         </td>
+                                        <td class="align-middle text-center">
+                                          @if ($dish->visible == 0)
+                                            <div>
+                                                <span><i class="fa-solid fa-eye-slash"></i> No</span>
+                                            </div>
+                                          @else
+                                            <div>
+                                                <span><i class="fa-solid fa-eye"></i> Sì</span>
+                                            </div>
+                                          @endif
+                                        </td>
                                         <td class="align-middle text-center"><a
                                                 href="{{ route('auth.dish.edit', $dish->id) }}"
                                                 class="btn btn-success">Modifica</a></td>
                                         <td class="align-middle text-center"><a
                                                 href="{{ route('auth.dish.show', $dish->id) }}"
-                                                class="btn btn-info text-white">Visualizza</a></td>
+                                                class="btn btn-info text-white">Visualizza</a>
+                                        </td>
                                         <td class="align-middle text-center">
                                             <form action="{{ route('auth.dish.destroy', $dish->id) }}" method="post">
 
