@@ -22,7 +22,7 @@ const router = new VueRouter({
             path: "/:pathMatch(.*)*",
             name: "error404",
             component: Error404
-        },
+        }
     ]
 });
 
