@@ -93,7 +93,7 @@
                             >
                                 <a href="#" target="_blank">
                                     <img
-                                        src="images/download-google-play-store.png"
+                                        src="/images/download-google-play-store.png"
                                         alt="Google Play"
                                         class="img-fluid"
                                     />
@@ -104,7 +104,7 @@
                             >
                                 <a href="#" target="_blank">
                                     <img
-                                        src="images/download-apple-app-store.png"
+                                        src="/images/download-apple-app-store.png"
                                         alt="Apple App Store"
                                         class="img-fluid"
                                     />
