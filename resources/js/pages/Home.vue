@@ -122,69 +122,20 @@
                 </div>
             </div>
         </section>
-        <section
-            class="container-fluid d-flex align-items-center justify-content-center ms_footer_user"
-        >
-            <div
-                class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user"
-            >
-                <h4 style="color: white">Sei un ristoratore?</h4>
-                <a
-                    href="/login"
-                    class="btn-lg btn-light text-uppercase mx-2 ms_log_btn"
-                    >Accedi</a
-                >
-                <span style="color: white">o</span>
-                <a
-                    href="/register"
-                    class="btn-lg btn-light text-uppercase mx-2 ms_log_btn"
-                    >Registrati</a
-                >
+        <section class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
+            <div class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user">
+                <span style="color: white">Sei un ristoratore?</span>
+                <a href="/login" class="btn btn-light text-uppercase mx-2 ms_log_btn"> Accedi</a>
+                <a href="/register" class="btn btn-light text-uppercase mx-2 ms_log_btn">Registrati</a>
             </div>
         </section>
     </div>
 </template>
 
 <script>
-// import { bus } from "../front.js";
+
 export default {
     name: "Home",
-    data: () => {
-        return {
-            // cart: [],
-            // products: [
-            //     {
-            //         name: "Margherita",
-            //         price: 5,
-            //         image: "https://www.scattidigusto.it/wp-content/uploads/2018/03/pizza-margherita-originale-Scatti-di-Gusto-1568x821.jpg",
-            //     },
-            //     {
-            //         name: "Marinara",
-            //         price: 4,
-            //         image: "https://wips.plug.it/cips/buonissimo.org/cms/2012/05/pizza-marinara-5.jpg",
-            //     },
-            //     {
-            //         name: "Diavola",
-            //         price: 6,
-            //         image: "https://www.coopshop.it/p/wp-content/uploads/2021/02/Salame_940x450.jpg",
-            //     },
-            //     {
-            //         name: "Pistacchiosa",
-            //         price: 12,
-            //         image: "https://www.cuochemabuone.it/wp-content/uploads/2022/01/pizza-con-mortadella-e-pistacchi.jpg",
-            //     },
-            // ],
-        };
-    },
-    methods: {
-        // addItemToCart(product) {
-        //     this.cart.push(product);
-        //     // console.log(this.cart);
-        // },
-        // getShoppingCart() {
-        //     bus.$emit("gotShoppingCart", this.cart);
-        // },
-    },
 };
 </script>
 
@@ -272,7 +223,7 @@ export default {
 }
 
 .ms_footer_user {
-    background-color: $color3;
+    background-color: $color2;
 }
 .ms_log_btn:hover {
     text-decoration: none;

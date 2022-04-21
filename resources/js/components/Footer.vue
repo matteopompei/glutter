@@ -49,7 +49,7 @@
           </div>
         </div>
     <div class="container-fluid">
-      <div class="row text-center py-5 credits">
+      <div class="row text-center py-3 credits">
         <div class="col-md">
           <h5 class="mb-3">Lorenzo Bernardini</h5>
           <a href="https://github.com/LorenzoBernardini88" target="_blank"
