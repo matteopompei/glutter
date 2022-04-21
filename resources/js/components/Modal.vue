@@ -22,7 +22,6 @@
         </div>
         <div class="modal-body">
           <div v-if="$store.state.cartCount > 0">
-            <div>Stai acquistando presso: Nome ristorante</div>
             <div
               v-for="dish in $store.state.cart"
               :key="'cart' + dish.id + dish.name"
@@ -35,7 +34,7 @@
             <div class="navbar-item" href="">Totale: {{ totalPrice }}€</div>
 
             <button
-              class="button is-success"
+              class="button btn btn_scoop is-success"
               @click.prevent="removeAllFromCart()"
             >
               Svuota Carrello
@@ -82,5 +81,9 @@ export default {
 .ms_btn_checkout{
   color: white;
   background-color: $color3;
+}
+.btn_scoop{
+  background-color: $red;
+  color: white;
 }
 </style>

@@ -61,7 +61,7 @@
                       class="card-img-top img-food"
                     />
                   </div>
-                  <div class="card-body">
+                  <div class="card-body text-center">
                     <h5 class="card-title">
                       {{ dish.name }}
                     </h5>
@@ -69,16 +69,16 @@
                       {{ dish.ingredients }}
                     </p>
                     <button
-                      class="button is-success"
+                      class="button btn add_btn is-success"
                       @click.prevent="addToCart(dish)"
                     >
-                      Add to Cart
+                      +
                     </button>
                     <button
-                      class="removeBtn"
+                      class="removeBtn btn remove_btn"
                       @click.prevent="removeFromCart(dish)"
                     >
-                      Rimuovi dal carrello
+                      -
                     </button>
                     <h5 class="text-right mt-4">
                       {{ formatPrice(dish.price) }} €
@@ -140,7 +140,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-
+.add_btn{
+  background-color: $color3;
+  color: #fff;
+}
+.remove_btn{
+  background-color: $red;
+  color: #fff;
+}
 #info {
   position: relative;
   z-index: 2;
