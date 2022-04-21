@@ -10,7 +10,9 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Carrello</h5>
+          <h5 class="modal-title" id="exampleModalLabel">
+            Carrello (Nome ristorante)
+          </h5>
           <button
             type="button"
             class="close"
@@ -28,17 +30,42 @@
               class="navbar-item"
               href=""
             >
-              {{ dish.name }} x{{ dish.quantity }} ({{ dish.totalPrice }}€)
+              <span
+                >{{ dish.name }} x{{ dish.quantity }} ({{
+                  dish.totalPrice
+                }}€)</span
+              >
+              <button
+                class="button btn add_btn is-success"
+                @click.prevent="addToCart(dish)"
+              >
+                +
+              </button>
+              <button
+                class="removeBtn btn remove_btn"
+                @click.prevent="removeFromCart(dish)"
+              >
+                -
+              </button>
             </div>
 
-            <div class="navbar-item" href="">Totale: {{ totalPrice }}€</div>
+            <div class="navbar-item" href="">Totale: {{ formatPrice(totalPrice) }}€</div>
           </div>
           <div v-else>Il carrello è vuoto</div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button class="button btn btn_scoop is-success" @click.prevent="removeAllFromCart()">Svuota Carrello</button>
-          <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">Torna al ristorante</button>
-          <button type="button" class="btn ms_btn_checkout">Vai al checkout</button>
+          <button
+            class="button btn btn_scoop is-success"
+            @click.prevent="removeAllFromCart()"
+          >
+            Svuota Carrello
+          </button>
+          <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">
+            Torna al ristorante
+          </button>
+          <button type="button" class="btn ms_btn_checkout">
+            Vai al checkout
+          </button>
         </div>
       </div>
     </div>
@@ -49,11 +76,20 @@
 export default {
   name: "Modal",
   methods: {
+    addToCart(dish) {
+      this.$store.commit("addToCart", dish);
+    },
+    removeFromCart(dish) {
+      this.$store.commit("removeFromCart", dish);
+    },
     removeAllFromCart() {
       this.$store.commit("removeAllFromCart");
     },
     showModal() {
       this.$root.$emit("Main");
+    },
+    formatPrice(price) {
+      return price.replace(".", ",");
     },
   },
   computed: {
@@ -66,15 +102,24 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-.ms_btn_dismiss{
+
+.add_btn {
+  background-color: $color3;
+  color: #fff;
+}
+.remove_btn {
+  background-color: $red;
+  color: #fff;
+}
+.ms_btn_dismiss {
   color: white;
   background-color: $grey3;
 }
-.ms_btn_checkout{
+.ms_btn_checkout {
   color: white;
   background-color: $color3;
 }
-.btn_scoop{
+.btn_scoop {
   background-color: $red;
   color: white;
 }

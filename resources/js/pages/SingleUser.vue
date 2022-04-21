@@ -91,13 +91,48 @@
           <div class="col-md-7 col-lg-4">
             <div class="rounded py-3 px-4 carrello">
               <h4 class="mb-3">Il tuo ordine</h4>
-              <button
-                type="button"
-                class="btn btn-secondary btn-lg btn-block mt-5"
-                disabled
-              >
-                Vai al pagamento
-              </button>
+              <div v-if="$store.state.cartCount > 0">
+                <div
+                  v-for="dish in $store.state.cart"
+                  :key="'cart' + dish.id + dish.name"
+                  class="navbar-item"
+                  href=""
+                >
+                  <span
+                    >{{ dish.name }} x{{ dish.quantity }} ({{
+                      dish.totalPrice
+                    }}€)</span
+                  >
+                  <button
+                    class="button btn add_btn is-success"
+                    @click.prevent="addToCart(dish)"
+                  >
+                    +
+                  </button>
+                  <button
+                    class="removeBtn btn remove_btn"
+                    @click.prevent="removeFromCart(dish)"
+                  >
+                    -
+                  </button>
+                </div>
+
+                <div class="navbar-item" href="">Totale: {{ totalPrice }}€</div>
+                <button
+                  class="button btn btn_scoop is-success"
+                  @click.prevent="removeAllFromCart()"
+                >
+                  Svuota Carrello
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-lg btn-block mt-5"
+                  disabled
+                >
+                  Vai al pagamento
+                </button>
+              </div>
+              <div v-else>Il carrello è vuoto</div>
             </div>
           </div>
         </div>
@@ -116,8 +151,16 @@ export default {
     removeFromCart(dish) {
       this.$store.commit("removeFromCart", dish);
     },
+    removeAllFromCart() {
+      this.$store.commit("removeAllFromCart");
+    },
     formatPrice(price) {
       return price.replace(".", ",");
+    },
+  },
+  computed: {
+    totalPrice() {
+      return this.$store.getters.getTotal;
     },
   },
   data() {
@@ -140,13 +183,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-.add_btn{
+.add_btn {
   background-color: $color3;
   color: #fff;
 }
-.remove_btn{
+.remove_btn {
   background-color: $red;
   color: #fff;
+}
+.btn_scoop {
+  background-color: $red;
+  color: white;
 }
 #info {
   position: relative;
