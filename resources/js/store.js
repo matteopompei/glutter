@@ -51,6 +51,7 @@ let store = {
                 // Se nel carrello la quantità del piatto è maggiore di 1, la diminuisce di 1
                 if (found.quantity > 1) {
                     found.quantity -= 1;
+                    found.totalPrice = found.quantity * found.price;
                 }
                 // Se nel carrello è presente un solo elemento di quel piatto, lo rimuove completamente
                 else {
