@@ -91,10 +91,10 @@
     </section>
     <section class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
       <div class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user">
-          <h4 style="color: white">Sei un ristoratore?</h4>
-          <a href="/login" class="btn-lg btn-light text-uppercase mx-2 ms_log_btn">Accedi</a>
+          <span style="color: white">Sei un ristoratore?</span>
+          <a href="/login" class="btn btn-light text-uppercase mx-2 ms_log_btn">Accedi</a>
           <span style="color: white">o</span>
-          <a href="/register" class="btn-lg btn-light text-uppercase mx-2 ms_log_btn">Registrati</a>
+          <a href="/register" class="btn btn-light text-uppercase mx-2 ms_log_btn">Registrati</a>
         </div>
     </section>
   </div>
