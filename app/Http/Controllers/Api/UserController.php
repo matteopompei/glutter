@@ -68,6 +68,7 @@ class UserController extends Controller
             if ($dish['visible'] == 1) {
                 $tempDish = [
                     'id' => $dish['id'],
+                    'user_id' => $dish['user_id'],
                     'name' => $dish['name'],
                     'image' => $dish['image'],
                     'ingredients' => $dish['ingredients'],
