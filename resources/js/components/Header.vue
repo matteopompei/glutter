@@ -1,35 +1,10 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-md navbar-dark py-3 fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark py-3 fixed-top d-flex justify-content-between">
       <a class="navbar-brand" href="/">
         <img src="/images/Glutter1.png" alt="Glutter" class="img-fluid logo" />
       </a>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div
-        class="collapse navbar-collapse justify-content-end"
-        id="navbarSupportedContent"
-      >
-        <div class="form-inline mt-5 mb-3 my-md-2 justify-content-center user">
-          <a href="/login" class="btn mx-2">Accedi</a>
-          <a href="/register" class="btn btn-light text-uppercase mx-2"
-            >Registrati</a
-          >
-          <!-- <ShoppingCart /> -->
-          <Cart />
-        </div>
-      </div>
+      <Cart />
     </nav>
   </header>
 </template>

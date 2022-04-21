@@ -1,5 +1,14 @@
 <template>
   <footer>
+    <div class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
+      <div class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user">
+          <span>Sei un ristoratore?</span>
+          <a href="/login" class="btn btn-light text-uppercase mx-2">Accedi</a>
+          <span>o</span>
+          <a href="/register" class="btn btn-light text-uppercase mx-2">Registrati</a>
+        </div>
+    </div>
+    <hr class="m-0 p-0">
     <div class="container-fluid">
       <div class="row text-center py-5 credits">
         <div class="col-md">
@@ -54,12 +63,12 @@
           ></a>
         </div>
       </div>
-      <div class="row align-items-center text-center py-3 px-1 copy">
+    </div>
+    <div class="row align-items-center text-center py-3 px-1 copy">
         <div class="col">
           <p class="m-0 p-0">Copyright © 2022</p>
         </div>
       </div>
-    </div>
   </footer>
 </template>
 
@@ -108,5 +117,8 @@ footer {
   .copy {
     background: $black;
   }
+}
+.ms_footer_user{
+  background-color: $color3;
 }
 </style>
