@@ -44,10 +44,10 @@
           <div v-else>Il carrello è vuoto</div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">
             Torna al ristorante
           </button>
-          <button type="button" class="btn btn-primary">Vai al checkout</button>
+          <button type="button" class="btn ms_btn_checkout">Vai al checkout</button>
         </div>
       </div>
     </div>
@@ -73,5 +73,14 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../../sass/_variables.scss";
+.ms_btn_dismiss{
+  color: white;
+  background-color: $grey3;
+}
+.ms_btn_checkout{
+  color: white;
+  background-color: $color3;
+}
 </style>
