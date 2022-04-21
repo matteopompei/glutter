@@ -18,10 +18,11 @@ const router = new VueRouter({
             name: "singleuser",
             component: SingleUser
         },
-        {   path: "/:pathMatch(.*)*",
+        {
+            path: "/:pathMatch(.*)*",
             name: "error404",
             component: Error404
-        }
+        },
     ]
 });
 
