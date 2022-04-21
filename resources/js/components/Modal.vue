@@ -32,20 +32,12 @@
             </div>
 
             <div class="navbar-item" href="">Totale: {{ totalPrice }}€</div>
-
-            <button
-              class="button btn btn_scoop is-success"
-              @click.prevent="removeAllFromCart()"
-            >
-              Svuota Carrello
-            </button>
           </div>
           <div v-else>Il carrello è vuoto</div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">
-            Torna al ristorante
-          </button>
+        <div class="modal-footer d-flex justify-content-center">
+          <button class="button btn btn_scoop is-success" @click.prevent="removeAllFromCart()">Svuota Carrello</button>
+          <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">Torna al ristorante</button>
           <button type="button" class="btn ms_btn_checkout">Vai al checkout</button>
         </div>
       </div>
