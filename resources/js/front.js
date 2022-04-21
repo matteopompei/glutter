@@ -10,7 +10,7 @@ window.Vue = require('vue');
 import App from './App.vue';
 
 // Event Bus
-export const bus = new Vue();
+// export const bus = new Vue();
 
 // Router
 import router from "./router";
