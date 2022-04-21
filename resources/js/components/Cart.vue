@@ -19,23 +19,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/_variables.scss";
+
 .cart {
   color: #fff;
-  transition: 0.3s;
   cursor: pointer;
   position: relative;
-
-  &:hover,
-  &:active {
-    transform: scale(1.1);
+  i{
+    transition: 0.3s;
+      &:hover,
+      &:active {
+        transform: scale(1.1);
+        // color: $grey1;
+      }
   }
+  
 
   i {
     font-size: 2rem;
   }
   .cart-counter {
-    font-size: 15px;
-    padding: 0 7px;
+    // font-size: 15px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     right: 10px;
     bottom: -10px;
