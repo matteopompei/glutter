@@ -18,50 +18,43 @@ class DishesSeeder extends Seeder
                 'dishes' => [
                     [
                         'name' => 'Carbonara',
-                        'image' => NULL,
-                        'ingredients' => 'Uovo, Guanciale, Pecorino, Pasta di Grano duro, Pepe',
+                        'image' => "/Glutter-foto-cibi/carbonara.png",
+                        'ingredients' => 'Pasta di Grano duro, Uovo, Guanciale, Pecorino, Pepe',
                         'price' => 8,
                         'visible' => true
                     ],
                     [
                         'name' => 'Amatriciana',
-                        'image' => NULL,
-                        'ingredients' => 'Pomodoro, Guanciale, Pecorino, Pasta di Grano duro, Cipolla',
+                        'image' => "/Glutter-foto-cibi/amatriciana.png",
+                        'ingredients' => 'Pasta di Grano duro, Pomodoro, Guanciale, Pecorino, Cipolla',
                         'price' => 9,
                         'visible' => true
                     ],
                     [
                         'name' => 'Cacio e Pepe',
-                        'image' => NULL,
-                        'ingredients' => 'Pecorino, Pasta di Grano duro, Pepe',
+                        'image' => "/Glutter-foto-cibi/cacio-e-pepe.jpg",
+                        'ingredients' => 'Pasta di Grano duro, Pecorino, Pepe',
                         'price' => 7,
                         'visible' => true
                     ],
                     [
                         'name' => 'Gricia',
-                        'image' => NULL,
-                        'ingredients' => 'Pecorino, Pasta di Grano duro,Guaciale',
+                        'image' => "/Glutter-foto-cibi/gricia.png",
+                        'ingredients' => 'Pasta di Grano duro, Pecorino, Guaciale',
                         'price' => 7,
                         'visible' => true
                     ],
                     [
                         'name' => 'Fettuccine al Tartufo',
-                        'image' => NULL,
-                        'ingredients' => 'Tartufo, Pasta di Grano duro, Burro,Olio',
+                        'image' => "/Glutter-foto-cibi/fettuccine-al-tartufo.png",
+                        'ingredients' => 'Pasta di Grano duro, Tartufo, Burro,Olio',
                         'price' => 12,
                         'visible' => true
                     ],
                     [
-                        'name' => 'Fettuccine al Tartufo',
-                        'image' => NULL,
-                        'ingredients' => "Tartufo, Pasta all'uovo, Burro,Olio",
-                        'price' => 14,
-                        'visible' => true
-                    ],
-                    [
                         'name' => 'Pappardelle al Cinghiale',
-                        'image' => NULL,
-                        'ingredients' => "Cinghiale, Pasta all'uovo,Olio, Pomodoro",
+                        'image' => "/Glutter-foto-cibi/pappardelle-al-cinghiale.jpeg",
+                        'ingredients' => "Pasta all'uovo, Cinghiale, Olio, Pomodoro",
                         'price' => 12,
                         'visible' => true
                     ],
@@ -72,50 +65,50 @@ class DishesSeeder extends Seeder
                 'dishes' => [
                     [
                         'name' => 'Margherita',
-                        'image' => NULL,
+                        'image' => "/Glutter-foto-cibi/pizza-margherita.jpeg",
                         'ingredients' => 'Pomodoro, Mozzarella, Farina 0, Basilico, Olio, Sale',
                         'price' => 5,
                         'visible' => true
                     ],
                     [
                         'name' => 'Boscaiola',
-                        'image' => NULL,
+                        'image' => "/Glutter-foto-cibi/pizza-boscaiola.jpeg",
                         'ingredients' => 'Funghi, Salsiccia, Mozzarella, Farina 0, Olio, Sale',
                         'price' => 7,
                         'visible' => true
                     ],
                     [
                         'name' => 'Marinara',
-                        'image' => NULL,
-                        'ingredients' => 'Pomodoro, Aglio,Origano, Farina 0, Sale, Olio',
+                        'image' => "/Glutter-foto-cibi/pizza-marinara.jpeg",
+                        'ingredients' => 'Pomodoro, Aglio, Origano, Farina 0, Sale, Olio',
                         'price' => 4,
                         'visible' => true
                     ],
                     [
                         'name' => 'Pizza Carbonara',
-                        'image' => NULL,
-                        'ingredients' => 'Pecorino, Farina 0,Guaciale, Uovo',
+                        'image' => "/Glutter-foto-cibi/pizza-carbonara.jpeg",
+                        'ingredients' => 'Pecorino, Farina 0, Guaciale, Uovo',
                         'price' => 8,
                         'visible' => true
                     ],
                     [
                         'name' => 'Valdostana',
-                        'image' => NULL,
-                        'ingredients' => 'Pomodoro, Fontina,Prosciutto cotto,Farina 0,Sale,Olio',
+                        'image' => "/Glutter-foto-cibi/pizza-valdostana.jpeg",
+                        'ingredients' => 'Pomodoro, Fontina, Prosciutto cotto, Farina 0, Sale, Olio',
                         'price' => 9,
                         'visible' => true
                     ],
                     [
                         'name' => 'Diavola',
-                        'image' => NULL,
-                        'ingredients' => "Pomodoro, Mozzarella,Salame piccante,,Farina 0,Olio",
+                        'image' => "/Glutter-foto-cibi/pizza-diavola.png",
+                        'ingredients' => "Pomodoro, Mozzarella, Salame piccante, Farina 0, Olio",
                         'price' => 8,
                         'visible' => true
                     ],
                     [
                         'name' => 'Alici',
-                        'image' => NULL,
-                        'ingredients' => "Pomodoro, Alici, Burrata,Farina 0,Olio, Origano",
+                        'image' => "/Glutter-foto-cibi/pizza-napoli.png",
+                        'ingredients' => "Pomodoro, Alici, Farina 0, Olio, Origano",
                         'price' => 10,
                         'visible' => true
                     ],
@@ -126,29 +119,29 @@ class DishesSeeder extends Seeder
                 'dishes' => [
                     [
                         'name' => 'Nigiri al Salmone',
-                        'image' => NULL,
+                        'image' => "/Glutter-foto-cibi/sushi-nigiri.jpeg",
                         'ingredients' => 'Riso, Salmone',
                         'price' => 10,
                         'visible' => true
                     ],
                     [
                         'name' => 'Gunkan',
-                        'image' => NULL,
-                        'ingredients' => 'Alga Nori, Riso, Pesce',
+                        'image' => "/Glutter-foto-cibi/gunkan.jpeg",
+                        'ingredients' => 'Riso, Salmone, Philadelphia, Uova di pesce',
                         'price' => 10,
                         'visible' => true
                     ],
                     [
                         'name' => 'Uramaki',
-                        'image' => NULL,
-                        'ingredients' => 'Riso, Uova di pesce,Alga Nori, Semi di Sesamo',
+                        'image' => "/Glutter-foto-cibi/uramaki.jpeg",
+                        'ingredients' => 'Riso, Alga Nori, Salmone, Avocado',
                         'price' => 4,
                         'visible' => true
                     ],
                     [
                         'name' => 'Chumaki',
-                        'image' => NULL,
-                        'ingredients' => 'Riso, Alga Nori,Avocado, Pesce, Verdure',
+                        'image' => "/Glutter-foto-cibi/chumaki.jpeg",
+                        'ingredients' => 'Riso, Alga Nori, Avocado, Pesce, Verdure',
                         'price' => 8,
                         'visible' => true
                     ],
