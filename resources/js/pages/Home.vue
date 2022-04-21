@@ -1,145 +1,141 @@
 <template>
-  <div>
-    <section class="jumbotron jumbotron-fluid m-0 custom-jumbo">
-      <div class="container-xl">
-        <div class="row align-items-center py-5">
-          <div class="col-md-7 mx-auto">
-            <h1 class="display-2 d-none d-lg-block mb-5">#FoodIsComing</h1>
-            <h1 class="display-3 d-none d-md-block d-lg-none mb-5">
-              #FoodIsComing
-            </h1>
-            <h1 class="display-4 d-sm-block d-md-none text-center mb-5">
-              #FoodIsComing
-            </h1>
-            <blockquote class="blockquote mx-auto mx-md-0 p-3">
-              <p class="mb-0">
-                A tavola perdonerei chiunque. Anche i miei parenti.
-              </p>
-              <footer class="blockquote-footer">Oscar Wilde</footer>
-            </blockquote>
-          </div>
-          <div class="col-md-5">
-            <div class="search mt-5 mt-md-0 p-5">
-              <p class="lead mb-3">Inserisci un nome o un alimento.</p>
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Es. pizza"
-                  aria-label="Recipient's username"
-                  aria-describedby="basic-addon2"
-                />
-                <div class="input-group-append">
-                  <button class="btn" type="button">Cerca</button>
+    <div>
+        <section class="jumbotron jumbotron-fluid m-0 custom-jumbo">
+            <div class="container-xl">
+                <div class="row align-items-center py-5">
+                    <div class="col-md-7 mx-auto">
+                        <h1 class="display-2 d-none d-lg-block mb-5">
+                            #FoodIsComing
+                        </h1>
+                        <h1 class="display-3 d-none d-md-block d-lg-none mb-5">
+                            #FoodIsComing
+                        </h1>
+                        <h1
+                            class="display-4 d-sm-block d-md-none text-center mb-5"
+                        >
+                            #FoodIsComing
+                        </h1>
+                        <blockquote class="blockquote mx-auto mx-md-0 p-3">
+                            <p class="mb-0">
+                                A tavola perdonerei chiunque. Anche i miei
+                                parenti.
+                            </p>
+                            <footer class="blockquote-footer">
+                                Oscar Wilde
+                            </footer>
+                        </blockquote>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="search mt-5 mt-md-0 p-5">
+                            <p class="lead mb-3">
+                                Inserisci un nome o un alimento.
+                            </p>
+                            <div class="input-group">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Es. pizza"
+                                    aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2"
+                                />
+                                <div class="input-group-append">
+                                    <button class="btn" type="button">
+                                        Cerca
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="categories" class="py-5">
-      <div class="container-xl">
-        <h3>Le categorie più amate</h3>
-        <div class="row">
-          <div class="col-md-8 m-1 p-5 d-flex justify-content-center align-items-center pizza"><h3>Pizza</h3></div>
-          <div class="col-md-4 m-1 p-5 d-flex justify-content-center align-items-center sushi"><h3>Sushi</h3></div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 m-1 p-5 d-flex justify-content-center align-items-center hamburger"><h3>Hamburger</h3></div>
-          <div class="col-md-8 m-1 p-5 d-flex justify-content-center align-items-center pasta"><h3>Pasta</h3></div>
-        </div>
-      </div>
-    </section>
-    <section id="download" class="py-5">
-      <div class="container-xl">
-        <div class="row align-items-center py-5">
-          <div class="col-md-8">
-            <h2 class="display-4 text-center text-md-left mb-5">
-              Hai già installato la nostra app?
-            </h2>
-            <div class="row text-left">
-              <div class="col-md py-4 py-md-0 px-5 px-md-1 px-lg-4">
-                <a href="#" target="_blank">
-                  <img
-                    src="images/download-google-play-store.png"
-                    alt="Google Play"
-                    class="img-fluid"
-                  />
-                </a>
-              </div>
-              <div class="col-md py-4 py-md-0 px-5 px-md-1 px-lg-4">
-                <a href="#" target="_blank">
-                  <img
-                    src="images/download-apple-app-store.png"
-                    alt="Apple App Store"
-                    class="img-fluid"
-                  />
-                </a>
-              </div>
+        </section>
+
+        <section id="categories" class="py-5">
+            <div class="container-xl">
+                <h3 class="display-4 mb-4">Le categorie più gettonate</h3>
+                <div class="row">
+                    <div class="col-md-7 p-1">
+                        <a href="#" class="text-center p-5 pizza"
+                            ><h3>Pizza</h3></a
+                        >
+                    </div>
+                    <div class="col-md-5 p-1">
+                        <a href="#" class="text-center p-5 sushi"
+                            ><h3>Sushi</h3></a
+                        >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5 p-1">
+                        <a href="#" class="text-center p-5 hamburger">
+                            <h3>Hamburger</h3></a
+                        >
+                    </div>
+                    <div class="col-md-7 p-1">
+                        <a href="#" class="text-center p-5 pasta">
+                            <h3>Pasta</h3></a
+                        >
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-md-4 d-none d-md-block">
-            <img
-              src="images/sticker-app.png"
-              alt="App Glutter"
-              class="img-fluid"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
-      <div class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user">
-          <h4 style="color: white">Sei un ristoratore?</h4>
-          <a href="/login" class="btn-lg btn-light text-uppercase mx-2 ms_log_btn">Accedi</a>
-          <span style="color: white">o</span>
-          <a href="/register" class="btn-lg btn-light text-uppercase mx-2 ms_log_btn">Registrati</a>
-        </div>
-    </section>
-  </div>
+        </section>
+
+        <section id="download" class="py-5">
+            <div class="container-xl">
+                <div class="row align-items-center py-5">
+                    <div class="col-md-8">
+                        <h2 class="display-4 text-center text-md-left mb-5">
+                            Hai già installato la nostra app?
+                        </h2>
+                        <div class="row text-left">
+                            <div
+                                class="col-md py-4 py-md-0 px-5 px-md-1 px-lg-4"
+                            >
+                                <a href="#" target="_blank">
+                                    <img
+                                        src="images/download-google-play-store.png"
+                                        alt="Google Play"
+                                        class="img-fluid"
+                                    />
+                                </a>
+                            </div>
+                            <div
+                                class="col-md py-4 py-md-0 px-5 px-md-1 px-lg-4"
+                            >
+                                <a href="#" target="_blank">
+                                    <img
+                                        src="images/download-apple-app-store.png"
+                                        alt="Apple App Store"
+                                        class="img-fluid"
+                                    />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-none d-md-block">
+                        <img
+                            src="images/sticker-app.png"
+                            alt="App Glutter"
+                            class="img-fluid"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
+            <div class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user">
+                <span style="color: white">Sei un ristoratore?</span>
+                <a href="/login" class="btn btn-light text-uppercase mx-2 ms_log_btn"> Accedi</a>
+                <a href="/register" class="btn btn-light text-uppercase mx-2 ms_log_btn">Registrati</a>
+            </div>
+        </section>
+    </div>
 </template>
 
 <script>
-// import { bus } from "../front.js";
+
 export default {
-  name: "Home",
-  data: () => {
-    return {
-      // cart: [],
-      // products: [
-      //     {
-      //         name: "Margherita",
-      //         price: 5,
-      //         image: "https://www.scattidigusto.it/wp-content/uploads/2018/03/pizza-margherita-originale-Scatti-di-Gusto-1568x821.jpg",
-      //     },
-      //     {
-      //         name: "Marinara",
-      //         price: 4,
-      //         image: "https://wips.plug.it/cips/buonissimo.org/cms/2012/05/pizza-marinara-5.jpg",
-      //     },
-      //     {
-      //         name: "Diavola",
-      //         price: 6,
-      //         image: "https://www.coopshop.it/p/wp-content/uploads/2021/02/Salame_940x450.jpg",
-      //     },
-      //     {
-      //         name: "Pistacchiosa",
-      //         price: 12,
-      //         image: "https://www.cuochemabuone.it/wp-content/uploads/2022/01/pizza-con-mortadella-e-pistacchi.jpg",
-      //     },
-      // ],
-    };
-  },
-  methods: {
-    // addItemToCart(product) {
-    //     this.cart.push(product);
-    //     // console.log(this.cart);
-    // },
-    // getShoppingCart() {
-    //     bus.$emit("gotShoppingCart", this.cart);
-    // },
-  },
+    name: "Home",
 };
 </script>
 
@@ -147,147 +143,163 @@ export default {
 @import "../../sass/_variables.scss";
 
 .custom-jumbo {
-  position: relative;
-  background: $color4;
-  color: $white;
+    position: relative;
+    background: $color4;
+    color: $white;
 
-  blockquote {
-    width: fit-content;
-    background: rgba($color: #000000, $alpha: 0.2);
-    border-radius: 10px;
-    box-shadow: 0 5px 5px rgba($color: $color3, $alpha: 0.1);
+    blockquote {
+        width: fit-content;
+        background: rgba($color: #000000, $alpha: 0.2);
+        border-radius: 10px;
+        box-shadow: 0 5px 5px rgba($color: $color3, $alpha: 0.1);
 
-    footer {
-      color: $white;
-    }
-  }
-
-  .search {
-    background: $white;
-    border-radius: 20px;
-    box-shadow: 0 15px 20px rgba($color: #000000, $alpha: 0.1);
-    color: $grey4;
-
-    & > div {
-      box-shadow: 0 1px 3px rgba($color: #000000, $alpha: 0.1);
-      border-radius: 5px;
+        footer {
+            color: $white;
+        }
     }
 
-    button {
-      background: $color2;
-      border-color: none;
-      box-shadow: none;
-      font-weight: 600;
-      color: $white;
-      text-transform: uppercase;
+    .search {
+        background: $white;
+        border-radius: 20px;
+        box-shadow: 0 15px 20px rgba($color: #000000, $alpha: 0.1);
+        color: $grey4;
 
-      &:hover {
-        background: rgba($color: $color2, $alpha: 0.9);
-      }
+        & > div {
+            box-shadow: 0 1px 3px rgba($color: #000000, $alpha: 0.1);
+            border-radius: 5px;
+        }
 
-      &:active {
-        background: $color5;
-      }
+        button {
+            background: $color2;
+            border-color: none;
+            box-shadow: none;
+            font-weight: 600;
+            color: $white;
+            text-transform: uppercase;
+
+            &:hover {
+                background: rgba($color: $color2, $alpha: 0.9);
+            }
+
+            &:active {
+                background: $color5;
+            }
+        }
+
+        input {
+            border-color: $grey2;
+            box-shadow: inset 0 0 5px rgba($color: #000000, $alpha: 0.05);
+
+            &:focus {
+                border-color: $color2;
+                box-shadow: 0 0 0 3px rgba($color: $color2, $alpha: 0.2);
+            }
+        }
     }
 
-    input {
-      border-color: $grey2;
-      box-shadow: inset 0 0 5px rgba($color: #000000, $alpha: 0.05);
-
-      &:focus {
-        border-color: $color2;
-        box-shadow: 0 0 0 3px rgba($color: $color2, $alpha: 0.2);
-      }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: url("~/images/food-pattern.png") repeat;
+        background-size: contain;
+        box-shadow: inset 0 10px 20px $color4;
+        filter: blur(3px);
+        opacity: 0.2;
+        animation: slide 15s infinite linear;
     }
-  }
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: url("~/images/food-pattern.png") repeat;
-    background-size: contain;
-    box-shadow: inset 0 10px 20px $color4;
-    filter: blur(3px);
-    opacity: 0.2;
-    animation: slide 15s infinite linear;
-  }
+    @keyframes slide {
+        from {
+            background-position: 0;
+        }
+        to {
+            background-position: 2456px;
+        }
+    }
+}
 
-  @keyframes slide {
-    from {
-      background-position: 0;
+.ms_footer_user {
+    background-color: $color2;
+}
+.ms_log_btn:hover {
+    text-decoration: none;
+}
+
+#categories {
+    a {
+        display: block;
+        position: relative;
+        background: rgba($color: $black, $alpha: 0.4);
+        color: $white;
+        text-decoration: none;
+        transition: 1s;
+        overflow: hidden;
+
+        &:hover {
+            background: rgba($color: $black, $alpha: 0.3);
+
+            &::before {
+                transform: scale(1.3);
+                filter: blur(3px);
+            }
+        }
+
+        &::before {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            transition: 0.5s;
+        }
+
+        &.pizza {
+            &::before {
+                background: url("~/images/pizza-margherita.jpeg");
+            }
+        }
+
+        &.sushi {
+            &::before {
+                background: url("~/images/sushi-misto.png");
+            }
+        }
+
+        &.pasta {
+            &::before {
+                background: url("~/images/carbonara.png");
+            }
+        }
+
+        &.hamburger {
+            &::before {
+                background: url("~/images/hamburger-2.png");
+            }
+        }
+
+        &.pizza,
+        &.sushi,
+        &.pasta,
+        &.hamburger {
+            &::before {
+                background-size: cover;
+                background-position: center;
+            }
+        }
     }
-    to {
-      background-position: 2456px;
-    }
-  }
 }
 
 #download {
-  background: linear-gradient(90deg, $white, $grey1);
+    background: linear-gradient(90deg, $white, $grey1);
 
-  h2 {
-    color: $color3;
-  }
-}
-.ms_footer_user{
-  background-color: $color3;
-}
-.ms_log_btn:hover{
-  text-decoration: none;
-}
-#categories{
-  .pizza{
-    &::before{
-      background-image: url("~/images/pizza-margherita.jpeg");
+    h2 {
+        color: $color3;
     }
-  }
-  .sushi{
-     &::before{
-      background-image: url("~/images/sushi-misto.png");  
-    }
-    
-  }
-  .pasta{
-    &::before{
-      background-image: url("~/images/carbonara.png");
-    }
-    
-  }
-  .hamburger{
-    &::before{
-      background-image: url("~/images/hamburger-2.png");  
-    }
-  }
-  .pizza, .hamburger, .sushi, .pasta{
-  color: white;
-  position: relative;
-  font-weight: bold;
-  transition: 0.3s;
-  overflow: hidden;
-  background-color: rgba($color: #000000, $alpha: .3);
-
-  &:hover{
-    &::before{
-    transform: scale(1.3);
-    }
-  }
-  &::before{
-      content: "";
-      position: absolute;
-      background-size: cover;
-      background-position: center;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: -1;
-      transition: 0.5s;
-    }
-  }
-
 }
 </style>

@@ -1,8 +1,55 @@
 <template>
   <footer>
-    <hr class="m-0 p-0">
     <div class="container-fluid">
-      <div class="row text-center py-5 credits">
+          <div class="row px-2 py-4 top">
+            <div class="col mx-2 my-3 my-md-0 px-3 py-2 card">
+              <h5 class="mt-2 mb-3">Note Legali</h5>
+              <ul>
+                <li><a href="#">Termini & Condizioni </a></li>
+                <li><a href="#">Informativa sulla privacy</a></li>
+                <li><a href="#">Cookies</a></li>
+              </ul>
+            </div>
+            <div class="col mx-2 my-3 my-md-0 px-3 py-2 card">
+              <h5 class="mt-2 mb-3">Aiuto</h5>
+              <ul>
+                <li><a href="#">Contatti</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Tipi di cucina</a></li>
+              </ul>
+            </div>
+            <div class="col mx-2 my-3 my-md-0 px-3 py-2 card">
+              <h5 class="mt-2 mb-3">Porta Glutter con te</h5>
+              <ul>
+                <li class="mb-2"><a href="#" target="_blank">
+                  <img
+                    src="images/download-apple-app-store.png"
+                    alt="Apple App Store"
+                    class="img-fluid"
+                  /></a></li>
+                <li><a href="#" target="_blank">
+                  <img
+                    src="images/download-google-play-store.png"
+                    alt="Google Play"
+                    class="img-fluid"
+                  />
+                </a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row pb-4 social">
+            <div class="col icon">
+              <a href="#" class="mr-3"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#" class="mr-3"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="mr-3"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div class="col d-flex justify-content-end copyright">
+              <span><i class="fa-solid fa-copyright"></i> 2022 GLutter</span>
+            </div>
+          </div>
+        </div>
+    <div class="container-fluid">
+      <div class="row text-center py-3 credits">
         <div class="col-md">
           <h5 class="mb-3">Lorenzo Bernardini</h5>
           <a href="https://github.com/LorenzoBernardini88" target="_blank"
@@ -56,11 +103,6 @@
         </div>
       </div>
     </div>
-    <div class="row align-items-center text-center py-3 px-1 copy">
-        <div class="col">
-          <p class="m-0 p-0">Copyright © 2022</p>
-        </div>
-      </div>
   </footer>
 </template>
 
@@ -106,8 +148,35 @@ footer {
     }
   }
 
-  .copy {
-    background: $black;
+  .top {
+    background: $grey6;
+    .card{
+      background: $grey5;
+      ul li {
+        list-style-type:none;
+        a{
+          color: $white;
+          text-decoration: none;
+          img{
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+  .social{
+    background: $grey6;
+    a{
+      color:$white;
+      text-decoration: none;
+      i{
+        font-size: 20px;
+      }
+    }
+    .copyright{
+      color: $grey5;
+    }
   }
 }
 </style>
+
