@@ -86,15 +86,14 @@ class DishController extends Controller
 
         if (!$dish = Dish::find($id)) {
             return abort(404);
-
-        } elseif (Auth::user()->id == Dish::find($id)->user->id){
+        } elseif (Auth::user()->id == Dish::find($id)->user->id) {
             $dish = Dish::find($id);
-            
-			return view('auth.dish.show', compact('dish'));
+
+            return view('auth.dish.show', compact('dish'));
         } else {
             $dish = Dish::findOrFail($id);
 
-			return abort(404);
+            return abort(404);
         }
     }
 
@@ -108,15 +107,14 @@ class DishController extends Controller
     {
         if (!$dish = Dish::find($id)) {
             return abort(404);
-
-        } elseif (Auth::user()->id == Dish::find($id)->user->id){
+        } elseif (Auth::user()->id == Dish::find($id)->user->id) {
             $dish = Dish::find($id);
-			
+
             return view('auth.dish.edit', compact('dish'));
         } else {
             $dish = Dish::findOrFail($id);
 
-			return abort(404);
+            return abort(404);
         }
     }
 

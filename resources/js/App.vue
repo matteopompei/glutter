@@ -1,9 +1,9 @@
 <template>
-    <div id="app">
-        <Header />
-        <Main />
-        <Footer />
-    </div>
+  <div id="app">
+    <Header />
+    <Main />
+    <Footer />
+  </div>
 </template>
 
 <script>
@@ -12,12 +12,12 @@ import Main from "./components/Main.vue";
 import Footer from "./components/Footer.vue";
 
 export default {
-    name: "App",
-    components: {
-        Header,
-        Main,
-        Footer
-    },
+  name: "App",
+  components: {
+    Header,
+    Main,
+    Footer,
+  },
 };
 </script>
 
@@ -28,8 +28,8 @@ export default {
 @import "~bootstrap/scss/bootstrap";
 
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
-    <main>
-        <div class="nav-space"></div>
+  <main>
+    <div class="nav-space"></div>
 
-        <router-view></router-view>
-    </main>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
 export default {
-    name: "Main",
+  name: "Main",
 };
 </script>
 
@@ -16,9 +16,9 @@ export default {
 @import "../../sass/_variables.scss";
 
 main {
-    .nav-space {
-        padding-top: 100px;
-        background: $color4;
-    }
+  .nav-space {
+    padding-top: 100px;
+    background: $color4;
+  }
 }
 </style>

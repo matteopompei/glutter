@@ -53,7 +53,7 @@ class UsersSeeder extends Seeder
             $new_user->p_iva = $user['p_iva'];
             $new_user->image = $user['image'];
             $new_user->save();
-            
+
             //Sincronizza le categorie con gli utenti (relazione many to many fra le due tabelle)
             foreach ($user['categories'] as $category) {
                 $new_user->categories()->attach($category);
