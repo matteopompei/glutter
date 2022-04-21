@@ -72,7 +72,7 @@ class DishController extends Controller
 
         $newDish->save();
 
-        return redirect()->route('auth.dish.show', $newDish->id);
+        return redirect()->route('auth.dish.show', $newDish->id)->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><i class="fa-solid fa-xmark"></i></button> <strong>Piatto aggiunto correttamente</strong></div>']);;
     }
 
     /**
@@ -139,7 +139,7 @@ class DishController extends Controller
 
         $dish->update($data);
 
-        return redirect()->route('auth.dish.show', $dish)->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert">×</button> <strong>Piatto modificato correttamente</strong></div>']);
+        return redirect()->route('auth.dish.show', $dish)->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><i class="fa-solid fa-xmark"></i></button> <strong>Piatto modificato correttamente</strong></div>']);
     }
 
     /**
@@ -152,6 +152,6 @@ class DishController extends Controller
     {
         $dish->delete();
 
-        return redirect()->route('auth.dish.index')->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert">×</button> <strong>Piatto rimosso correttamente</strong></div>']);
+        return redirect()->route('auth.dish.index')->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><i class="fa-solid fa-xmark"></i></button> <strong>Piatto rimosso correttamente</strong></div>']);
     }
 }
