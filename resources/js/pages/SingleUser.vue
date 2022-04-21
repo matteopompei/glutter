@@ -132,7 +132,7 @@ export default {
         this.user = apiResponse.data;
       })
       .catch((error) => {
-        this.$router.push({ name: "page-404" });
+        this.$router.push({ name: "error404" });
       });
   },
 };
