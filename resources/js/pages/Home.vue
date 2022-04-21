@@ -38,6 +38,19 @@
         </div>
       </div>
     </section>
+    <section id="categories" class="py-5">
+      <div class="container-xl">
+        <h3>Le categorie più amate</h3>
+        <div class="row">
+          <div class="col-md-8 m-1 p-5 d-flex justify-content-center align-items-center pizza"><h3>Pizza</h3></div>
+          <div class="col-md-4 m-1 p-5 d-flex justify-content-center align-items-center sushi"><h3>Sushi</h3></div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 m-1 p-5 d-flex justify-content-center align-items-center hamburger"><h3>Hamburger</h3></div>
+          <div class="col-md-8 m-1 p-5 d-flex justify-content-center align-items-center pasta"><h3>Pasta</h3></div>
+        </div>
+      </div>
+    </section>
     <section id="download" class="py-5">
       <div class="container-xl">
         <div class="row align-items-center py-5">
@@ -76,14 +89,14 @@
         </div>
       </div>
     </section>
-      <div class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
+    <section class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
       <div class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user">
           <h4 style="color: white">Sei un ristoratore?</h4>
           <a href="/login" class="btn-lg btn-light text-uppercase mx-2 ms_log_btn">Accedi</a>
           <span style="color: white">o</span>
           <a href="/register" class="btn-lg btn-light text-uppercase mx-2 ms_log_btn">Registrati</a>
         </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -225,5 +238,56 @@ export default {
 }
 .ms_log_btn:hover{
   text-decoration: none;
+}
+#categories{
+  .pizza{
+    &::before{
+      background-image: url("~/images/pizza-margherita.jpeg");
+    }
+  }
+  .sushi{
+     &::before{
+      background-image: url("~/images/sushi-misto.png");  
+    }
+    
+  }
+  .pasta{
+    &::before{
+      background-image: url("~/images/carbonara.png");
+    }
+    
+  }
+  .hamburger{
+    &::before{
+      background-image: url("~/images/hamburger-2.png");  
+    }
+  }
+  .pizza, .hamburger, .sushi, .pasta{
+  color: white;
+  position: relative;
+  font-weight: bold;
+  transition: 0.3s;
+  overflow: hidden;
+  background-color: rgba($color: #000000, $alpha: .3);
+
+  &:hover{
+    &::before{
+    transform: scale(1.3);
+    }
+  }
+  &::before{
+      content: "";
+      position: absolute;
+      background-size: cover;
+      background-position: center;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      transition: 0.5s;
+    }
+  }
+
 }
 </style>
