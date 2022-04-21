@@ -25,5 +25,5 @@ const app = new Vue({
   el: '#app',
   render: h => h(App),
   router,
-  store: new Vuex.Store(store)
+  store: new Vuex.Store(store),
 });
