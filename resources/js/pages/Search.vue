@@ -7,7 +7,7 @@
                         <h4 class="mb-4">Criteri di ricerca</h4>
                         <!-- QUI SOTTO AGGIUNGERE I VARI FILTRI -->
                          <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="text" class="form-control" placeholder="Cerca il nome di un ristorante" aria-label="Recipient's username" aria-describedby="button-addon2">
                         </div>
                         <div class="filter_container">
                             <div v-for="(category, index) in all_categories" :key="index">
