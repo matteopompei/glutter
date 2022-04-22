@@ -10,7 +10,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Carrello (Nome ristorante)
+            Nome Piatto
           </h5>
           <button
             type="button"
@@ -53,12 +53,6 @@
           <div v-else>Il carrello è vuoto</div>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button
-            class="button btn btn_scoop is-success"
-            @click.prevent="removeAllFromCart()"
-          >
-            Svuota Carrello
-          </button>
           <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">
             Torna al ristorante
           </button>
@@ -73,7 +67,7 @@
 
 <script>
 export default {
-  name: "Modal",
+  name: "MenuModal",
   methods: {
     addToCart(dish) {
       this.$store.commit("addToCart", dish);
@@ -81,10 +75,7 @@ export default {
     removeFromCart(dish) {
       this.$store.commit("removeFromCart", dish);
     },
-    removeAllFromCart() {
-      this.$store.commit("removeAllFromCart");
-    },
-    showModal() {
+    showMenuModal() {
       this.$root.$emit("Main");
     },
     formatPrice(price) {
