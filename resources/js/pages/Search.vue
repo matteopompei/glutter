@@ -3,7 +3,7 @@
         <section id="search">
             <div class="container-fluid">
                 <div class="row py-5">
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <h4 class="mb-4">Criteri di ricerca</h4>
                         <!-- QUI SOTTO AGGIUNGERE I VARI FILTRI -->
                          <div class="input-group mb-3">
@@ -16,18 +16,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         <h4 class="mb-4">Risultati della ricerca</h4>
                         <div
                             class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"
                         >
-                            <div class="col" v-for="(restaurant, index) in all_restaurants" :key="index">
-                                <div class="card mb-3">
-                                    <img
-                                        :src="`/storage/${restaurant.image}`"
-                                        class="card-img-top"
-                                        alt=""
-                                    />
+                            <div class="col pb-3" v-for="(restaurant, index) in all_restaurants" :key="index">
+                                <div class="card restaurant">
+                                    <div class="avatar-container">
+                                        <img
+                                            :src="`/storage/${restaurant.image}`"
+                                            class="card-img-top img-food"
+                                            alt=""
+                                        />
+                                    </div>
+                                        
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             {{restaurant.business_name}}
@@ -40,6 +43,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -83,4 +87,22 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
+.restaurant{
+    height: 100%;
+}
+.avatar-container {
+      padding-top: 50%;
+      position: relative;
+
+      .img-food {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-color: $grey1;
+      }
+    }
 </style>
