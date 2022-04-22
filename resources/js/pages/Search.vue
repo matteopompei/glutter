@@ -7,7 +7,7 @@
                         <h4 class="mb-4">Criteri di ricerca</h4>
                         <!-- QUI SOTTO AGGIUNGERE I VARI FILTRI -->
                          <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Cerca il nome di un ristorante" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input v-model="search" type="text" class="form-control" placeholder="Cerca il nome di un ristorante" @keyup="searchRestaurant">
                         </div>
                         <div class="filter_container">
                             <div v-for="(category, index) in all_categories" :key="index">
@@ -21,7 +21,7 @@
                         <div
                             class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"
                         >
-                            <div class="col pb-3" v-for="(restaurant, index) in all_restaurants" :key="index">
+                            <div class="col pb-3" v-for="(restaurant, index) in all_restaurants" :key="index" :class="{not_visible: restaurant.visible}">
                                 <div class="card restaurant">
                                     <div class="avatar-container">
                                         <img
@@ -30,7 +30,6 @@
                                             alt=""
                                         />
                                     </div>
-                                        
                                     <div class="card-body">
                                         <h5 class="card-title">
                                             {{restaurant.business_name}}
@@ -43,7 +42,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -54,13 +52,27 @@
 <script>
 export default {
     name: "Search",
-   data() {
+    data() {
         return{
-        all_categories: {},
-        all_restaurants: {}
+            all_categories: {},
+            all_restaurants: [],
+            search: "" 
+
         }
     }, 
+    methods:{
     
+     searchRestaurant: function(){
+                for (let index = 0; index < this.all_restaurants.length; index++) {
+                    if(!element.business_name.toLowerCase().includes(this.search.toLowerCase())){
+                        element.visible = true;
+                    }else{
+                        element.visible = false;
+                    }
+                }
+                console.log(this.search)
+            },
+    },
 
     created() {
     axios
@@ -105,4 +117,7 @@ export default {
         background-color: $grey1;
       }
     }
+.not_visible{
+    display: hidden;
+}
 </style>

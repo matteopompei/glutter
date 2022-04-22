@@ -19,6 +19,7 @@ class UserController extends Controller
                 'business_name' => $user['business_name'],
                 'address' => $user['address'],
                 'image' => $user['image'],
+                'visible' => true,
                 'categories' => []
             ];
 
