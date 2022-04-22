@@ -14,7 +14,7 @@
               <img
                 v-else
                 src="/images/restaurant-placeholder.png"
-                :alt="user.name"
+                :alt="user.business_name"
                 class="img-fluid placeholder-avatar"
               />
             </div>
@@ -157,7 +157,8 @@ export default {
   },
   methods: {
     addToCart(dish) {
-      this.$store.commit("addToCart", dish);
+      let businessName = this.user.business_name;
+      this.$store.commit("addToCart", {dish, businessName});
     },
     removeFromCart(dish) {
       this.$store.commit("removeFromCart", dish);

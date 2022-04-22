@@ -1,5 +1,6 @@
 let cart = window.localStorage.getItem('cart');
 let cartCount = window.localStorage.getItem('cartCount');
+let businessName = window.localStorage.getItem('businessName');
 
 let store = {
     state: {
@@ -7,6 +8,7 @@ let store = {
         // Se il carrello e il totale sono presenti in locale prende il valore di essi, altrimenti li resetta
         cart: cart ? JSON.parse(cart) : [],
         cartCount: cartCount ? parseInt(cartCount) : 0,
+        businessName: businessName ? String(businessName) : "",
     },
     getters: {
         // Restituisce il totale del carrello
@@ -20,13 +22,13 @@ let store = {
     },
     mutations: {
         // Aggiunge un piatto al carrello
-        addToCart(state, dish) {
-            if (state.cart.length > 0) {
-                if (state.cart[0].user_id != dish.user_id) {
-                    alert("Puoi ordinare da un ristorante alla volta. Svuota il carrello se vuoi proseguire gli acquisti presso questo ristorante.");
-                    return;
-                }
+        addToCart(state, { dish, businessName = undefined }) {
+            // Se il carrello è pieno e ha elementi di un altro ristorante, da errore
+            if (state.cart.length > 0 && state.cart[0].user_id != dish.user_id) {
+                alert("Puoi ordinare da un ristorante alla volta. Svuota il carrello se vuoi proseguire gli acquisti presso questo ristorante.");
+                return;
             }
+
             // Cerca il piatto all'interno del carrello e lo salva in una variabile
             let found = state.cart.find(product => product.id === dish.id);
 
@@ -43,6 +45,10 @@ let store = {
                 Vue.set(dish, 'totalPrice', dish.price);
             }
 
+            // Se alla funzione è stato passato un businessname lo salva
+            if (businessName != undefined) {
+                state.businessName = businessName;
+            }
             state.cartCount++;
             this.commit('saveCart');
         },
@@ -64,6 +70,7 @@ let store = {
                 else {
                     let index = state.cart.indexOf(found);
                     state.cart.splice(index, 1);
+                    state.businessName = undefined;
                 }
                 state.cartCount--;
             }
@@ -74,7 +81,7 @@ let store = {
         removeAllFromCart(state) {
             state.cartCount = 0;
             state.cart = [];
-
+            state.businessName = undefined;
             this.commit('saveCart');
         },
 
@@ -82,6 +89,7 @@ let store = {
         saveCart(state) {
             window.localStorage.setItem('cart', JSON.stringify(state.cart));
             window.localStorage.setItem('cartCount', state.cartCount);
+            window.localStorage.setItem('businessName', state.businessName);
         }
     }
 };
