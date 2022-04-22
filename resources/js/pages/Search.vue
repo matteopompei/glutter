@@ -6,26 +6,35 @@
                     <div class="col-md-3">
                         <h4 class="mb-4">Criteri di ricerca</h4>
                         <!-- QUI SOTTO AGGIUNGERE I VARI FILTRI -->
+                         <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        </div>
+                        <div class="filter_container">
+                            <div v-for="(category, index) in all_categories" :key="index">
+                                <input type="checkbox">
+                                <span>{{category.name}}</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h4 class="mb-4">Risultati della ricerca</h4>
                         <div
                             class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"
                         >
-                            <div class="col" v-for="n in 20" :key="n">
+                            <div class="col" v-for="(restaurant, index) in all_restaurants" :key="index">
                                 <div class="card mb-3">
                                     <img
-                                        src="https://www.ricettasprint.it/wp-content/uploads/2021/10/Cannacavacciuolo-su-MasterChef-RicettaSprint-1.jpg"
+                                        :src="`/storage/${restaurant.image}`"
                                         class="card-img-top"
                                         alt=""
                                     />
                                     <div class="card-body">
                                         <h5 class="card-title">
-                                            Nome ristorante
+                                            {{restaurant.business_name}}
                                         </h5>
-                                        <p class="card-text">Indirizzo</p>
-                                        <span class="badge badge-light mx-1"
-                                            >Categoria</span
+                                        <p class="card-text">{{restaurant.address}}</p>
+                                        <span v-for="(category, index) in restaurant.categories" :key="index" class="badge badge-light mx-1"
+                                            >{{category.name}}</span
                                         >
                                     </div>
                                 </div>
@@ -41,6 +50,34 @@
 <script>
 export default {
     name: "Search",
+   data() {
+        return{
+        all_categories: {},
+        all_restaurants: {}
+        }
+    }, 
+    
+
+    created() {
+    axios
+       .get(`/api/categories`)
+       .then((apiResponse) => {
+         this.all_categories = apiResponse.data;
+         console.log(this.all_categories)
+       })
+       .catch((error) => {
+         this.$router.push({ name: "error404" });
+       });
+    axios
+        .get(`/api/restaurants`)
+       .then((apiResponse) => {
+         this.all_restaurants = apiResponse.data;
+         console.log(this.all_restaurants)
+       })
+       .catch((error) => {
+         this.$router.push({ name: "error404" });
+       });
+   },
 };
 </script>
 
