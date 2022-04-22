@@ -40,11 +40,11 @@
         <div class="row py-5 px-3">
           <div class="col-md-5 col-lg-8">
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
-              <a
-                href="#"
+              <div
                 v-for="dish in user.dishes"
                 :key="dish.id + dish.name"
-                class="col mb-4"
+                @click.prevent="selectDish(dish)"
+                class="dish col mb-4"
               >
                 <div class="card h-100 dish">
                   <div class="avatar-container">
@@ -85,13 +85,13 @@
                     </h5>
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
           <div class="col-md-7 col-lg-4">
             <div class="rounded py-3 px-4 carrello">
               <h4 class="mb-3">Il tuo ordine</h4>
-              <div v-if="$store.state.cartCount > 0">
+              <div v-if="$store.state.cartCount > 0 && $store.state.cart[0].user_id == user.id">
                 <div
                   v-for="dish in $store.state.cart"
                   :key="'cart' + dish.id + dish.name"
@@ -144,6 +144,12 @@
 <script>
 export default {
   name: "SingleUser",
+  data() {
+    return {
+      user: {},
+      selectedDish: {},
+    };
+  },
   methods: {
     addToCart(dish) {
       this.$store.commit("addToCart", dish);
@@ -157,16 +163,14 @@ export default {
     formatPrice(price) {
       return price.replace(".", ",");
     },
+    selectDish(dish) {
+      this.selectedDish = dish;
+    },
   },
   computed: {
     totalPrice() {
       return this.$store.getters.getTotal;
     },
-  },
-  data() {
-    return {
-      user: {},
-    };
   },
   created() {
     axios
@@ -183,6 +187,9 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
+.dish {
+  cursor: pointer;
+}
 .add_btn {
   background-color: $color3;
   color: #fff;
@@ -247,12 +254,12 @@ export default {
   z-index: 1;
   background: $grey1;
 
-  a {
+  .dish {
     display: block;
     color: $grey4;
     text-decoration: none;
 
-    .dish {
+    .card {
       background: $white;
       border: 0;
       box-shadow: 0 5px 5px rgba($color: $grey3, $alpha: 0.1);
