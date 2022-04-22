@@ -3,12 +3,13 @@ let cartCount = window.localStorage.getItem('cartCount');
 
 let store = {
     state: {
+        // Variabili carrello
         // Se il carrello e il totale sono presenti in locale prende il valore di essi, altrimenti li resetta
         cart: cart ? JSON.parse(cart) : [],
         cartCount: cartCount ? parseInt(cartCount) : 0,
     },
     getters: {
-        // Restituisce il totale
+        // Restituisce il totale del carrello
         getTotal(state) {
             let total = 0;
             for (let dish of state.cart) {
@@ -20,6 +21,12 @@ let store = {
     mutations: {
         // Aggiunge un piatto al carrello
         addToCart(state, dish) {
+            if (state.cart.length > 0) {
+                if (state.cart[0].user_id != dish.user_id) {
+                    alert("Puoi ordinare da un ristorante alla volta. Svuota il carrello se vuoi proseguire gli acquisti presso questo ristorante.");
+                    return;
+                }
+            }
             // Cerca il piatto all'interno del carrello e lo salva in una variabile
             let found = state.cart.find(product => product.id === dish.id);
 
