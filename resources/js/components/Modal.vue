@@ -67,9 +67,12 @@
           >
             Svuota Carrello
           </button>
-          <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">
+          <a
+            :href="`/restaurant/${this.$store.state.cart[0].user_id}`"
+            class="btn ms_btn_dismiss"
+          >
             Torna al ristorante
-          </button>
+          </a>
           <button type="button" class="btn ms_btn_checkout">
             Vai al checkout
           </button>
@@ -84,7 +87,7 @@ export default {
   name: "Modal",
   methods: {
     addToCart(dish) {
-      this.$store.commit("addToCart", {dish});
+      this.$store.commit("addToCart", { dish });
     },
     removeFromCart(dish) {
       this.$store.commit("removeFromCart", dish);
