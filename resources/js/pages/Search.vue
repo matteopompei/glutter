@@ -56,7 +56,8 @@ export default {
         return{
             all_categories: {},
             all_restaurants: [],
-            search: "" 
+            search: "" ,
+            
 
         }
     }, 
@@ -119,6 +120,6 @@ export default {
       }
     }
 .not_visible{
-    display: hidden;
+    display: none;
 }
 </style>
