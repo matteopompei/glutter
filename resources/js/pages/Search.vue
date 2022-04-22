@@ -66,10 +66,10 @@ export default {
      searchRestaurant: function(){
                 for (let index = 0; index < this.all_restaurants.length; index++) {
                     const element = this.all_restaurants[index];
-                    if(!element.business_name.toLowerCase().includes(this.search.toLowerCase())){
-                        element.visible = true;
-                    }else{
+                    if(element.business_name.toLowerCase().includes(this.search.toLowerCase())){
                         element.visible = false;
+                    }else{
+                        element.visible = true;
                     }
                 }
                 console.log(this.search)
