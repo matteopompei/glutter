@@ -101,7 +101,6 @@
                   v-for="dish in $store.state.cart"
                   :key="'cart' + dish.id + dish.name"
                   class="navbar-item"
-                  href=""
                 >
                   <span
                     >{{ dish.name }} x{{ dish.quantity }} ({{
@@ -122,7 +121,7 @@
                   </button>
                 </div>
 
-                <div class="navbar-item" href="">Totale: {{ totalPrice }}€</div>
+                <div class="navbar-item">Totale: {{ totalPrice }}€</div>
                 <button
                   class="button btn btn_scoop is-success"
                   @click.prevent="removeAllFromCart()"

@@ -30,7 +30,6 @@
               v-for="dish in $store.state.cart"
               :key="'cart' + dish.id + dish.name"
               class="navbar-item"
-              href=""
             >
               <span
                 >{{ dish.name }} x{{ dish.quantity }} ({{
@@ -51,7 +50,7 @@
               </button>
             </div>
 
-            <div class="navbar-item" href="">
+            <div class="navbar-item">
               Totale: {{ formatPrice(totalPrice) }}€
             </div>
           </div>

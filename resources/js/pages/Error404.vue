@@ -6,9 +6,12 @@
       <div class="message" style="padding: 10px">404</div>
 
       <div>
-        <a href="/" class="btn my_404-btn text-uppercase mx-2"
-          >Torna alla home</a
+        <router-link
+          class="btn my_404-btn text-uppercase mx-2"
+          :to="{ name: 'home' }"
         >
+          Torna alla home
+        </router-link>
       </div>
     </div>
   </div>
