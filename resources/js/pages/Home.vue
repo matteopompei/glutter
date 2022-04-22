@@ -79,7 +79,14 @@
                 </div>
             </div>
         </section>
-
+        <section id="all_categories">
+            <div class="container-xl py-5">
+                <h1 class="pb-3">Cerchi qualcos'altro?</h1>
+                <div v-for="(singleCategory, index) in all_categories" :key="index" class="category_btn m-1 btn">
+                    {{singleCategory.name}}
+                </div>
+            </div>
+        </section>
         <section id="download" class="py-5">
             <div class="container-xl">
                 <div class="row align-items-center py-5">
@@ -136,6 +143,24 @@
 
 export default {
     name: "Home",
+    data() {
+        return{
+        all_categories: {},
+        }
+    }, 
+    
+
+     created() {
+     axios
+       .get(`/api/categories`)
+       .then((apiResponse) => {
+         this.all_categories = apiResponse.data;
+         console.log(this.all_categories)
+       })
+       .catch((error) => {
+         this.$router.push({ name: "error404" });
+       });
+   },
 };
 </script>
 
@@ -294,7 +319,14 @@ export default {
         }
     }
 }
-
+.category_btn{
+    background-color: $grey1;
+    text-transform: uppercase;
+    font-weight: bold;
+    &:hover{
+        background-color: $grey2;
+    }
+}
 #download {
     background: linear-gradient(90deg, $white, $grey1);
 
