@@ -10,7 +10,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">
-            Carrello (Nome ristorante)
+            Carrello
+            <span v-if="$store.state.cartCount > 0"
+              >({{ getBusinessName }})</span
+            >
           </h5>
           <button
             type="button"
@@ -79,6 +82,11 @@
 <script>
 export default {
   name: "Modal",
+  data() {
+    return {
+      user: {},
+    };
+  },
   methods: {
     addToCart(dish) {
       this.$store.commit("addToCart", dish);
@@ -95,11 +103,30 @@ export default {
     formatPrice(price) {
       return price.replace(".", ",");
     },
+    getUserAxios() {
+      if (this.$store.state.cart.length > 0) {
+        axios
+          .get(`/api/restaurants/${this.$store.state.cart[0].user_id}`)
+          .then((apiResponse) => {
+            this.user = apiResponse.data;
+          })
+          .catch((error) => {
+            this.$router.push({ name: "error404" });
+          });
+      }
+    },
   },
   computed: {
     totalPrice() {
       return this.$store.getters.getTotal;
     },
+    getBusinessName() {
+      this.getUserAxios();
+      return this.user.business_name;
+    },
+  },
+  created() {
+    this.getUserAxios();
   },
 };
 </script>
