@@ -1,6 +1,7 @@
 let cart = window.localStorage.getItem('cart');
 let cartCount = window.localStorage.getItem('cartCount');
 let businessName = window.localStorage.getItem('businessName');
+let userID = window.localStorage.getItem('userID');
 
 let store = {
     state: {
@@ -8,8 +9,12 @@ let store = {
         // Se il carrello e il totale sono presenti in locale prende il valore di essi, altrimenti li resetta
         cart: cart ? JSON.parse(cart) : [],
         cartCount: cartCount ? parseInt(cartCount) : 0,
+
+        //Variabili User
         businessName: businessName ? String(businessName) : "",
+        userID: userID ? parseInt(userID) : 0,
     },
+
     getters: {
         // Restituisce il totale del carrello
         getTotal(state) {
@@ -20,6 +25,7 @@ let store = {
             return Number(total).toFixed(2);
         },
     },
+
     mutations: {
         // Aggiunge un piatto al carrello
         addToCart(state, { dish, businessName = undefined }) {
@@ -49,6 +55,10 @@ let store = {
             if (businessName != undefined) {
                 state.businessName = businessName;
             }
+
+            // Se alla funzione è stato passato un businessname lo salva
+            state.userID = dish.user_id;
+
             state.cartCount++;
             this.commit('saveCart');
         },
@@ -71,6 +81,7 @@ let store = {
                     let index = state.cart.indexOf(found);
                     state.cart.splice(index, 1);
                     state.businessName = undefined;
+                    state.userID = 0;
                 }
                 state.cartCount--;
             }
@@ -82,6 +93,7 @@ let store = {
             state.cartCount = 0;
             state.cart = [];
             state.businessName = undefined;
+            state.userID = 0;
             this.commit('saveCart');
         },
 
@@ -90,6 +102,7 @@ let store = {
             window.localStorage.setItem('cart', JSON.stringify(state.cart));
             window.localStorage.setItem('cartCount', state.cartCount);
             window.localStorage.setItem('businessName', state.businessName);
+            window.localStorage.setItem('userID', state.userID);
         }
     }
 };

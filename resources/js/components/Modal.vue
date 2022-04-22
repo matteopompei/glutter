@@ -30,7 +30,6 @@
               v-for="dish in $store.state.cart"
               :key="'cart' + dish.id + dish.name"
               class="navbar-item"
-              href=""
             >
               <span
                 >{{ dish.name }} x{{ dish.quantity }} ({{
@@ -51,7 +50,7 @@
               </button>
             </div>
 
-            <div class="navbar-item" href="">
+            <div class="navbar-item">
               Totale: {{ formatPrice(totalPrice) }}€
             </div>
           </div>
@@ -67,12 +66,12 @@
           >
             Svuota Carrello
           </button>
-          <a
-            :href="`/restaurant/${this.$store.state.cart[0].user_id}`"
+          <button
             class="btn ms_btn_dismiss"
           >
-            Torna al ristorante
-          </a>
+            <!-- <router-link :to="`/restaurant/${this.$store.state.cart[0].user_id}`">Torna al ristorante</router-link> -->
+            <router-link :to="{ name: 'singleuser', params: { id:$store.state.userID } }">Torna al ristorante</router-link>
+          </button>
           <button type="button" class="btn ms_btn_checkout">
             Vai al checkout
           </button>

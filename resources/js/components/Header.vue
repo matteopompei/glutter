@@ -1,9 +1,17 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-md navbar-dark py-3 fixed-top d-flex justify-content-between">
-      <a class="navbar-brand" href="/">
+    <nav
+      class="
+        navbar navbar-expand-md navbar-dark
+        py-3
+        fixed-top
+        d-flex
+        justify-content-between
+      "
+    >
+      <router-link class="navbar-brand" :to="{ name: 'home' }">
         <img src="/images/Glutter1.png" alt="Glutter" class="img-fluid logo" />
-      </a>
+      </router-link>
       <Cart />
     </nav>
   </header>
