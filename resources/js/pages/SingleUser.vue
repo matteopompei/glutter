@@ -91,7 +91,12 @@
           <div class="col-md-7 col-lg-4">
             <div class="rounded py-3 px-4 carrello">
               <h4 class="mb-3">Il tuo ordine</h4>
-              <div v-if="$store.state.cartCount > 0 && $store.state.cart[0].user_id == user.id">
+              <div
+                v-if="
+                  $store.state.cartCount > 0 &&
+                  $store.state.cart[0].user_id == user.id
+                "
+              >
                 <div
                   v-for="dish in $store.state.cart"
                   :key="'cart' + dish.id + dish.name"
