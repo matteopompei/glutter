@@ -26,7 +26,7 @@
                         </blockquote>
                     </div>
                     <div class="col-md-5">
-                        <div class="search mt-5 mt-md-0 p-5">
+                        <div class="mt-5 mt-md-0 p-5 search">
                             <p class="lead mb-3">
                                 Inserisci un nome o un alimento.
                             </p>
@@ -35,7 +35,7 @@
                                     type="text"
                                     class="form-control"
                                     placeholder="Es. pizza"
-                                    aria-label="Recipient's username"
+                                    aria-label="Cerca ristorante"
                                     aria-describedby="basic-addon2"
                                 />
                                 <div class="input-group-append">
@@ -52,7 +52,7 @@
 
         <section id="categories" class="py-5">
             <div class="container-xl">
-                <h3 class="display-4 mb-4">Le categorie più gettonate</h3>
+                <h2 class="display-4 mb-4">Le categorie più gettonate</h2>
                 <div class="row">
                     <div class="col-md-7 p-1">
                         <a href="#" class="text-center p-5 pizza"
@@ -77,16 +77,25 @@
                         >
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="all_categories">
-            <div class="container-xl py-5">
-                <h1 class="pb-3">Cerchi qualcos'altro?</h1>
-                <div v-for="(singleCategory, index) in all_categories" :key="index" class="category_btn m-1 btn">
-                    {{singleCategory.name}}
+                <div class="row mt-5">
+                    <div class="col">
+                        <h3 class="mb-3">Cerchi qualcos'altro?</h3>
+                        <div class="text-center text-md-left">
+                            <div
+                                v-for="(
+                                    singleCategory, index
+                                ) in all_categories"
+                                :key="index"
+                                class="btn btn-light text-uppercase font-weight-bold m-2"
+                            >
+                                {{ singleCategory.name }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
         <section id="download" class="py-5">
             <div class="container-xl">
                 <div class="row align-items-center py-5">
@@ -129,38 +138,57 @@
                 </div>
             </div>
         </section>
-        <section class="container-fluid d-flex align-items-center justify-content-center ms_footer_user">
-            <div class="form-inline py-1 mt-5 mb-3 my-md-2 justify-content-center user">
-                <span style="color: white">Sei un ristoratore?</span>
-                <a href="/login" class="btn btn-light text-uppercase mx-2 ms_log_btn"> Accedi</a>
-                <a href="/register" class="btn btn-light text-uppercase mx-2 ms_log_btn">Registrati</a>
+
+        <section id="user-area" class="py-5">
+            <div class="container-xl">
+                <h2 class="display-4 text-center mb-5">Sei un ristoratore?</h2>
+                <div class="container-sm">
+                    <div class="row">
+                        <div class="col-5 text-right px-lg-5">
+                            <a
+                                href="/login"
+                                class="btn btn-light btn-lg text-uppercase"
+                            >
+                                Accedi</a
+                            >
+                        </div>
+                        <div class="col-2 text-center text-light py-2">
+                            - o -
+                        </div>
+                        <div class="col-5 text-left px-lg-5">
+                            <a
+                                href="/register"
+                                class="btn btn-light btn-lg text-uppercase"
+                                >Registrati</a
+                            >
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 </template>
 
 <script>
-
 export default {
     name: "Home",
     data() {
-        return{
-        all_categories: {},
-        }
-    }, 
-    
+        return {
+            all_categories: {},
+        };
+    },
 
-     created() {
-     axios
-       .get(`/api/categories`)
-       .then((apiResponse) => {
-         this.all_categories = apiResponse.data;
-         console.log(this.all_categories)
-       })
-       .catch((error) => {
-         this.$router.push({ name: "error404" });
-       });
-   },
+    created() {
+        axios
+            .get(`/api/categories`)
+            .then((apiResponse) => {
+                this.all_categories = apiResponse.data;
+                console.log(this.all_categories);
+            })
+            .catch((error) => {
+                this.$router.push({ name: "error404" });
+            });
+    },
 };
 </script>
 
@@ -247,13 +275,6 @@ export default {
     }
 }
 
-.ms_footer_user {
-    background-color: $color2;
-}
-.ms_log_btn:hover {
-    text-decoration: none;
-}
-
 #categories {
     a {
         display: block;
@@ -319,19 +340,20 @@ export default {
         }
     }
 }
-.category_btn{
-    background-color: $grey1;
-    text-transform: uppercase;
-    font-weight: bold;
-    &:hover{
-        background-color: $grey2;
-    }
-}
+
 #download {
     background: linear-gradient(90deg, $white, $grey1);
 
     h2 {
         color: $color3;
+    }
+}
+
+#user-area {
+    background: $color2;
+
+    a {
+        width: 100%;
     }
 }
 </style>
