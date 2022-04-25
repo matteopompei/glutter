@@ -45,120 +45,133 @@
                     </div>
                 </div>
 
-                {{-- Campo Via --}}
-                {{-- <div class="form-group row">
-                        <label for="street" class="col-md-4 col-form-label text-md-right">Via</label>
-    
-                        <div class="col-md-6">
-                            <input id="street" type="text" class="form-control @error('street') is-invalid @enderror"
-                                name="street" value="{{ old('street') }}" required>
-    
-                            @error('street')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div> --}}
+                {{-- Campo email --}}
+                <div class="form-group row">
+                    <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
 
-                {{-- Campo numero civico --}}
-                {{-- <div class="form-group row">
-                        <label for="civic" class="col-md-4 col-form-label text-md-right">Numero Civico</label>
-    
-                        <div class="col-md-6">
-                            <input id="civic" type="text" class="form-control @error('civic') is-invalid @enderror"
-                                name="civic" value="{{ old('civic') }}" required>
-    
-                            @error('civic')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div> --}}
+                    <div class="col-md-6">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                            name="email"
+                            value="@if (isset($form_data)) {{ $form_data['email'] }} @else {{ old('email') }} @endif"
+                            required autocomplete="email">
 
-                {{-- Campo città --}}
-                {{-- <div class="form-group row">
-                        <label for="city" class="col-md-4 col-form-label text-md-right">Città</label>
-    
-                        <div class="col-md-6">
-                            <input id="city" type="text" class="form-control @error('city') is-invalid @enderror"
-                                name="city" value="{{ old('city') }}" required>
-    
-                            @error('city')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div> --}}
-
-                {{-- Campo provincia --}}
-                {{-- <div class="form-group row">
-                        <label for="state" class="col-md-4 col-form-label text-md-right">Provincia</label>
-    
-                        <div class="col-md-6">
-                            <input id="state" type="text" class="form-control @error('state') is-invalid @enderror"
-                                name="state" value="{{ old('state') }}" required>
-    
-                            @error('state')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div> --}}
-
-                {{-- Campo CAP --}}
-                {{-- <div class="form-group row">
-                        <label for="cap" class="col-md-4 col-form-label text-md-right">CAP</label>
-    
-                        <div class="col-md-6">
-                            <input id="cap" type="text" class="form-control @error('cap') is-invalid @enderror" name="cap"
-                                value="{{ old('cap') }}" minlength="5" maxlength="5" required>
-    
-                            @error('cap')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div> --}}
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
 
                 {{-- Campo numero di telefono --}}
-                {{-- <div class="form-group row">
-                        <label for="phone" class="col-md-4 col-form-label text-md-right">Numero di telefono</label>
-    
-                        <div class="col-md-6">
-                            <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
-                                name="phone" value="{{ old('phone') }}" required>
-    
-                            @error('phone')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div> --}}
+                <div class="form-group row">
+                    <label for="phone" class="col-md-4 col-form-label text-md-right">Numero di telefono</label>
 
-                {{-- Campo email --}}
-                {{-- <div class="form-group row">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
-    
-                        <div class="col-md-6">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email">
-    
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div> --}}
+                    <div class="col-md-6">
+                        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
+                            name="phone"
+                            value="@if (isset($form_data)) {{ $form_data['phone'] }} @else {{ old('phone') }} @endif"
+                            required>
 
-                {{-- <div>Data di consegna</div>
-                    <div>Orario</div> --}}
+                        @error('phone')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                {{-- Campo Via --}}
+                <div class="form-group row">
+                    <label for="street" class="col-md-4 col-form-label text-md-right">Via</label>
+
+                    <div class="col-md-6">
+                        <input id="street" type="text" class="form-control @error('street') is-invalid @enderror"
+                            name="street"
+                            value="@if (isset($form_data)) {{ $form_data['street'] }} @else {{ old('street') }} @endif"
+                            required>
+
+                        @error('street')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                {{-- Campo numero civico --}}
+                <div class="form-group row">
+                    <label for="civic" class="col-md-4 col-form-label text-md-right">Numero Civico</label>
+
+                    <div class="col-md-6">
+                        <input id="civic" type="text" class="form-control @error('civic') is-invalid @enderror"
+                            name="civic"
+                            value="@if (isset($form_data)) {{ $form_data['civic'] }} @else {{ old('civic') }} @endif"
+                            required>
+
+                        @error('civic')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                {{-- Campo città --}}
+                <div class="form-group row">
+                    <label for="city" class="col-md-4 col-form-label text-md-right">Città</label>
+
+                    <div class="col-md-6">
+                        <input id="city" type="text" class="form-control @error('city') is-invalid @enderror"
+                            name="city"
+                            value="@if (isset($form_data)) {{ $form_data['city'] }} @else {{ old('city') }} @endif"
+                            required>
+
+                        @error('city')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                {{-- Campo provincia --}}
+                <div class="form-group row">
+                    <label for="state" class="col-md-4 col-form-label text-md-right">Provincia</label>
+
+                    <div class="col-md-6">
+                        <input id="state" type="text" class="form-control @error('state') is-invalid @enderror"
+                            name="state"
+                            value="@if (isset($form_data)) {{ $form_data['state'] }} @else {{ old('state') }} @endif"
+                            required>
+
+                        @error('state')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                {{-- Campo CAP --}}
+                <div class="form-group row">
+                    <label for="cap" class="col-md-4 col-form-label text-md-right">CAP</label>
+
+                    <div class="col-md-6">
+                        <input id="cap" type="text" class="form-control @error('cap') is-invalid @enderror" name="cap"
+                            value="@if (isset($form_data)) {{ $form_data['cap'] }} @else {{ old('cap') }} @endif"
+                            minlength="5" maxlength="5" required>
+
+                        @error('cap')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div>Data di consegna</div>
+                <div>Orario</div>
 
                 <div class="form-group row mb-0">
                     <div class="col-md-6 offset-md-4">
