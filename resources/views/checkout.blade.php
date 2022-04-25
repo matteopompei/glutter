@@ -192,6 +192,7 @@
     </div>
     <script>
         const cart = JSON.parse(window.localStorage.getItem('cart'));
+        const userID = window.localStorage.getItem('userID');
         let total = 0;
 
         for (let item of cart) {
@@ -242,6 +243,7 @@
                     instance.requestPaymentMethod(function(err, payload) {
                         payload.cart = cart;
                         payload.form_data = form_data;
+                        payload.user_id = userID;
                         $.get('{{ route('payment.process') }}', {
                             payload
                         }, function(response) {
