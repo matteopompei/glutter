@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section class="jumbotron jumbotron-fluid m-0 custom-jumbo">
+    <section id="jumbo" class="jumbotron jumbotron-fluid m-0">
       <div class="container-xl">
         <div class="row align-items-center py-5">
           <div class="col-md-7 mx-auto">
@@ -26,15 +26,17 @@
                   type="text"
                   v-model="searchInput"
                   class="form-control"
-                  placeholder="Es. pizza"
                   aria-label="Cerca ristorante"
                   aria-describedby="basic-addon2"
                 />
 
                 <div class="input-group-append">
-                  <button class="btn" type="button">
-                    <router-link :to="{ name: 'search' } "  @click="sendSearchInput()">Cerca</router-link>
-                  </button>
+                  <router-link
+                    :to="{ name: 'search' }"
+                    @click="sendSearchInput()"
+                    class="btn"
+                    >Cerca</router-link
+                  >
                 </div>
               </div>
             </div>
@@ -122,7 +124,9 @@
 
     <section id="user-area" class="py-5">
       <div class="container-xl">
-        <h2 class="display-4 text-center mb-5">Sei un ristoratore?</h2>
+        <h2 class="display-4 text-light text-center mb-5">
+          Sei un ristoratore?
+        </h2>
         <div class="container-sm">
           <div class="row">
             <div class="col-5 text-right px-lg-5">
@@ -175,11 +179,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-a {
-  text-decoration: none;
-  color: white;
-}
-.custom-jumbo {
+
+#jumbo {
   position: relative;
   background: $color4;
   color: $white;
@@ -206,7 +207,7 @@ a {
       border-radius: 5px;
     }
 
-    button {
+    a {
       background: $color2;
       border-color: none;
       box-shadow: none;
