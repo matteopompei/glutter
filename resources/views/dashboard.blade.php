@@ -90,7 +90,7 @@
                                 Visualizza menù</a>
                         </div>
                         <div class="col-lg">
-                            <a href="#"><i class="fa-solid fa-list-check"></i>
+                            <a href="/auth/order"><i class="fa-solid fa-list-check"></i>
                                 Visualizza ordini</a>
                         </div>
                     </div>

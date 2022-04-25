@@ -233,3 +233,27 @@ nav {
         }
     }
 }
+
+#checkout {
+    background: $white;
+
+    .nav-space {
+        padding-top: 100px;
+        background: $color4;
+        box-shadow: 0 10px 40px 30px $color4;
+    }
+
+    nav {
+        background: rgba($color: $color4, $alpha: 0.7);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+
+        .logo {
+            max-width: 250px;
+        }
+    }
+
+    main {
+        margin: 100px 0;
+    }
+}
