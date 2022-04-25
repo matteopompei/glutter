@@ -18,28 +18,28 @@
                     </div>
                     <div class="col-md-10">
                         <h4 class="mb-4">Risultati della ricerca</h4>
-                        <div
-                            class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5"
-                        >
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-5">
                             <div class="col pb-3" v-for="(restaurant, index) in searchedRestaurant" :key="index" :info="restaurant" :class="{not_visible: restaurant.visible}">
-                                <div class="card restaurant">
-                                    <div class="avatar-container">
-                                        <img
-                                            :src="`/storage/${restaurant.image}`"
-                                            class="card-img-top img-food"
-                                            alt=""
-                                        />
+                                <router-link :to="{ name: 'singleuser', params: { id: restaurant.id } }">
+                                    <div class="card restaurant">
+                                        <div class="avatar-container">
+                                            <img :src="`/storage/${restaurant.image}`" class="card-img-top img-food" alt=""/>
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                {{restaurant.business_name}}
+                                            </h5>
+                                            <p class="card-text">{{restaurant.address}}</p>
+                                            <span 
+                                                v-for="(category, index) in restaurant.categories" 
+                                                :key="index" 
+                                                class="badge badge-light mx-1"
+                                            >
+                                                    {{category.name}}
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            {{restaurant.business_name}}
-                                        </h5>
-                                        <p class="card-text">{{restaurant.address}}</p>
-                                        <span v-for="(category, index) in restaurant.categories" :key="index" class="badge badge-light mx-1"
-                                            >{{category.name}}</span
-                                        >
-                                    </div>
-                                </div>
+                                </router-link>
                             </div>
                         </div>
                     </div>
@@ -126,6 +126,13 @@ export default {
 @import "../../sass/_variables.scss";
 .restaurant{
     height: 100%;
+    color: black;
+    &:hover{
+        cursor: pointer;
+    }
+}
+a{
+    text-decoration: none;
 }
 .avatar-container {
       padding-top: 50%;
