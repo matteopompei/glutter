@@ -46,14 +46,10 @@ Route::middleware('auth')->name('auth.')->prefix('auth')->group(
     function () {
         Route::get('/dish', 'DishController@index');
         Route::resource('/dish', 'dishController');
+        Route::get('/order', 'OrderController@index');
+        Route::resource('/order', 'orderController');
     }
 );
-
-//Ordini
-Route::middleware('auth')->name('user.')->prefix('user')->group(function () {
-    Route::get('/orders', 'OrderController@index');
-    Route::get('/orders/show', 'OrderController@show');
-});
 
 // Checkout
 Route::get('/payment/checkout', 'PaymentsController@checkout')->name('payment.checkout');
