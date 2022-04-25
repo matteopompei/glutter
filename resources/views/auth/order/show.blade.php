@@ -34,13 +34,13 @@
                             
                             <tbody>
                                     <tr>
-                                        <td class="align-middle text-center">{{ $order['id'] }}</td>
-                                        <td class="align-middle text-center">{{ $order['email'] }}</td>
-                                        <td class="align-middle text-center">{{ $order['name'] }}</td>
-                                        <td class="align-middle text-center">{{ $order['phone'] }}</td>
-                                        <td class="align-middle text-center">{{ $order['address'] }}</td>
-                                        <td class="align-middle text-center">{{ $order['shipment'] }}</td>
-                                        <td class="align-middle text-center">{{ $order['total'] }}€</td>
+                                        <td class="align-middle text-center">{{ $order->id }}</td>
+                                        <td class="align-middle text-center">{{ $order->email }}</td>
+                                        <td class="align-middle text-center">{{ $order->name }}</td>
+                                        <td class="align-middle text-center">{{ $order->phone }}</td>
+                                        <td class="align-middle text-center">{{ $order->address }}</td>
+                                        <td class="align-middle text-center">{{ $order->shipment }}</td>
+                                        <td class="align-middle text-center">{{ $order->total }}€</td>
                                         <td class="align-middle text-center">
                                           @if ($order->payed == 0)
                                             <div>
@@ -69,7 +69,7 @@
                         </table>
                     </div>
                     <div class="text-center mt-5 mb-1">
-                        <a href="/dashboard" class="btn btn-danger">Indietro</a>
+                        <a href="/auth/order" class="btn btn-danger">Indietro</a>
                     </div>
                 </div>
             </div>

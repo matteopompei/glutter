@@ -43,7 +43,7 @@
               <div
                 v-for="dish in user.dishes"
                 :key="dish.id + dish.name"
-                @click.prevent="selectDish(dish)"
+                @click.prevent="openDishModal(dish)"
                 class="dish col mb-4"
               >
                 <div class="card h-100 dish">
@@ -68,18 +68,6 @@
                     <p class="card-text">
                       {{ dish.ingredients }}
                     </p>
-                    <button
-                      class="button btn add_btn is-success"
-                      @click.prevent="addToCart(dish)"
-                    >
-                      +
-                    </button>
-                    <button
-                      class="removeBtn btn remove_btn"
-                      @click.prevent="removeFromCart(dish)"
-                    >
-                      -
-                    </button>
                     <h5 class="text-right mt-4">
                       {{ formatPrice(dish.price) }} €
                     </h5>
@@ -100,33 +88,34 @@
                 <div
                   v-for="dish in $store.state.cart"
                   :key="'cart' + dish.id + dish.name"
-                  class="navbar-item"
+                  class="d-flex justify-content-between align-items-center mb-2"
                 >
-                  <span
-                    >{{ dish.name }} x{{ dish.quantity }} ({{
-                      dish.totalPrice
-                    }}€)</span
-                  >
-                  <button
-                    class="button btn add_btn is-success"
-                    @click.prevent="addToCart(dish)"
-                  >
-                    +
-                  </button>
-                  <button
-                    class="removeBtn btn remove_btn"
-                    @click.prevent="removeFromCart(dish)"
-                  >
-                    -
-                  </button>
+                  <div>
+                    {{ dish.name }} x{{ dish.quantity }} ({{ dish.totalPrice }}
+                    €)
+                  </div>
+                  <div>
+                    <button
+                      class="btn rounded-circle mx-2 py-1 px-2 add_btn"
+                      @click.prevent="addToCart(dish)"
+                    >
+                      <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button
+                      class="btn rounded-circle mx-2 py-1 px-2 remove_btn"
+                      @click.prevent="removeFromCart(dish)"
+                    >
+                      <i class="fa-solid fa-minus"></i>
+                    </button>
+                  </div>
                 </div>
 
-                <div class="navbar-item">Totale: {{ totalPrice }}€</div>
+                <div class="my-3">Totale: {{ totalPrice }} €</div>
                 <button
-                  class="button btn btn_scoop is-success"
+                  class="btn btn-danger"
                   @click.prevent="removeAllFromCart()"
                 >
-                  Svuota Carrello
+                  Svuota carrello
                 </button>
                 <a
                   href="/payment/checkout"
@@ -150,7 +139,6 @@ export default {
   data() {
     return {
       user: {},
-      selectedDish: {},
     };
   },
   methods: {
@@ -167,8 +155,9 @@ export default {
     formatPrice(price) {
       return price.replace(".", ",");
     },
-    selectDish(dish) {
-      this.selectedDish = dish;
+    openDishModal(dish) {
+      let user = this.user;
+      this.$root.$emit("DishModalEvent", { dish, user });
     },
   },
   computed: {
@@ -193,18 +182,6 @@ export default {
 @import "../../sass/_variables.scss";
 .dish {
   cursor: pointer;
-}
-.add_btn {
-  background-color: $color3;
-  color: #fff;
-}
-.remove_btn {
-  background-color: $red;
-  color: #fff;
-}
-.btn_scoop {
-  background-color: $red;
-  color: white;
 }
 #info {
   position: relative;
@@ -292,8 +269,30 @@ export default {
   }
 
   .carrello {
-    background: #fff;
+    background: $white;
     box-shadow: 0 5px 5px rgba($color: $grey3, $alpha: 0.1);
+
+    .add_btn,
+    .remove_btn {
+      background: $white;
+      box-shadow: 0 3px 5px rgba($color: $black, $alpha: 0.1);
+      transition: 0.3s;
+
+      &:hover {
+        box-shadow: 0 3px 10px rgba($color: $black, $alpha: 0.15);
+      }
+
+      &:active {
+        background: $grey1;
+        box-shadow: 0 0 3px rgba($color: $black, $alpha: 0.2);
+      }
+    }
+    .add_btn {
+      color: $color3;
+    }
+    .remove_btn {
+      color: $color2;
+    }
   }
 }
 </style>
