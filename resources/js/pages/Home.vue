@@ -28,21 +28,24 @@
                     <div class="col-md-5">
                         <div class="mt-5 mt-md-0 p-5 search">
                             <p class="lead mb-3">
-                                Inserisci un nome o un alimento.
+                                Cerca un ristorante.
                             </p>
                             <div class="input-group">
                                 <input
                                     type="text"
+                                    v-model="searchInput"
                                     class="form-control"
                                     placeholder="Es. pizza"
                                     aria-label="Cerca ristorante"
                                     aria-describedby="basic-addon2"
                                 />
-                                <div class="input-group-append">
-                                    <button class="btn" type="button">
-                                        Cerca
-                                    </button>
-                                </div>
+                                
+                                    <div class="input-group-append">
+                                            <button class="btn" type="button" @click="setSearchInput">
+                                                <router-link :to="{ name: 'search' }">Cerca</router-link>
+                                            </button>
+                                    </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -175,7 +178,14 @@ export default {
     data() {
         return {
             all_categories: {},
+            searchInput: "",
         };
+    },
+    methods: {
+        setSearchInput(){
+            this.$store.commit("setSearchInput", this.searchInput)
+        }
+    
     },
 
     created() {
@@ -183,18 +193,21 @@ export default {
             .get(`/api/categories`)
             .then((apiResponse) => {
                 this.all_categories = apiResponse.data;
-                console.log(this.all_categories);
             })
             .catch((error) => {
                 this.$router.push({ name: "error404" });
             });
+        
     },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-
+a{
+    text-decoration: none;
+    color: white;
+}
 .custom-jumbo {
     position: relative;
     background: $color4;

@@ -30,9 +30,9 @@
                                                 {{restaurant.business_name}}
                                             </h5>
                                             <p class="card-text">{{restaurant.address}}</p>
-                                            <span 
-                                                v-for="(category, index) in restaurant.categories" 
-                                                :key="index" 
+                                            <span
+                                                v-for="(category, index) in restaurant.categories"
+                                                :key="index"
                                                 class="badge badge-light mx-1"
                                             >
                                                     {{category.name}}
@@ -58,12 +58,12 @@ export default {
             all_restaurants: [],
             search: "" ,
             checkArray: []
-            
+
 
         }
-    }, 
+    },
     methods:{
-        //Ritorna ristoranti filtrati tramite search bar 
+        //Ritorna ristoranti filtrati tramite search bar
         searchRestaurant: function(){
             for (let index = 0; index < this.all_restaurants.length; index++) {
                 const element = this.all_restaurants[index];
@@ -73,8 +73,8 @@ export default {
                     element.visible = false;
                 }
             }
-            console.log(this.search)
-        },
+        }
+
     },
     computed:{
         //Ritorna ristoranti filtrati tramite chekbox
@@ -85,7 +85,6 @@ export default {
                 }else{
                     for(let check of this.checkArray){
                         for(let category of restaurant.categories){
-                                console.log(check)
                             if(category.name == check){
                                 return restaurant
                             }
@@ -95,13 +94,16 @@ export default {
             })
         },
     },
-
+    
     created() {
+        //AAAAAAAAAAH FUNZIONA SOLO SE GLI VA
+    // this.search = this.$store.state.searchInput;
+    // console.log(this.search, "ciao");
+    
     axios
         .get(`/api/categories`)
         .then((apiResponse) => {
             this.all_categories = apiResponse.data;
-            console.log(this.all_categories)
         })
         .catch((error) => {
             this.$router.push({ name: "error404" });
@@ -110,16 +112,13 @@ export default {
         .get(`/api/restaurants`)
         .then((apiResponse) => {
             this.all_restaurants = apiResponse.data;
-            console.log(this.all_restaurants)
         })
         .catch((error) => {
             this.$router.push({ name: "error404" });
         });
     },
+    
 };
-
-
-
 </script>
 
 <style lang="scss" scoped>
