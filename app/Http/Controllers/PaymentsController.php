@@ -74,6 +74,16 @@ class PaymentsController extends Controller
             //Tabella ordini
             $user = User::find($user_id);
 
+            $total = 0;
+            foreach ($cart as $dish) {
+                $db_dish = Dish::find($dish['id']);
+
+                $quantity = $dish['quantity'];
+                $unit_price = $db_dish['price'];
+
+                $total += $unit_price * $quantity;
+            }
+
             $new_order = new Order;
             $new_order->user()->associate($user);
             $new_order->name = $form_data["fullName"];
@@ -81,8 +91,8 @@ class PaymentsController extends Controller
             $new_order->phone = $form_data["phone"];
             $new_order->address = $this->getAddress($form_data['street'], $form_data['civic'], $form_data['city'], $form_data['state'], $form_data['cap']);
             $new_order->shipment = 0; //todo
-            $new_order->total = 0; //todo
-            $new_order->payed = 0; //todo
+            $new_order->total = $total;
+            $new_order->payed = $total;
             $new_order->save();
 
             // Tabella ponte
@@ -90,7 +100,7 @@ class PaymentsController extends Controller
                 $db_dish = Dish::find($dish['id']);
 
                 $quantity = $dish['quantity'];
-                $unit_price = $dish['price'];
+                $unit_price = $db_dish['price'];
 
                 $new_order->dishes()->attach($db_dish, ['quantity' => $quantity, "unit_price" => $unit_price]);
             }
