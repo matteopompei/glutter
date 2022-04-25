@@ -86,12 +86,14 @@ class PaymentsController extends Controller
             $new_order->save();
 
             // Tabella ponte
-            $dish = Dish::find(1); //todo
+            foreach ($cart as $dish) {
+                $db_dish = Dish::find($dish['id']);
 
-            $quantity = 1; //todo
-            $unit_price = 1; //todo
+                $quantity = $dish['quantity'];
+                $unit_price = $dish['price'];
 
-            $new_order->dishes()->attach($dish, ['quantity' => $quantity, "unit_price" => $unit_price]);
+                $new_order->dishes()->attach($db_dish, ['quantity' => $quantity, "unit_price" => $unit_price]);
+            }
         }
 
         $response = response()->json($status);
