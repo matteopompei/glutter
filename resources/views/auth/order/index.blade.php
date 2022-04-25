@@ -34,18 +34,18 @@
                                         <td class="align-middle text-center">{{ $order['id'] }}</td>
                                         <td class="align-middle text-center">{{ $order['total'] }}€</td>
                                         <td class="align-middle text-center">
-                                          @if ($order->payed == 0)
-                                            <div>
-                                                <span><i class="fa-solid fa-eye-slash"></i> No</span>
-                                            </div>
-                                          @else
-                                            <div>
-                                                <span><i class="fa-solid fa-eye"></i> Sì</span>
-                                            </div>
-                                          @endif
+                                            @if ($order->payed == 0)
+                                                <div>
+                                                    <span><i class="fa-solid fa-eye-slash"></i> No</span>
+                                                </div>
+                                            @else
+                                                <div>
+                                                    <span><i class="fa-solid fa-eye"></i> Sì</span>
+                                                </div>
+                                            @endif
                                         </td>
                                         <td class="align-middle text-center"><a
-                                                href="{{ route('auth.order.show', $order->id) }}"
+                                                href="{{ route('auth.order.show', $order) }}"
                                                 class="btn btn-info text-white">Visualizza</a>
                                         </td>
                                         <td class="align-middle text-center">
@@ -74,4 +74,3 @@
         </div>
     </div>
 @endsection
-
