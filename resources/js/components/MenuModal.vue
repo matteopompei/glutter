@@ -1,7 +1,7 @@
 <template>
   <div
     class="modal fade"
-    id="exampleModal"
+    id="MenuModal"
     tabindex="-1"
     aria-labelledby="exampleModalLabel"
     aria-hidden="true"
@@ -9,9 +9,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">
-            Nome Piatto
-          </h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{ dish.name }}</h5>
           <button
             type="button"
             class="close"
@@ -22,41 +20,37 @@
           </button>
         </div>
         <div class="modal-body">
-          <div v-if="$store.state.cartCount > 0">
-            <div
-              v-for="dish in $store.state.cart"
-              :key="'cart' + dish.id + dish.name"
-              class="navbar-item"
-            >
-              <span
-                >{{ dish.name }} x{{ dish.quantity }} ({{
-                  dish.totalPrice
-                }}€)</span
-              >
-              <button
-                class="button btn add_btn is-success"
-                @click.prevent="addToCart(dish)"
-              >
-                +
-              </button>
-              <button
-                class="removeBtn btn remove_btn"
-                @click.prevent="removeFromCart(dish)"
-              >
-                -
-              </button>
-            </div>
+          <img
+            v-if="dish.image"
+            :src="`/storage/${dish.image}`"
+            :alt="dish.name"
+            class="card-img-top img-food"
+          />
+          <img
+            v-else
+            src="/images/dish-placeholder.png"
+            :alt="dish.name"
+            class="card-img-top img-food"
+          />
+          <p class="card-text">
+            {{ dish.ingredients }}
+          </p>
 
-            <div class="navbar-item">Totale: {{ formatPrice(totalPrice) }}€</div>
-          </div>
-          <div v-else>Il carrello è vuoto</div>
+          <h5 v-if="dish['price']" class="text-right mt-4">
+            {{ formatPrice(dish.price) }} €
+          </h5>
         </div>
         <div class="modal-footer d-flex justify-content-center">
-          <button type="button" class="btn ms_btn_dismiss" data-dismiss="modal">
-            Torna al ristorante
+          <button class="button btn add_btn" @click.prevent="addToCart(dish)">
+            +
           </button>
-          <button type="button" class="btn ms_btn_checkout">
-            Vai al checkout
+          <div v-if="quantity" class="quantity">{{ quantity }}</div>
+          <div v-else>0</div>
+          <button
+            class="removeBtn btn remove_btn"
+            @click.prevent="removeFromCart(dish)"
+          >
+            -
           </button>
         </div>
       </div>
@@ -67,17 +61,25 @@
 <script>
 export default {
   name: "MenuModal",
+  data() {
+    return {
+      dish: {},
+      user: {},
+    };
+  },
   methods: {
+    showMenuModal() {
+      this.$root.$emit("DishModalEvent");
+    },
     addToCart(dish) {
-      this.$store.commit("addToCart", dish);
+      let businessName = this.user.business_name;
+      this.$store.commit("addToCart", { dish, businessName });
     },
     removeFromCart(dish) {
       this.$store.commit("removeFromCart", dish);
     },
-    showMenuModal() {
-      this.$root.$emit("Main");
-    },
     formatPrice(price) {
+      console.log(price);
       return price.replace(".", ",");
     },
   },
@@ -85,6 +87,21 @@ export default {
     totalPrice() {
       return this.$store.getters.getTotal;
     },
+    quantity() {
+      for (let item of this.$store.state.cart) {
+        if (item.id == this.dish.id) {
+          return item.quantity;
+        } else {
+          return 0;
+        }
+      }
+    },
+  },
+  mounted() {
+    this.$root.$on("DishModalEvent", (data) => {
+      this.dish = data.dish;
+      this.user = data.user;
+    });
   },
 };
 </script>

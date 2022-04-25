@@ -32,8 +32,8 @@
                 />
 
                 <div class="input-group-append">
-                  <button class="btn" type="button" @click="sendSearchInput()">
-                    <router-link :to="{ name: 'search' }">Cerca</router-link>
+                  <button class="btn" type="button">
+                    <router-link :to="{ name: 'search' } "  @click="sendSearchInput()">Cerca</router-link>
                   </button>
                 </div>
               </div>
