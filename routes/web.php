@@ -42,15 +42,18 @@ Route::patch('users/imageupdate', 'UserController@imageUpdate')->name('users.ima
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Gestione piatti
-Route::middleware('auth')
-    ->name('auth.')
-    ->prefix('auth')
-    ->group(
-        function () {
-            Route::get('/dish', 'DishController@index');
-            Route::resource('/dish', 'dishController');
-        }
-    );
+Route::middleware('auth')->name('auth.')->prefix('auth')->group(
+    function () {
+        Route::get('/dish', 'DishController@index');
+        Route::resource('/dish', 'dishController');
+    }
+);
+
+//Ordini
+Route::middleware('auth')->name('user.')->prefix('user')->group(function () {
+    Route::get('/orders', 'OrderController@index');
+    Route::get('/orders/show', 'OrderController@show');
+});
 
 // Checkout
 Route::get('/payment/checkout', 'PaymentsController@checkout')->name('payment.checkout');
