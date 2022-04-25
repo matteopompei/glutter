@@ -66,7 +66,7 @@
           >
             Svuota Carrello
           </button>
-          <button class="btn ms_btn_dismiss">
+          <button class="btn ms_btn_dismiss" >
             <!-- <router-link :to="`/restaurant/${this.$store.state.cart[0].user_id}`">Torna al ristorante</router-link> -->
             <router-link
               :to="{ name: 'singleuser', params: { id: $store.state.userID } }"
@@ -112,7 +112,14 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-
+a{
+  color:white;
+  text-decoration: none;
+  &:hover{
+    color:black;
+    text-decoration: none;
+  }
+}
 .add_btn {
   background-color: $color3;
   color: #fff;

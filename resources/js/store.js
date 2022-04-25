@@ -13,6 +13,9 @@ let store = {
         //Variabili User
         businessName: businessName ? String(businessName) : "",
         userID: userID ? parseInt(userID) : 0,
+        
+        //variabili di ricerca
+        searchInput: "",
     },
 
     getters: {
@@ -103,6 +106,11 @@ let store = {
             window.localStorage.setItem('cartCount', state.cartCount);
             window.localStorage.setItem('businessName', state.businessName);
             window.localStorage.setItem('userID', state.userID);
+        },
+
+        //Cambia valori di ricerca di searchInput
+        setSearchInput(state, input){
+            state.searchInput = input;
         }
     }
 };

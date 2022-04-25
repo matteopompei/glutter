@@ -91,7 +91,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-
 .add_btn {
   background-color: $color3;
   color: #fff;
