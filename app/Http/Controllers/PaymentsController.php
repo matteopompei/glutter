@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use App\Dish;
 use App\Order;
 use Braintree;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
 class PaymentsController extends Controller
 {
     protected $validation = [
         'fullName' => 'required|max:255',
+        'street' => 'required|string|max:160',
+        'civic' => 'required|string|max:10',
+        'city' => 'required|string|max:40',
+        'state' => 'required|string|max:40',
+        'cap' => 'required|numeric|digits:5',
+        'phone' => 'required|string|max:15',
+        'email' => 'required|string|email|max:255'
     ];
 
     public function checkout()
@@ -18,33 +26,16 @@ class PaymentsController extends Controller
         return view('checkout');
     }
 
+    // Ritorna una stringa formattata per l'indirizzo
+    protected function getAddress($street, $number, $city, $state, $cap)
+    {
+        return $street . ", " . $number . ", " . $city . ", " . $state . ", " . $cap;
+    }
+
     public function validateShippingInfo(Request $request)
     {
         $request->validate($this->validation);
         $form_data = $request->all();
-
-        // $order_data = [
-        //     "user_id" => 0,
-        //     "email" => "aaaa@ada.it",
-        //     "name" => $request["fullName"],
-        //     "address" => "aaaa",
-        //     "total" => 10,
-        //     "payed" => 10,
-        // ];
-
-        // $new_order = new Order;
-        // $new_order->user_id = 1;
-        // $new_order->email = "aaa@aa.it";
-        // $new_order->name = "boh";
-        // $new_order->phone = "44ff";
-        // $new_order->address = "address";
-        // $new_order->shipment = 0;
-        // $new_order->total = 0;
-        // $new_order->payed = 0;
-
-        // $new_order->fill($order_data);
-
-        // $new_order->save();
 
         return view('checkout', compact('form_data'));
     }
@@ -79,16 +70,26 @@ class PaymentsController extends Controller
         ]);
 
         if ($status->success) {
+            //Tabella ordini
+            $user = User::find(1);
+            $dish = Dish::find(1);
+
             $new_order = new Order;
-            $new_order->user_id = 1;
-            $new_order->email = "aaa@aa.it";
+            $new_order->user()->associate($user->id);
             $new_order->name = $form_data["fullName"];
-            $new_order->phone = "test";
-            $new_order->address = "address";
+            $new_order->email = $form_data["email"];
+            $new_order->phone = $form_data["phone"];
+            $new_order->address = $this->getAddress($form_data['street'], $form_data['civic'], $form_data['city'], $form_data['state'], $form_data['cap']);
             $new_order->shipment = 0;
             $new_order->total = 0;
             $new_order->payed = 0;
             $new_order->save();
+
+            // Tabella ponte
+            $quantity = 1;
+            $unit_price = 1;
+
+            $new_order->dishes()->attach($dish->id, ['quantity' => $quantity, "unit_price" => $unit_price]);
         }
 
         $response = response()->json($status);
