@@ -45,10 +45,21 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::middleware('auth')
     ->name('auth.')
     ->prefix('auth')
-    ->group(function () {
-        Route::get('/dish', 'DishController@index');
-        Route::resource('/dish', 'dishController');
-    });
+    ->group(
+        function () {
+            Route::get('/dish', 'DishController@index');
+            Route::resource('/dish', 'dishController');
+        }
+    );
+
+// Checkout
+Route::get('/payment/checkout', 'PaymentsController@checkout')->name('payment.checkout');
+Route::get('/payment/checkout/pay', 'PaymentsController@validateShippingInfo')->name('payment.shippingvalidation');
+
+// Versione per chiamata ajax
+// Route::post('shippingvalidation', 'PaymentsController@validateShippingInfo')->name('payment.shippingvalidation');
+Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+
 
 // Front
 Route::get("{any?}", function () {
