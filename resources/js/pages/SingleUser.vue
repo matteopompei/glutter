@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
 
-                                <div class="my-3">
+                                <div class="font-weight-bold my-3">
                                     Totale: {{ totalPrice }} €
                                 </div>
                                 <button
