@@ -185,11 +185,9 @@
             document.getElementById("cart").innerHTML += item.name + " x" + item.quantity + " tot: " + item.totalPrice +
                 "<br>";
             total += parseFloat(item.totalPrice);
-            console.log(item);
         }
 
         document.querySelector('#total').innerHTML = total;
-
 
         // Versione per chiamata ajax
         // $.ajaxSetup({
@@ -216,29 +214,36 @@
         //     });
 
         // });
+    </script>
 
-        const payButton = document.querySelector('#pay-button');
-        braintree.dropin.create({
-            authorization: "{{ Braintree\ClientToken::generate() }}",
-            container: '#dropin-container'
-        }, function(createErr, instance) {
-            payButton.addEventListener('click', function() {
-                instance.requestPaymentMethod(function(err, payload) {
-                    payload.cart = cart;
-                    $.get('{{ route('payment.process') }}', {
-                        payload
-                    }, function(response) {
-                        console.log(response)
-                        if (response.success) {
-                            alert('Payment successfull!');
-                        } else {
-                            alert('Payment failed');
-                        }
-                    }, 'json');
+    @if (isset($form_data))
+        <script>
+            let form_data = {!! json_encode($form_data) !!}
+
+            const payButton = document.querySelector('#pay-button');
+            braintree.dropin.create({
+                authorization: "{{ Braintree\ClientToken::generate() }}",
+                container: '#dropin-container'
+            }, function(createErr, instance) {
+                payButton.addEventListener('click', function() {
+                    instance.requestPaymentMethod(function(err, payload) {
+                        payload.cart = cart;
+                        payload.form_data = form_data;
+                        $.get('{{ route('payment.process') }}', {
+                            payload
+                        }, function(response) {
+                            console.log(response)
+                            if (response.success) {
+                                alert('Payment successfull!');
+                            } else {
+                                alert('Payment failed');
+                            }
+                        }, 'json');
+                    });
                 });
             });
-        });
-    </script>
+        </script>
+    @endif
 </body>
 
 </html>
