@@ -34,170 +34,106 @@
           </div>
         </div>
         <div id="dishes" class="py-5">
-            <div class="container-fluid">
-                <div class="row py-5 px-3">
-                    <div class="col-md-5 col-lg-8">
-                        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
-                            <div
-                                v-for="dish in user.dishes"
-                                :key="dish.id + dish.name"
-                                @click.prevent="openDishModal(dish)"
-                                class="dish col mb-4"
-                            >
-                                <div class="card h-100 dish">
-                                    <div class="avatar-container">
-                                        <img
-                                            v-if="dish.image"
-                                            :src="`/storage/${dish.image}`"
-                                            :alt="dish.name"
-                                            class="card-img-top img-food"
-                                        />
-                                        <img
-                                            v-else
-                                            src="/images/dish-placeholder.png"
-                                            :alt="dish.name"
-                                            class="card-img-top img-food"
-                                        />
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">
-                                            {{ dish.name }}
-                                        </h5>
-                                        <p class="card-text">
-                                            {{ dish.ingredients }}
-                                        </p>
-                                        <button
-                                            class="button btn add_btn"
-                                            @click.prevent="addToCart(dish)"
-                                        >
-                                            +
-                                        </button>
-                                        <button
-                                            class="removeBtn btn remove_btn"
-                                            @click.prevent="
-                                                removeFromCart(dish)
-                                            "
-                                        >
-                                            -
-                                        </button>
-                                        <h5 class="text-right mt-4">
-                                            {{ formatPrice(dish.price) }} €
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+          <div class="container-fluid">
+            <div class="row py-5 px-3">
+              <div class="col-md-5 col-lg-8">
+                <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
+                  <div
+                    v-for="dish in user.dishes"
+                    :key="dish.id + dish.name"
+                    @click.prevent="openDishModal(dish)"
+                    class="dish col mb-4"
+                  >
+                    <div class="card h-100 dish">
+                      <div class="avatar-container">
+                        <img
+                          v-if="dish.image"
+                          :src="`/storage/${dish.image}`"
+                          :alt="dish.name"
+                          class="card-img-top img-food"
+                        />
+                        <img
+                          v-else
+                          src="/images/dish-placeholder.png"
+                          :alt="dish.name"
+                          class="card-img-top img-food"
+                        />
+                      </div>
+                      <div class="card-body text-center">
+                        <h5 class="card-title">
+                          {{ dish.name }}
+                        </h5>
+                        <p class="card-text">
+                          {{ dish.ingredients }}
+                        </p>
+                        <h5 class="text-right mt-4">
+                          {{ formatPrice(dish.price) }} €
+                        </h5>
+                      </div>
                     </div>
-                    <div class="col-md-7 col-lg-4">
-                        <div class="rounded py-3 px-4 carrello">
-                            <h4 class="mb-3">Il tuo ordine</h4>
-                            <div
-                                v-if="
-                                    $store.state.cartCount > 0 &&
-                                    $store.state.cart[0].user_id == user.id
-                                "
-                            >
-                                <div
-                                    v-for="dish in $store.state.cart"
-                                    :key="'cart' + dish.id + dish.name"
-                                    class="d-flex justify-content-between align-items-center mb-2"
-                                >
-                                    <div>
-                                        {{ dish.name }} x{{ dish.quantity }} ({{
-                                            dish.totalPrice
-                                        }}
-                                        €)
-                                    </div>
-                                    <div>
-                                        <button
-                                            class="btn rounded-circle mx-2 py-1 px-2 add_btn"
-                                            @click.prevent="addToCart(dish)"
-                                        >
-                                            <i class="fa-solid fa-plus"></i>
-                                        </button>
-                                        <button
-                                            class="btn rounded-circle mx-2 py-1 px-2 remove_btn"
-                                            @click.prevent="
-                                                removeFromCart(dish)
-                                            "
-                                        >
-                                            <i class="fa-solid fa-minus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="font-weight-bold my-3">
-                                    Totale: {{ totalPrice }} €
-                                </div>
-                                <button
-                                    class="btn btn-danger"
-                                    @click.prevent="removeAllFromCart()"
-                                >
-                                    Svuota carrello
-                                </button>
-                                <a
-                                    href="/payment/checkout"
-                                    class="btn btn-secondary btn-lg btn-block mt-5"
-                                >
-                                    Vai al pagamento
-                                </a>
-                            </div>
-                            <div v-else>Il carrello è vuoto</div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-7 col-lg-4">
-            <div class="rounded py-3 px-4 carrello">
-              <h4 class="mb-3">Il tuo ordine</h4>
-              <div
-                v-if="
-                  $store.state.cartCount > 0 &&
-                  $store.state.cart[0].user_id == user.id
-                "
-              >
-                <div
-                  v-for="dish in $store.state.cart"
-                  :key="'cart' + dish.id + dish.name"
-                  class="d-flex justify-content-between align-items-center mb-2"
-                >
-                  <div>
-                    {{ dish.name }} x{{ dish.quantity }} ({{ dish.totalPrice }}
-                    €)
-                  </div>
-                  <div>
-                    <button
-                      class="btn rounded-circle mx-2 py-1 px-2 add_btn"
-                      @click.prevent="addToCart(dish)"
-                    >
-                      <i class="fa-solid fa-plus"></i>
-                    </button>
-                    <button
-                      class="btn rounded-circle mx-2 py-1 px-2 remove_btn"
-                      @click.prevent="removeFromCart(dish)"
-                    >
-                      <i class="fa-solid fa-minus"></i>
-                    </button>
                   </div>
                 </div>
-
-                <div class="my-3">Totale: {{ totalPrice }} €</div>
-                <button
-                  class="btn btn-danger"
-                  @click.prevent="removeAllFromCart()"
-                >
-                  Svuota carrello
-                </button>
-                <a
-                  href="/payment/checkout"
-                  class="btn btn-secondary btn-lg btn-block mt-5"
-                >
-                  Vai al pagamento
-                </a>
               </div>
-              <div v-else>Il carrello è vuoto</div>
+              <div class="col-md-7 col-lg-4">
+                <div class="rounded py-3 px-4 carrello">
+                  <h4 class="mb-3">Il tuo ordine</h4>
+                  <div
+                    v-if="
+                      $store.state.cartCount > 0 &&
+                      $store.state.cart[0].user_id == user.id
+                    "
+                  >
+                    <div
+                      v-for="dish in $store.state.cart"
+                      :key="'cart' + dish.id + dish.name"
+                      class="
+                        d-flex
+                        justify-content-between
+                        align-items-center
+                        mb-2
+                      "
+                    >
+                      <div>
+                        {{ dish.name }} x{{ dish.quantity }} ({{
+                          dish.totalPrice
+                        }}
+                        €)
+                      </div>
+                      <div>
+                        <button
+                          class="btn rounded-circle mx-2 py-1 px-2 add_btn"
+                          @click.prevent="addToCart(dish)"
+                        >
+                          <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <button
+                          class="btn rounded-circle mx-2 py-1 px-2 remove_btn"
+                          @click.prevent="removeFromCart(dish)"
+                        >
+                          <i class="fa-solid fa-minus"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="font-weight-bold my-3">
+                      Totale: {{ totalPrice }} €
+                    </div>
+                    <button
+                      class="btn btn-danger"
+                      @click.prevent="removeAllFromCart()"
+                    >
+                      Svuota carrello
+                    </button>
+                    <a
+                      href="/payment/checkout"
+                      class="btn btn-secondary btn-lg btn-block mt-5"
+                    >
+                      Vai al pagamento
+                    </a>
+                  </div>
+                  <div v-else>Il carrello è vuoto</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
