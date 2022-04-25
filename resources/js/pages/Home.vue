@@ -30,11 +30,8 @@
                   aria-describedby="basic-addon2"
                 />
 
-                <div class="input-group-append">
-                  <router-link
-                    :to="{ name: 'search' }"
-                    @click="sendSearchInput()"
-                    class="btn"
+                <div @click="sendSearchInput()" class="input-group-append">
+                  <router-link :to="{ name: 'search' }" class="btn"
                     >Cerca</router-link
                   >
                 </div>
@@ -157,9 +154,6 @@ export default {
     };
   },
   methods: {
-    setSearchInput() {
-      this.$store.commit("setSearchInput", this.searchInput);
-    },
     sendSearchInput() {
       this.$root.$emit("SearchInputEvent", this.searchInput);
     },
