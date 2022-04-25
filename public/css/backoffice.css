@@ -11290,3 +11290,28 @@ nav .user a:hover {
   font-size: 3rem;
 }
 
+#checkout {
+  background: #fff;
+}
+
+#checkout .nav-space {
+  padding-top: 100px;
+  background: #81b29a;
+  box-shadow: 0 10px 40px 30px #81b29a;
+}
+
+#checkout nav {
+  background: rgba(129, 178, 154, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#checkout nav .logo {
+  max-width: 250px;
+}
+
+#checkout main {
+  margin: 100px 0;
+}
+
