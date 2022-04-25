@@ -17,6 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
+                <div>(nome ristorante)</div>
                 <div>Carrello: </div>
                 <div id="cart"></div>
                 <div>Totale:</div>
