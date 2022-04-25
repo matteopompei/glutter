@@ -195,8 +195,6 @@
         const userID = window.localStorage.getItem('userID');
         let total = 0;
 
-        console.log(cart);
-
         for (let item of cart) {
             document.getElementById("cart").innerHTML += item.name + " x" + item.quantity + " tot: " + item.totalPrice +
                 "<br>";
@@ -249,7 +247,6 @@
                         $.get('{{ route('payment.process') }}', {
                             payload
                         }, function(response) {
-                            console.log(response)
                             if (response.success) {
                                 alert('Payment successfull!');
                             } else {

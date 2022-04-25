@@ -128,13 +128,12 @@
                 >
                   Svuota Carrello
                 </button>
-                <button
-                  type="button"
+                <a
+                  href="/payment/checkout"
                   class="btn btn-secondary btn-lg btn-block mt-5"
-                  disabled
                 >
                   Vai al pagamento
-                </button>
+                </a>
               </div>
               <div v-else>Il carrello è vuoto</div>
             </div>
@@ -157,7 +156,7 @@ export default {
   methods: {
     addToCart(dish) {
       let businessName = this.user.business_name;
-      this.$store.commit("addToCart", {dish, businessName});
+      this.$store.commit("addToCart", { dish, businessName });
     },
     removeFromCart(dish) {
       this.$store.commit("removeFromCart", dish);

@@ -66,15 +66,16 @@
           >
             Svuota Carrello
           </button>
-          <button
-            class="btn ms_btn_dismiss"
-          >
+          <button class="btn ms_btn_dismiss">
             <!-- <router-link :to="`/restaurant/${this.$store.state.cart[0].user_id}`">Torna al ristorante</router-link> -->
-            <router-link :to="{ name: 'singleuser', params: { id:$store.state.userID } }">Torna al ristorante</router-link>
+            <router-link
+              :to="{ name: 'singleuser', params: { id: $store.state.userID } }"
+              >Torna al ristorante</router-link
+            >
           </button>
-          <button type="button" class="btn ms_btn_checkout">
+          <a href="/payment/checkout" class="btn ms_btn_checkout">
             Vai al checkout
-          </button>
+          </a>
         </div>
       </div>
     </div>
