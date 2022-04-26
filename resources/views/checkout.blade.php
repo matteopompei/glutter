@@ -175,8 +175,7 @@
                             </div>
                         </div>
 
-                        <div>Data di consegna</div>
-                        <div>Orario</div>
+                        <div id="shipping_time">Il tuo ordine verrà consegnato alle:</div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
@@ -188,18 +187,22 @@
                     </form>
                 </div>
                 <div class="col-4">
-                    <div>(nome ristorante)</div>
-                    <div>Carrello: </div>
-                    <div id="cart"></div>
-                    <div>Totale:</div>
-                    <div id="total"></div>
+                    <h1>(nome ristorante)</h1>
+                    <div>
+                        <span>Carrello: </span>
+                        <span id="cart"></span>
+                    </div>
+                    <div>
+                        <span>Totale:</span>
+                        <span id="total"></span>
+                    </div>
                 </div>
             </div>
 
             @if (isset($form_data))
                 <div class="col-md-8 col-md-offset-2">
                     <div id="dropin-container"></div>
-                    <button id="pay-button">Paga</button>
+                    <button id="pay-button" class="btn" style="background-color: green">Paga</button>
                 </div>
             @endif
         </div>
@@ -215,12 +218,11 @@
         let total = 0;
 
         for (let item of cart) {
-            document.getElementById("cart").innerHTML += item.name + " x" + item.quantity + " tot: " + item.totalPrice +
-                "<br>";
+            document.getElementById("cart").innerHTML += item.name + " x" + item.quantity + "<br>";
             total += parseFloat(item.totalPrice);
         }
 
-        document.querySelector('#total').innerHTML = total;
+        document.querySelector('#total').innerHTML = total + "€";
 
         // Versione per chiamata ajax
         // $.ajaxSetup({
