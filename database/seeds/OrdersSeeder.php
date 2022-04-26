@@ -12,7 +12,7 @@ class OrdersSeeder extends Seeder
      */
     public function run()
     {
-        $orders = [
+        $order_user_array = [
             [
                 'user_id' => 1,
                 'orders' => [
@@ -251,7 +251,7 @@ class OrdersSeeder extends Seeder
             ],
         ];
         //Esegue il seed degl'ordini
-        foreach ($orders as $element) {
+        foreach ($order_user_array as $element) {
             foreach ($element['orders'] as $order) {
                 $new_order = new Order();
                 $new_order->name = $order['name'];
@@ -265,7 +265,7 @@ class OrdersSeeder extends Seeder
                 $new_order->save();
 
                 foreach ($order['dishes'] as $dish) {
-                    $new_order->dishes()->attach($dish, ['quantity' => $dish['quantity'], "unit_price" => $dish['unit_price'], 'dish_id' => $dish['dish_id']]);
+                    $new_order->dishes()->attach($dish, ['quantity' => $dish['quantity'], "unit_price" => $dish['unit_price']]);
                 }
             }
         }
