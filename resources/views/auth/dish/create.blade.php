@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="ingredients">Descrizione piatto</label>
+                            <label for="ingredients">Ingredienti</label>
                             <textarea class="form-control @error('ingredients') is-invalid @enderror" id="ingredients" name="ingredients" rows="5"
                                 placeholder="Descrizione piatto" required></textarea>
 
