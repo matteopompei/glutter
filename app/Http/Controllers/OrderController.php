@@ -19,7 +19,7 @@ class OrderController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $orders = Order::where('user_id', '=', Auth::id())->get();
+        
         $categories = Category::all();
 
         return view('auth.order.index', compact('orders', 'categories', 'user'));
@@ -55,7 +55,7 @@ class OrderController extends Controller
     public function show(Order $order)
     {
         $user = Auth::user();
-       
+    
 
         if ($order->user_id == $user->id) {
             return view('auth.order.show', compact('order'));
