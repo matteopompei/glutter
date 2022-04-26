@@ -50,6 +50,17 @@
                         </div>
 
                         <div class="form-group">
+                            @if ($dish->image)
+                                <div class="col-md-4 text-center">
+                                    <div class="mb-4 avatar-container">
+                                        <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}"
+                                            class="img-food">
+                                    </div>
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
                             <label for="image">Image</label>
                             <input type="file" class="form-control-file" name="image" id="image">
 
