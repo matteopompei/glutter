@@ -28,6 +28,7 @@
                   class="form-control"
                   aria-label="Cerca ristorante"
                   aria-describedby="basic-addon2"
+                  placeholder="Es. Burger Thing"
                 />
 
                 <div @click="sendSearchInput()" class="input-group-append">
