@@ -11315,3 +11315,7 @@ nav .user a:hover {
   margin: 100px 0;
 }
 
+#checkout main .carrello ul {
+  list-style-type: "\2013   ";
+}
+
