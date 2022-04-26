@@ -13,6 +13,6 @@ class Order extends Model
 
     public function dishes()
     {
-        return $this->belongsToMany('App\Dish');
+        return $this->belongsToMany('App\Dish')->withPivot('quantity', 'order_id', 'dish_id', 'unit_price');
     }
 }

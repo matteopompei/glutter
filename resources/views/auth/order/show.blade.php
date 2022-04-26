@@ -67,6 +67,17 @@
                             </tbody>
 
                         </table>
+
+                        <div>
+                            Prodotti ordinati
+                            <ul>
+                                @foreach ($order->dishes as $dish)
+                                    <li>
+                                        {{$dish->name}} | x {{$dish->pivot->quantity}} | € {{ $dish->price * $dish->pivot->quantity }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                     <div class="text-center mt-5 mb-1">
                         <a href="/auth/order" class="btn btn-danger">Indietro</a>
