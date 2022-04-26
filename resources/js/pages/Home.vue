@@ -32,7 +32,9 @@
                 />
 
                 <div @click="sendSearchInput()" class="input-group-append">
-                  <router-link :to="{ name: 'search' }" class="btn"
+                  <router-link
+                    :to="{ name: 'search', query: { s: searchInput } }"
+                    class="btn"
                     >Cerca</router-link
                   >
                 </div>
