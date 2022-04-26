@@ -91,9 +91,11 @@
                                     class="d-flex justify-content-between align-items-center mb-2"
                                 >
                                     <div>
-                                        {{ dish.name }} x{{ dish.quantity }} ({{
-                                            dish.totalPrice
-                                        }}
+                                        {{ dish.name }}
+                                        <em class="ml-2"
+                                            >x{{ dish.quantity }}</em
+                                        >
+                                        ({{ dish.totalPrice }}
                                         €)
                                     </div>
                                     <div>
@@ -114,18 +116,18 @@
                                     </div>
                                 </div>
 
-                                <div class="my-3">
-                                    Totale: {{ totalPrice }} €
+                                <div class="mt-5 mb-2">
+                                    <h4>Totale: {{ totalPrice }} €</h4>
                                 </div>
                                 <button
-                                    class="btn btn-danger"
+                                    class="btn btn-danger btn-lg btn-block mt-5"
                                     @click.prevent="removeAllFromCart()"
                                 >
                                     Svuota carrello
                                 </button>
                                 <a
                                     href="/payment/checkout"
-                                    class="btn btn-secondary btn-lg btn-block mt-5"
+                                    class="btn btn-secondary btn-lg btn-block mt-1"
                                 >
                                     Vai al pagamento
                                 </a>
