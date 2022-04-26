@@ -38,7 +38,7 @@
                             <div class="col-md-6">
                                 <input id="fullName" type="text"
                                     class="form-control @error('fullName') is-invalid @enderror" name="fullName"
-                                    value="@if(isset($form_data)){{ $form_data['fullName'] }}@else{{ old('fullName') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['fullName'] }}@else{{ old('fullName') }} @endif"
                                     minlength="3" required>
 
                                 @error('fullName')
@@ -56,7 +56,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email"
-                                    value="@if(isset($form_data)){{ $form_data['email'] }}@else{{ old('email') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['email'] }}@else{{ old('email') }} @endif"
                                     required autocomplete="email">
 
                                 @error('email')
@@ -74,7 +74,7 @@
                             <div class="col-md-6">
                                 <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
                                     name="phone"
-                                    value="@if(isset($form_data)){{$form_data['phone']}}@else{{ old('phone') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['phone'] }}@else{{ old('phone') }} @endif"
                                     required>
 
                                 @error('phone')
@@ -92,7 +92,7 @@
                             <div class="col-md-6">
                                 <input id="street" type="text"
                                     class="form-control @error('street') is-invalid @enderror" name="street"
-                                    value="@if(isset($form_data)){{$form_data['street']}}@else{{ old('street') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['street'] }}@else{{ old('street') }} @endif"
                                     required>
 
                                 @error('street')
@@ -110,7 +110,7 @@
                             <div class="col-md-6">
                                 <input id="civic" type="text" class="form-control @error('civic') is-invalid @enderror"
                                     name="civic"
-                                    value="@if(isset($form_data)){{ $form_data['civic'] }}@else{{ old('civic') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['civic'] }}@else{{ old('civic') }} @endif"
                                     required>
 
                                 @error('civic')
@@ -128,7 +128,7 @@
                             <div class="col-md-6">
                                 <input id="city" type="text" class="form-control @error('city') is-invalid @enderror"
                                     name="city"
-                                    value="@if(isset($form_data)){{ $form_data['city'] }}@else{{ old('city') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['city'] }}@else{{ old('city') }} @endif"
                                     required>
 
                                 @error('city')
@@ -146,7 +146,7 @@
                             <div class="col-md-6">
                                 <input id="state" type="text" class="form-control @error('state') is-invalid @enderror"
                                     name="state"
-                                    value="@if(isset($form_data)){{ $form_data['state'] }}@else{{ old('state') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['state'] }}@else{{ old('state') }} @endif"
                                     required>
 
                                 @error('state')
@@ -164,7 +164,7 @@
                             <div class="col-md-6">
                                 <input id="cap" type="text" class="form-control @error('cap') is-invalid @enderror"
                                     name="cap"
-                                    value="@if(isset($form_data)){{ $form_data['cap'] }}@else{{ old('cap') }}@endif"
+                                    value="@if (isset($form_data)) {{ $form_data['cap'] }}@else{{ old('cap') }} @endif"
                                     minlength="5" maxlength="5" required>
 
                                 @error('cap')
@@ -187,7 +187,7 @@
                     </form>
                 </div>
                 <div class="col-4">
-                    <h1>(nome ristorante)</h1>
+                    <h1 id="restaurantName"></h1>
                     <div>
                         <span>Carrello: </span>
                         <span id="cart"></span>
@@ -213,15 +213,25 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
     <script>
+        // Variabili carrello
         const cart = JSON.parse(window.localStorage.getItem('cart'));
         const userID = window.localStorage.getItem('userID');
         let total = 0;
 
+        // Variabili elementi HTML
+        const pageCart = document.getElementById("cart");
+        const pageRestaurant = document.getElementById("restaurantName");
+
+        // Aggiunge nome ristorante alla pagina
+        pageRestaurant.innerHTML = String(window.localStorage.getItem('businessName'));
+
+        // Aggiunge articoli acqustati alla pagina
         for (let item of cart) {
-            document.getElementById("cart").innerHTML += item.name + " x" + item.quantity + "<br>";
+            pageCart.innerHTML += item.name + " x" + item.quantity + "<br>";
             total += parseFloat(item.totalPrice);
         }
 
+        // Aggiunge totale alla pagina
         document.querySelector('#total').innerHTML = total + "€";
 
         // Versione per chiamata ajax
@@ -251,10 +261,13 @@
         // });
     </script>
 
+    {{-- Se il form è stato compilato esegue il codice --}}
     @if (isset($form_data))
         <script>
+            // Recupera le informazioni validate del form dal back
             let form_data = {!! json_encode($form_data) !!}
 
+            // Braintree
             const payButton = document.querySelector('#pay-button');
             braintree.dropin.create({
                 authorization: "{{ Braintree\ClientToken::generate() }}",
