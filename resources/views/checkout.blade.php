@@ -29,6 +29,33 @@
         <div class="container">
             <div class="row">
                 <div class="col-8">
+                    <!-- ELIMINARE BOTTONE DOPO AVERNE FINITO IL CSS -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#errorModal">
+                        TEST MODAL
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="errorModal" data-backdrop="static" data-keyboard="false"
+                        tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="errorModalLabel">Errore di Pagamento</h5>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Qualcosa è andato storto. Si prega di reinserire le informazioni di pagamento e
+                                    riprovare.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <form action="{{ route('payment.shippingvalidation') }}">
                         @csrf
                         {{-- Campo Nome e Cognome --}}
@@ -210,8 +237,11 @@
 
 
     {{-- Script --}}
+
+    <script src="{{ asset('js/backoffice.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
+
     <script>
         // Variabili carrello
         const cart = JSON.parse(window.localStorage.getItem('cart'));
@@ -284,7 +314,7 @@
                             if (response.success) {
                                 alert('Payment successfull!');
                             } else {
-                                alert('Payment failed');
+                                $("#errorModal").modal();
                             }
                         }, 'json');
                     });
