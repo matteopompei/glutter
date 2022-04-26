@@ -17,7 +17,7 @@ class OrdersSeeder extends Seeder
                 'user_id' => 1,
                 'orders' => [
                     [
-                        'name' => 'Simone',
+                        'name' => 'Simone Paperotti',
                         'email' => 'sim@one.it',
                         'phone' => '331 3132321',
                         'address' => 'Via Moldavia, 30,Terni, TR, 05100',
@@ -33,7 +33,7 @@ class OrdersSeeder extends Seeder
                         ]
                     ],
                     [
-                        'name' => 'Matteo',
+                        'name' => 'Matteo Frontend',
                         'email' => 'mat@teo.it',
                         'phone' => '331 3132322',
                         'address' => 'Via Matteotti, 10, Avigliano, TR, 05100',
@@ -59,13 +59,13 @@ class OrdersSeeder extends Seeder
                         ]
                     ],
                     [
-                        'name' => 'Lorenzo',
+                        'name' => 'Lorenza Mirtillini',
                         'email' => 'lore@lore.it',
                         'phone' => '331 3132323',
                         'address' => 'Via Pasini, 4, Cesi, TR, 05100',
                         'shipment' => 2,
-                        'total' => 17,
-                        'payed' => 19,
+                        'total' => 19,
+                        'payed' => 21,
                         'dishes' => [
                             [
                                 'dish_id' => 6,
@@ -73,14 +73,14 @@ class OrdersSeeder extends Seeder
                                 'unit_price' => 12
                             ],
                             [
-                                'dish_id' => 7,
+                                'dish_id' => 4,
                                 'quantity' => 1,
-                                'unit_price' => 5
+                                'unit_price' => 7
                             ]
                         ]
                     ],
                     [
-                        'name' => 'Giulio',
+                        'name' => 'Giulio Cane',
                         'email' => 'giulio@giulio.it',
                         'phone' => '331 3132324',
                         'address' => 'Piazza Cane, 22, Terni, TR, 05100',
@@ -101,7 +101,7 @@ class OrdersSeeder extends Seeder
                 'user_id' => 2,
                 'orders' => [
                     [
-                        'name' => 'Mario',
+                        'name' => 'Mario Rossi',
                         'email' => 'mario@mario.it',
                         'phone' => '331 3132325',
                         'address' => 'Via Vesuvio, 3, Ascoli, AP, 63100',
@@ -122,7 +122,7 @@ class OrdersSeeder extends Seeder
                         ]
                     ],
                     [
-                        'name' => 'Alessandra',
+                        'name' => 'Alessandra Salamandra',
                         'email' => 'alessandra@alessandra.it',
                         'phone' => '331 3132326',
                         'address' => 'Via Torrente, 11, Castorano,  AP, 63081',
@@ -138,7 +138,7 @@ class OrdersSeeder extends Seeder
                         ]
                     ],
                     [
-                        'name' => 'Giovanni',
+                        'name' => 'Giovanna Panna',
                         'email' => 'giova@giova.it',
                         'phone' => '331 3132327',
                         'address' => 'Piazza Fava, 5,Castel di Lama, AP, 63080',
@@ -164,8 +164,8 @@ class OrdersSeeder extends Seeder
                         ]
                     ],
                     [
-                        'name' => 'Alberto',
-                        'email' => 'alberto@alberto',
+                        'name' => 'Alberta Coperta',
+                        'email' => 'alberta@alberta.it',
                         'phone' => '331 3132328',
                         'address' => 'Via Moldavia, 30, Castorano, AP, 63081',
                         'shipment' => 2,
@@ -185,7 +185,7 @@ class OrdersSeeder extends Seeder
                 'user_id' => 3,
                 'orders' => [
                     [
-                        'name' => 'Peppino',
+                        'name' => 'Peppino Pattume',
                         'email' => 'peppe@peppe.it',
                         'phone' => '331 3132329',
                         'address' => 'Piazza Franco, 3, Palermo, PA, 90121',
@@ -194,7 +194,7 @@ class OrdersSeeder extends Seeder
                         'payed' => 32,
                         'dishes' => [
                             [
-                                'dish_id' => 13,
+                                'dish_id' => 14,
                                 'quantity' => 3,
                                 'unit_price' => 10
                             ],
@@ -222,7 +222,7 @@ class OrdersSeeder extends Seeder
                         ]
                     ],
                     [
-                        'name' => 'Paolino',
+                        'name' => 'Paolino Birichino',
                         'email' => 'paolino@paolino.it',
                         'phone' => '331 3132331',
                         'address' => 'Parco della Vittoria, 30,Palermo, PA, 90121',
