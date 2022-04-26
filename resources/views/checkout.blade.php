@@ -190,8 +190,11 @@
 
             <div class="form-group row mb-0">
               <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary mr-3">
                   Conferma dati
+                </button>
+                <button onclick="history.back()" class="btn btn-danger">
+                  Indietro
                 </button>
               </div>
             </div>
@@ -199,11 +202,11 @@
         </div>
 
         {{-- Recap carrello --}}
-        <div class="col-md-4">
+        <div class="col-md-4 carrello">
           <h1 class="mb-4">Riassunto ordine</h1>
           <div class="rounded bg-gradient-light p-4">
             <h2 id="restaurantName" class="mb-3"></h2>
-            <div id="cart" class="mb-3"></div>
+            <ul id="cart" class="ml-4 mb-3"></ul>
             <div class="font-italic">Spese di spedizione??</div>
             <h5 class="font-weight-bold my-4">Totale <span id="total"
                 class="rounded bg-info text-light font-weight-normal py-1 px-2"></span></h5>
@@ -216,7 +219,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-8 col-xl-10">
             <div id="dropin-container"></div>
-            <button id="pay-button" class="btn btn-success mt-3">Paga</button>
+            <button id="pay-button" class="btn btn-success btn-lg mt-3 px-5">Paga</button>
           </div>
         </div>
       @endif
@@ -245,12 +248,12 @@
 
     // Aggiunge articoli acqustati alla pagina
     for (let item of cart) {
-      pageCart.innerHTML += item.name + " x" + item.quantity + "<br>";
+      pageCart.innerHTML += "<li>" + item.name + " <em class=\"ml-1\">x" + item.quantity + "</em></li>";
       total += parseFloat(item.totalPrice);
     }
 
     // Aggiunge totale alla pagina
-    document.querySelector('#total').innerHTML = total + "€";
+    document.querySelector('#total').innerHTML = total + " €";
 
     // Versione per chiamata ajax
     // $.ajaxSetup({

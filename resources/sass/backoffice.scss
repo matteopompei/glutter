@@ -255,5 +255,11 @@ nav {
 
     main {
         margin: 100px 0;
+
+        .carrello {
+            ul {
+                list-style-type: "– ";
+            }
+        }
     }
 }
