@@ -201,7 +201,7 @@ class OrdersSeeder extends Seeder
                         ]
                     ],
                     [
-                        'name' => 'Mirtillo',
+                        'name' => 'Mirtillo Birillo',
                         'email' => 'mirtillo@mirtillino.it',
                         'phone' => '331 3132330',
                         'address' => 'Via Angusta, 3, Palermo, PA, 90121',
