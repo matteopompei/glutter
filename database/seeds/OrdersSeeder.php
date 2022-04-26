@@ -250,6 +250,7 @@ class OrdersSeeder extends Seeder
                 ]
             ],
         ];
+
         //Esegue il seed degl'ordini
         foreach ($order_user_array as $element) {
             foreach ($element['orders'] as $order) {
@@ -265,7 +266,7 @@ class OrdersSeeder extends Seeder
                 $new_order->save();
 
                 foreach ($order['dishes'] as $dish) {
-                    $new_order->dishes()->attach($dish, ['quantity' => $dish['quantity'], "unit_price" => $dish['unit_price']]);
+                    $new_order->dishes()->attach($dish['dish_id'], ['quantity' => $dish['quantity'], "unit_price" => $dish['unit_price']]);
                 }
             }
         }
