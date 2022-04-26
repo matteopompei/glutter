@@ -404,6 +404,32 @@ class DishesSeeder extends Seeder
                     ],
                 ]
             ],
+            [
+                'user_id' => 13,
+                'dishes' => [
+                    [
+                        'name' => 'The NULL Carbo',
+                        'image' => NULL,
+                        'ingredients' => 'Pasta di Grano duro, Uovo, Guanciale, Pecorino, Pepe',
+                        'price' => 8,
+                        'visible' => true
+                    ],
+                    [
+                        'name' => 'The NULL Ama',
+                        'image' => NULL,
+                        'ingredients' => 'Pasta di Grano duro, Pomodoro, Guanciale, Pecorino, Cipolla',
+                        'price' => 9,
+                        'visible' => true
+                    ],
+                    [
+                        'name' => 'The NULL Cacio',
+                        'image' => NULL,
+                        'ingredients' => 'Pasta di Grano duro, Pecorino, Pepe',
+                        'price' => 10,
+                        'visible' => true
+                    ],
+                ]
+            ],
             
             
             
