@@ -117,12 +117,17 @@ export default {
           if (this.checkArray.length == 0) {
             return restaurant;
           } else {
-            for (let check of this.checkArray) {
-              for (let category of restaurant.categories) {
-                if (category.name == check) {
-                  return restaurant;
-                }
-              }
+            let categories = [];
+            for (let category of restaurant.categories) {
+              categories.push(category.name);
+            }
+
+            if (
+              this.checkArray.every((element) => {
+                return categories.includes(element);
+              })
+            ) {
+              return restaurant;
             }
           }
         }
