@@ -45,20 +45,36 @@
         <h2 class="display-4 mb-4">Le categorie più gettonate</h2>
         <div class="row">
           <div class="col-md-7 p-1">
-            <a href="#" class="text-center p-5 pizza"><h3>Pizza</h3></a>
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'pizza' } }"
+              class="text-center p-5 pizza"
+              ><h3>Pizza</h3></router-link
+            >
           </div>
           <div class="col-md-5 p-1">
-            <a href="#" class="text-center p-5 sushi"><h3>Sushi</h3></a>
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'sushi' } }"
+              class="text-center p-5 sushi"
+              ><h3>Sushi</h3></router-link
+            >
           </div>
         </div>
         <div class="row">
           <div class="col-md-5 p-1">
-            <a href="#" class="text-center p-5 hamburger">
-              <h3>Hamburger</h3></a
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'hamburger' } }"
+              class="text-center p-5 hamburger"
+            >
+              <h3>Hamburger</h3></router-link
             >
           </div>
           <div class="col-md-7 p-1">
-            <a href="#" class="text-center p-5 pasta"> <h3>Pasta</h3></a>
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'pasta' } }"
+              class="text-center p-5 pasta"
+            >
+              <h3>Pasta</h3></router-link
+            >
           </div>
         </div>
         <div class="row mt-5">
@@ -70,7 +86,14 @@
                 :key="index"
                 class="btn btn-light text-uppercase font-weight-bold m-2"
               >
-                {{ singleCategory.name }}
+                <router-link
+                  :to="{
+                    name: 'search',
+                    query: { s: '', c: singleCategory.name },
+                  }"
+                >
+                  {{ singleCategory.name }}</router-link
+                >
               </div>
             </div>
           </div>

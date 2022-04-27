@@ -102,6 +102,14 @@ export default {
     "$route.query.s": function (val) {
       this.search = val;
     },
+    checkArray(newVal) {
+      this.$router
+        .push({ query: { ...this.$route.query, c: newVal } })
+        .catch(() => {});
+    },
+    "$route.query.c": function (val) {
+      this.checkArray = val;
+    },
   },
   methods: {
     //Ritorna ristoranti filtrati tramite search bar
@@ -174,6 +182,14 @@ export default {
       .catch((error) => {
         this.$router.push({ name: "error404" });
       });
+
+    if (this.$route.query.c.isArray) {
+      for (let category of this.$route.query.c) {
+        this.checkArray.push(category);
+      }
+    } else {
+      this.checkArray.push(this.$route.query.c);
+    }
   },
 };
 </script>
