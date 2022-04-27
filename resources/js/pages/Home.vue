@@ -191,7 +191,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
-
 #jumbo {
   position: relative;
   background: $color4;
