@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Dish;
 use App\Order;
 use Braintree;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
@@ -19,12 +20,16 @@ class PaymentsController extends Controller
         'cap' => 'required|numeric|digits:5',
         'phone' => 'required|string|max:15',
         'email' => 'required|string|email|max:255',
-        'delivery_date' => 'required|date'
+        'delivery_date' => 'required|date|after:'
     ];
 
     public function checkout()
     {
-        return view('checkout');
+        $minTime = Carbon::now()->addMinutes(40)->format('H:m');
+        // $seconds = time();
+        // $rounded_seconds = round($seconds / (15 * 60)) * (15 * 60);
+        // dd($rounded_seconds);
+        return view('checkout', compact('minTime'));
     }
 
     // Ritorna una stringa formattata per l'indirizzo
@@ -35,6 +40,13 @@ class PaymentsController extends Controller
 
     public function validateShippingInfo(Request $request)
     {
+        $time = $request['delivery_date'];
+        $today = Carbon::now()->format('Y-m-d');
+        $request['delivery_date'] = $today . " " . $time;
+
+        $minTime = Carbon::now()->addMinutes(40);
+        $this->validation['delivery_date'] = 'required|date|' . $minTime;
+
         $request->validate($this->validation);
         $form_data = $request->all();
 
@@ -94,7 +106,7 @@ class PaymentsController extends Controller
             $new_order->shipment = 0; //todo
             $new_order->total = $total;
             $new_order->payed = $total;
-            $new_order->delivey_date = $form_data["delivery_date"];
+            $new_order->delivery_date = $form_data["delivery_date"];
             $new_order->save();
 
             // Tabella ponte

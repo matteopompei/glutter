@@ -196,14 +196,15 @@
                             </div>
                         </div>
 
+                        {{-- Campo Orario --}}
                         <div class="form-group row">
                             <label for="delivery_date" class="col-md-4 col-form-label text-md-right">Orario di
-                                consegna (18-22):</label>
+                                consegna (12-22):</label>
 
                             <div class="col-md-6">
                                 <input type="time" name="delivery_date" id="delivery_date" class="form-control"
                                     value="@if (isset($form_data)) {{ $form_data['delivery_date'] }}@else{{ old('delivery_date') }} @endif"
-                                    step="600" min="12:00" max="22:00" required>
+                                    step="600" min="{{ $minTime }}" max="22:00" required>
 
                                 @error('delivery_date')
                                     <span class="invalid-feedback" role="alert">
@@ -211,17 +212,19 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary mr-3">
-                                        Avanti
-                                    </button>
-                                    <button onclick="history.back()" class="btn btn-danger">
-                                        Indietro
-                                    </button>
-                                </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary mr-3">
+                                    Avanti
+                                </button>
+                                <button onclick="history.back()" class="btn btn-danger">
+                                    Indietro
+                                </button>
                             </div>
+                        </div>
                     </form>
                 </div>
 
