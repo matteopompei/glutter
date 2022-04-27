@@ -17,12 +17,16 @@
             <div class="filter_container">
               <div v-for="(category, index) in all_categories" :key="index">
                 <input
-                  id="checkbox"
+                  :id="'category' + category.id"
                   type="checkbox"
                   v-model="checkArray"
                   :value="category.name"
+                  class="form-check-input"
                 />
-                <span>{{ category.name }}</span>
+                <span></span>
+                <label class="form-check-label" :for="'category' + category.id">
+                  {{ category.name }}
+                </label>
               </div>
             </div>
           </div>
