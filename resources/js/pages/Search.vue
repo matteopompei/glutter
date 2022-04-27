@@ -48,9 +48,16 @@
                   <div class="card restaurant">
                     <div class="avatar-container">
                       <img
+                        v-if="restaurant.image"
                         :src="`/storage/${restaurant.image}`"
                         class="card-img-top img-food"
-                        alt=""
+                        :alt="restaurant.business_name"
+                      />
+                      <img
+                        v-else
+                        src="/images/restaurant-placeholder.png"
+                        :alt="restaurant.business_name"
+                        class="img-fluid placeholder-avatar"
                       />
                     </div>
                     <div class="card-body">
