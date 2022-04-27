@@ -63,14 +63,14 @@
                                         <img
                                             v-if="restaurant.image"
                                             :src="`/storage/${restaurant.image}`"
-                                            class="card-img-top img-food"
+                                            class="card-img-top img-restaurant"
                                             :alt="restaurant.business_name"
                                         />
                                         <img
                                             v-else
                                             src="/images/restaurant-placeholder.png"
                                             :alt="restaurant.business_name"
-                                            class="img-fluid placeholder-avatar"
+                                            class="img-fluid img-restaurant"
                                         />
                                     </div>
                                     <div class="card-body">
@@ -263,7 +263,7 @@ export default {
         padding-top: 50%;
         position: relative;
 
-        .img-food {
+        .img-restaurant {
             position: absolute;
             top: 50%;
             left: 50%;
