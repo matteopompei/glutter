@@ -13,7 +13,7 @@ let store = {
         //Variabili User
         businessName: businessName ? String(businessName) : "",
         userID: userID ? parseInt(userID) : 0,
-        
+
         //variabili di ricerca
         searchInput: "",
     },
@@ -34,7 +34,7 @@ let store = {
         addToCart(state, { dish, businessName = undefined }) {
             // Se il carrello è pieno e ha elementi di un altro ristorante, da errore
             if (state.cart.length > 0 && state.cart[0].user_id != dish.user_id) {
-                alert("Puoi ordinare da un ristorante alla volta. Svuota il carrello se vuoi proseguire gli acquisti presso questo ristorante.");
+                alert("Puoi ordinare da un ristorante alla volta. Svuota il carrello se vuoi proseguire gli acquisti presso questo ristorante!");
                 return;
             }
 
@@ -109,7 +109,7 @@ let store = {
         },
 
         //Cambia valori di ricerca di searchInput
-        setSearchInput(state, input){
+        setSearchInput(state, input) {
             state.searchInput = input;
         }
     }
