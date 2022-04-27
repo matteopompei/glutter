@@ -34,6 +34,8 @@
 
                 <button @click="search" class="btn ms_search_btn">Cerca</button>
               </div>
+
+              <p class="pt-4">Consegna gratuita per ordini superiori a 15€.</p>
             </div>
           </div>
         </div>
