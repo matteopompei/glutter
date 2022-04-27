@@ -23,7 +23,7 @@
                             target="_blank"
                             ><i class="fa-brands fa-github mx-2"></i
                         ></a>
-                        <a href="" target="_blank"
+                        <a href="https://www.linkedin.com/in/lorenzo-guerrini-wd/" target="_blank"
                             ><i class="fa-brands fa-linkedin mx-2"></i
                         ></a>
                     </div>

@@ -14,7 +14,7 @@
                 placeholder="Cerca il nome di un ristorante"
               />
             </div>
-            <div class="filter_container">
+            <div class="filter_container ml-4">
               <div v-for="(category, index) in all_categories" :key="index">
                 <input
                   :id="'category' + category.id"

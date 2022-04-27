@@ -32,8 +32,10 @@
                   @keyup.enter="search"
                 />
 
-                <button @click="search" class="btn">Cerca</button>
+                <button @click="search" class="btn ms_search_btn">Cerca</button>
               </div>
+
+              <p class="pt-4">Consegna gratuita per ordini superiori a 15€.</p>
             </div>
           </div>
         </div>
@@ -80,20 +82,15 @@
         <div class="row mt-5">
           <div class="col">
             <h3 class="mb-3">Cerchi qualcos'altro?</h3>
-            <div class="text-center text-md-left">
-              <div
-                v-for="(singleCategory, index) in all_categories"
-                :key="index"
-                class="btn btn-light text-uppercase font-weight-bold m-2"
-              >
-                <router-link
-                  :to="{
-                    name: 'search',
-                    query: { s: '', c: singleCategory.name },
-                  }"
-                >
-                  {{ singleCategory.name }}</router-link
-                >
+            <div class="text-center text-md-left ms_something_else">
+              <div v-for="(singleCategory, index) in all_categories" :key="index" class="btn text-uppercase font-weight-bold m-2 ms_btn_categories">
+                  <router-link style="text-decoration: none; color: inherit; background: inherit;"
+                    class="router_link"
+                    :to="{
+                      name: 'search',
+                      query: { s: '', c: singleCategory.name },}">
+                        {{ singleCategory.name }}
+                  </router-link>
               </div>
             </div>
           </div>
@@ -152,7 +149,7 @@
                 Accedi</a
               >
             </div>
-            <div class="col-2 text-center text-light py-2">- o -</div>
+            <div class="col-2 text-center text-light py-2">oppure</div>
             <div class="col-5 text-left px-lg-5">
               <a href="/register" class="btn btn-light btn-lg text-uppercase"
                 >Registrati</a
@@ -273,8 +270,8 @@ export default {
       background-position: 2456px;
     }
   }
-}
 
+}
 #categories {
   a {
     display: block;
@@ -355,5 +352,16 @@ export default {
   a {
     width: 100%;
   }
+}
+.ms_btn_categories{
+  background-color: $grey1;
+  &:hover{
+    background-color: $grey2;
+  }
+}
+.ms_search_btn{
+  background-color: $color2;
+  color: white;
+  margin-left: -3px;
 }
 </style>

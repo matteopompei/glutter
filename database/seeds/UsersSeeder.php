@@ -122,15 +122,6 @@ class UsersSeeder extends Seeder
                 'email' => 'il@pastaio.it',
                 'p_iva' => 12345678913,
             ],
-            [
-                'business_name' => "The NULL Restaurant",
-                'address' => 'Vicolo Stretto, 148, Terni, TR, 05100',
-                'image' => NULL,
-                'categories' => [2, 10],
-                'password' => bcrypt('mirtillosam'),
-                'email' => 'the@null.it',
-                'p_iva' => 12345678913,
-            ],
         ];
 
         //Esegue il seed degli utenti 
