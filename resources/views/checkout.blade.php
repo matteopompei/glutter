@@ -303,7 +303,12 @@
               payload
             }, function(response) {
               if (response.success) {
-                alert('Payment successfull!');
+                localStorage.removeItem('cart');
+                localStorage.removeItem('cartCount');
+                localStorage.removeItem('businessName');
+                localStorage.removeItem('userID');
+                
+                window.location.replace("/payment/checkout/success");
               } else {
                 $("#errorModal").modal();
               }
