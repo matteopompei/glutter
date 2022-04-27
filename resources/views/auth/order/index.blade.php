@@ -36,11 +36,11 @@
                                         <td class="align-middle text-center">
                                             @if ($order->payed == 0)
                                                 <div>
-                                                    <span><i class="fa-solid fa-eye-slash"></i> No</span>
+                                                    <span>No</span>
                                                 </div>
                                             @else
                                                 <div>
-                                                    <span><i class="fa-solid fa-eye"></i> Sì</span>
+                                                    <span>Sì</span>
                                                 </div>
                                             @endif
                                         </td>
