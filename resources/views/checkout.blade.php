@@ -202,20 +202,26 @@
 
                             <div class="col-md-6">
                                 <input type="time" name="delivery_date" id="delivery_date" class="form-control"
+                                    value="@if (isset($form_data)) {{ $form_data['delivery_date'] }}@else{{ old('delivery_date') }} @endif"
                                     step="600" min="12:00" max="22:00" required>
-                            </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary mr-3">
-                                    Avanti
-                                </button>
-                                <button onclick="history.back()" class="btn btn-danger">
-                                    Indietro
-                                </button>
+                                @error('delivery_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                        </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary mr-3">
+                                        Avanti
+                                    </button>
+                                    <button onclick="history.back()" class="btn btn-danger">
+                                        Indietro
+                                    </button>
+                                </div>
+                            </div>
                     </form>
                 </div>
 
