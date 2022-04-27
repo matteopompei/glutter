@@ -29,16 +29,13 @@
                   aria-label="Cerca ristorante"
                   aria-describedby="basic-addon2"
                   placeholder="Es. Burger Thing"
+                  @keyup.enter="search"
                 />
 
-                <div @click="sendSearchInput()" class="input-group-append">
-                  <router-link
-                    :to="{ name: 'search', query: { s: searchInput } }"
-                    class="btn"
-                    >Cerca</router-link
-                  >
-                </div>
+                <button @click="search" class="btn ms_search_btn">Cerca</button>
               </div>
+
+              <p class="pt-4">Consegna gratuita per ordini superiori a 15€.</p>
             </div>
           </div>
         </div>
@@ -50,32 +47,50 @@
         <h2 class="display-4 mb-4">Le categorie più gettonate</h2>
         <div class="row">
           <div class="col-md-7 p-1">
-            <a href="#" class="text-center p-5 pizza"><h3>Pizza</h3></a>
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'pizza' } }"
+              class="text-center p-5 pizza"
+              ><h3>Pizza</h3></router-link
+            >
           </div>
           <div class="col-md-5 p-1">
-            <a href="#" class="text-center p-5 sushi"><h3>Sushi</h3></a>
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'sushi' } }"
+              class="text-center p-5 sushi"
+              ><h3>Sushi</h3></router-link
+            >
           </div>
         </div>
         <div class="row">
           <div class="col-md-5 p-1">
-            <a href="#" class="text-center p-5 hamburger">
-              <h3>Hamburger</h3></a
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'hamburger' } }"
+              class="text-center p-5 hamburger"
+            >
+              <h3>Hamburger</h3></router-link
             >
           </div>
           <div class="col-md-7 p-1">
-            <a href="#" class="text-center p-5 pasta"> <h3>Pasta</h3></a>
+            <router-link
+              :to="{ name: 'search', query: { s: '', c: 'pasta' } }"
+              class="text-center p-5 pasta"
+            >
+              <h3>Pasta</h3></router-link
+            >
           </div>
         </div>
         <div class="row mt-5">
           <div class="col">
             <h3 class="mb-3">Cerchi qualcos'altro?</h3>
-            <div class="text-center text-md-left">
-              <div
-                v-for="(singleCategory, index) in all_categories"
-                :key="index"
-                class="btn btn-light text-uppercase font-weight-bold m-2"
-              >
-                {{ singleCategory.name }}
+            <div class="text-center text-md-left ms_something_else">
+              <div v-for="(singleCategory, index) in all_categories" :key="index" class="btn text-uppercase font-weight-bold m-2 ms_btn_categories">
+                  <router-link style="text-decoration: none; color: inherit; background: inherit;"
+                    class="router_link"
+                    :to="{
+                      name: 'search',
+                      query: { s: '', c: singleCategory.name },}">
+                        {{ singleCategory.name }}
+                  </router-link>
               </div>
             </div>
           </div>
@@ -134,7 +149,7 @@
                 Accedi</a
               >
             </div>
-            <div class="col-2 text-center text-light py-2">- o -</div>
+            <div class="col-2 text-center text-light py-2">oppure</div>
             <div class="col-5 text-left px-lg-5">
               <a href="/register" class="btn btn-light btn-lg text-uppercase"
                 >Registrati</a
@@ -157,8 +172,8 @@ export default {
     };
   },
   methods: {
-    sendSearchInput() {
-      this.$root.$emit("SearchInputEvent", this.searchInput);
+    search() {
+      this.$router.push({ name: "search", query: { s: this.searchInput } });
     },
   },
   created() {
@@ -255,8 +270,8 @@ export default {
       background-position: 2456px;
     }
   }
-}
 
+}
 #categories {
   a {
     display: block;
@@ -337,5 +352,16 @@ export default {
   a {
     width: 100%;
   }
+}
+.ms_btn_categories{
+  background-color: $grey1;
+  &:hover{
+    background-color: $grey2;
+  }
+}
+.ms_search_btn{
+  background-color: $color2;
+  color: white;
+  margin-left: -3px;
 }
 </style>

@@ -1,5 +1,51 @@
 <template>
   <div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="errorModal"
+      tabindex="-1"
+      aria-labelledby="errorModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="errorModalLabel">Attenzione</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Puoi ordinare da un ristorante alla volta. Svuota il carrello se
+            vuoi proseguire gli acquisti presso questo ristorante!
+          </div>
+          <div class="modal-footer">
+            <button
+              @click="removeAllFromCart"
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Svuota il carrello
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Chiudi
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="info">
       <div class="container-xl">
         <div class="row p-5">
@@ -38,7 +84,7 @@
     <div id="dishes" class="py-5">
       <div class="container-fluid">
         <div class="row py-5 px-3">
-          <div class="col-md-5 col-lg-8">
+          <div class="col-md-5 col-lg-6 col-xl-7">
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
               <div
                 v-for="dish in user.dishes"
@@ -76,7 +122,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-7 col-lg-4">
+          <div class="col-md-7 col-lg-6 col-xl-5">
             <div class="rounded py-3 px-4 carrello">
               <h4 class="mb-3">Il tuo ordine</h4>
               <div
@@ -91,7 +137,9 @@
                   class="d-flex justify-content-between align-items-center mb-2"
                 >
                   <div>
-                    {{ dish.name }} x{{ dish.quantity }} ({{ dish.totalPrice }}
+                    {{ dish.name }}
+                    <em class="ml-2">x{{ dish.quantity }}</em>
+                    ({{ dish.totalPrice }}
                     €)
                   </div>
                   <div>
@@ -110,16 +158,18 @@
                   </div>
                 </div>
 
-                <div class="my-3">Totale: {{ totalPrice }} €</div>
+                <div class="mt-5 mb-2">
+                  <h4>Totale: {{ totalPrice }} €</h4>
+                </div>
                 <button
-                  class="btn btn-danger"
+                  class="btn btn-danger btn-lg btn-block mt-5"
                   @click.prevent="removeAllFromCart()"
                 >
                   Svuota carrello
                 </button>
                 <a
                   href="/payment/checkout"
-                  class="btn btn-secondary btn-lg btn-block mt-5"
+                  class="btn btn-secondary btn-lg btn-block mt-1"
                 >
                   Vai al pagamento
                 </a>
@@ -156,8 +206,15 @@ export default {
       return price.replace(".", ",");
     },
     openDishModal(dish) {
-      let user = this.user;
-      this.$root.$emit("DishModalEvent", { dish, user });
+      if (
+        this.$store.state.cart.length > 0 &&
+        this.$store.state.cart[0].user_id != dish.user_id
+      ) {
+        $("#errorModal").modal("show");
+      } else {
+        let user = this.user;
+        this.$root.$emit("DishModalEvent", { dish, user });
+      }
     },
   },
   computed: {

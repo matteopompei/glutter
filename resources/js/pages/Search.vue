@@ -14,15 +14,19 @@
                 placeholder="Cerca il nome di un ristorante"
               />
             </div>
-            <div class="filter_container">
+            <div class="filter_container ml-4">
               <div v-for="(category, index) in all_categories" :key="index">
                 <input
-                  id="checkbox"
+                  :id="'category' + category.id"
                   type="checkbox"
                   v-model="checkArray"
                   :value="category.name"
+                  class="form-check-input"
                 />
-                <span>{{ category.name }}</span>
+                <span></span>
+                <label class="form-check-label" :for="'category' + category.id">
+                  {{ category.name }}
+                </label>
               </div>
             </div>
           </div>
@@ -44,9 +48,16 @@
                   <div class="card restaurant">
                     <div class="avatar-container">
                       <img
+                        v-if="restaurant.image"
                         :src="`/storage/${restaurant.image}`"
                         class="card-img-top img-food"
-                        alt=""
+                        :alt="restaurant.business_name"
+                      />
+                      <img
+                        v-else
+                        src="/images/restaurant-placeholder.png"
+                        :alt="restaurant.business_name"
+                        class="img-fluid placeholder-avatar"
                       />
                     </div>
                     <div class="card-body">
@@ -80,9 +91,25 @@ export default {
     return {
       all_categories: [],
       all_restaurants: [],
-      search: "",
+      search: this.$route.query.s,
       checkArray: [],
     };
+  },
+  watch: {
+    search(newVal) {
+      this.$router.push({ query: { ...this.$route.query, s: newVal } });
+    },
+    "$route.query.s": function (val) {
+      this.search = val;
+    },
+    checkArray(newVal) {
+      this.$router
+        .push({ query: { ...this.$route.query, c: newVal } })
+        .catch(() => {});
+    },
+    "$route.query.c": function (val) {
+      this.checkArray = val;
+    },
   },
   methods: {
     //Ritorna ristoranti filtrati tramite search bar
@@ -117,12 +144,17 @@ export default {
           if (this.checkArray.length == 0) {
             return restaurant;
           } else {
-            for (let check of this.checkArray) {
-              for (let category of restaurant.categories) {
-                if (category.name == check) {
-                  return restaurant;
-                }
-              }
+            let categories = [];
+            for (let category of restaurant.categories) {
+              categories.push(category.name);
+            }
+
+            if (
+              this.checkArray.every((element) => {
+                return categories.includes(element);
+              })
+            ) {
+              return restaurant;
             }
           }
         }
@@ -150,12 +182,14 @@ export default {
       .catch((error) => {
         this.$router.push({ name: "error404" });
       });
-  },
-  mounted() {
-    this.$root.$on("SearchInputEvent", (data) => {
-      this.search = data;
-      //   this.searchRestaurant();
-    });
+
+    if (this.$route.query.c.isArray) {
+      for (let category of this.$route.query.c) {
+        this.checkArray.push(category);
+      }
+    } else {
+      this.checkArray.push(this.$route.query.c);
+    }
   },
 };
 </script>

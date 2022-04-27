@@ -5,6 +5,28 @@
 @endsection
 
 @section('content')
+    {{-- Modal --}}
+    <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="errorModalLabel">Attenzione</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    È possibile caricare solo file jpeg, jpg o png con un peso massimo di 2mb!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Chiudi
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="dashboard">
             <div class="row">
@@ -142,7 +164,7 @@
                             }
                         }
                     } else {
-                        alert("È possibile caricare solo file jpeg, jpg o png");
+                        $("#errorModal").modal("show");
                     }
                 }
             }
