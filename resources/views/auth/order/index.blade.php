@@ -20,7 +20,6 @@
                         <table class="table table-white table-hover">
                             <thead class="thead-light">
                                 <tr>
-                                    <th class="align-middle text-center" scope="col">ID ordine</th>
                                     <th class="align-middle text-center" scope="col">Incasso</th>
                                     <th class="align-middle text-center" scope="col">Pagamento ricevuto</th>
                                     <th class="align-middle text-center" scope="col">Visualizza ordine</th>
@@ -31,7 +30,6 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <td class="align-middle text-center">{{ $order['id'] }}</td>
                                         <td class="align-middle text-center">{{ $order['total'] }}€</td>
                                         <td class="align-middle text-center">
                                             @if ($order->payed == 0)

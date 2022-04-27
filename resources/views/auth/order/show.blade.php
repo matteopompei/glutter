@@ -20,7 +20,6 @@
                         <table class="table table-white table-hover">
                             <thead class="thead-light">
                                 <tr>
-                                    <th class="align-middle text-center" scope="col">ID</th>
                                     <th class="align-middle text-center" scope="col">e-mail cliente</th>
                                     <th class="align-middle text-center" scope="col">Nome cliente</th>
                                     <th class="align-middle text-center" scope="col">Numero di telefono</th>
@@ -34,7 +33,6 @@
                             
                             <tbody>
                                     <tr>
-                                        <td class="align-middle text-center">{{ $order->id }}</td>
                                         <td class="align-middle text-center">{{ $order->email }}</td>
                                         <td class="align-middle text-center">{{ $order->name }}</td>
                                         <td class="align-middle text-center">{{ $order->phone }}</td>
