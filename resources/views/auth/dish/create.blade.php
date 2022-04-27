@@ -41,7 +41,7 @@
 
                         <div class="form-group">
                             <label for="price">Prezzo</label>
-                            <input type="number" step="0.01" min="0.01"
+                            <input type="number" step="0.01" min="0.01" max="999"
                                 class="form-control @error('price') is-invalid @enderror" id="price" name="price" rows="1"
                                 placeholder="Prezzo" required>
 

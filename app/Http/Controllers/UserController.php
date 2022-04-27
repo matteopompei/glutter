@@ -99,7 +99,7 @@ class UserController extends Controller
 
         // Salva
         $user->save();
-        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Informazioni aggiornate correttamente</div>']);
+        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><i class="fa-solid fa-xmark"></i></button>Informazioni aggiornate correttamente</div>']);
     }
 
     // Aggiorna l'immagine del profilo
@@ -120,7 +120,7 @@ class UserController extends Controller
         }
 
         $user->save();
-        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Immagine aggiornata correttamente</div>']);
+        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><i class="fa-solid fa-xmark"></i></button>Immagine aggiornata correttamente</div>']);
     }
 
     // Rimuove l'immagine del profilo
@@ -130,6 +130,6 @@ class UserController extends Controller
         $user->image = null;
 
         $user->save();
-        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert">Immagine rimossa correttamente</div>']);
+        return redirect()->route('dashboard')->with(['serverMessage' => '<div class="alert alert-success" role="alert"><button type="button" class="close" data-dismiss="alert"><i class="fa-solid fa-xmark"></i></button>Immagine rimossa correttamente</div>']);
     }
 }

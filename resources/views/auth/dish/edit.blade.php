@@ -44,9 +44,13 @@
 
                         <div class="form-group">
                             <label for="ingredients">Prezzo</label>
-                            <input type="number" step="0.01" min="0.01"
+                            <input type="number" step="0.01" min="0.01" max="5000"
                                 class="form-control @error('price') is-invalid @enderror" id="price" name="price"
                                 value="{{ $dish->price }}" rows="1" placeholder="Prezzo" required>
+
+                            @error('price')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group">
