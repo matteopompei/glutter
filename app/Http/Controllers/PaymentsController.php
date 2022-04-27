@@ -18,7 +18,8 @@ class PaymentsController extends Controller
         'state' => 'required|string|max:40',
         'cap' => 'required|numeric|digits:5',
         'phone' => 'required|string|max:15',
-        'email' => 'required|string|email|max:255'
+        'email' => 'required|string|email|max:255',
+        'delivery_date' => 'required|date'
     ];
 
     public function checkout()
@@ -93,6 +94,7 @@ class PaymentsController extends Controller
             $new_order->shipment = 0; //todo
             $new_order->total = $total;
             $new_order->payed = $total;
+            $new_order->delivey_date = $form_data["delivery_date"];
             $new_order->save();
 
             // Tabella ponte
