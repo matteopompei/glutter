@@ -47,7 +47,7 @@
                                                 class="btn btn-info text-white">Visualizza</a>
                                         </td>
                                         <td class="align-middle text-center">    
-                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal">Delete</button>
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal">Elimina</button>
                                         </td>
                                     </tr>
                                 @endforeach
