@@ -32,7 +32,7 @@
                   @keyup.enter="search"
                 />
 
-                <button @click="search" class="btn">Cerca</button>
+                <button @click="search" class="btn ms_search_btn">Cerca</button>
               </div>
             </div>
           </div>
@@ -356,6 +356,10 @@ export default {
   &:hover{
     background-color: $grey2;
   }
-
+}
+.ms_search_btn{
+  background-color: $color2;
+  color: white;
+  margin-left: -3px;
 }
 </style>
