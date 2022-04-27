@@ -24,6 +24,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 24,
                         'payed' => 26,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 5,
@@ -40,6 +41,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 23,
                         'payed' => 25,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 2,
@@ -66,6 +68,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 19,
                         'payed' => 21,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 6,
@@ -87,6 +90,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 5,
                         'total' => 16,
                         'payed' => 18,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 1,
@@ -108,6 +112,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 12,
                         'payed' => 14,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 7,
@@ -129,6 +134,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 15,
                         'payed' => 17,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 7,
@@ -145,6 +151,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 25,
                         'payed' => 27,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 10,
@@ -171,6 +178,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 8,
                         'payed' => 10,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 12,
@@ -192,6 +200,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 30,
                         'payed' => 32,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 14,
@@ -208,6 +217,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 3,
                         'total' => 20,
                         'payed' => 23,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 14,
@@ -229,6 +239,7 @@ class OrdersSeeder extends Seeder
                         'shipment' => 2,
                         'total' => 22,
                         'payed' => 24,
+                        'delivery_date' =>'2022-04-29 20:30',
                         'dishes' => [
                             [
                                 'dish_id' => 16,
@@ -262,6 +273,7 @@ class OrdersSeeder extends Seeder
                 $new_order->shipment = $order['shipment'];
                 $new_order->total = $order['total'];
                 $new_order->payed = $order['payed'];
+                $new_order->delivery_date = $order['delivery_date'];
                 $new_order->user_id = $element['user_id'];
                 $new_order->save();
 
