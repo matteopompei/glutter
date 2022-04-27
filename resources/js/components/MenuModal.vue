@@ -90,9 +90,6 @@ export default {
     },
   },
   computed: {
-    totalPrice() {
-      return this.$store.getters.getTotal;
-    },
     quantity() {
       let found = this.$store.state.cart.find(
         (element) => element.id == this.dish.id
