@@ -61,7 +61,7 @@
                         </table>
 
                         <div>
-                            Prodotti ordinati
+                            <h5>Prodotti ordinati:</h5>
                             <ul>
                                 @foreach ($order->dishes as $dish)
                                     <li>
