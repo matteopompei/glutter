@@ -29,15 +29,10 @@
                   aria-label="Cerca ristorante"
                   aria-describedby="basic-addon2"
                   placeholder="Es. Burger Thing"
+                  @keyup.enter="search"
                 />
 
-                <div class="input-group-append">
-                  <router-link
-                    :to="{ name: 'search', query: { s: searchInput } }"
-                    class="btn"
-                    >Cerca</router-link
-                  >
-                </div>
+                <button @click="search" class="btn">Cerca</button>
               </div>
             </div>
           </div>
@@ -155,6 +150,11 @@ export default {
       all_categories: {},
       searchInput: "",
     };
+  },
+  methods: {
+    search() {
+      this.$router.push({ name: "search", query: { s: this.searchInput } });
+    },
   },
   created() {
     axios
