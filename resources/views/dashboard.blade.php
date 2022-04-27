@@ -102,7 +102,7 @@
                                 Home</a>
                         </div>
                         <div class="col-lg">
-                            <a href="#"><i class="fa-solid fa-eye"></i>
+                            <a href="/restaurant/{{ $id }}"><i class="fa-solid fa-eye"></i>
                                 Anteprima attività</a>
                         </div>
                     </div>
