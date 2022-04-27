@@ -76,6 +76,7 @@
                             params: { id: $store.state.userID },
                         }"
                         class="btn btn-info"
+                        data-dismiss="modal"
                         >Torna al ristorante</router-link
                     >
                     <a href="/payment/checkout" class="btn btn-success">
