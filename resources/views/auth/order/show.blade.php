@@ -52,17 +52,9 @@
                                             </div>
                                           @endif
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <form action="{{ route('auth.order.destroy', $order->id) }}" method="post">
-
-                                                @csrf
-                                                @method("DELETE")
-                                                <button type="submit" class="btn btn-danger"
-                                                    onclick="return confirm('Sei sicuro? Questo ordine verrà eliminato definitivamente.')">Delete</button>
-
-                                            </form>
+                                        <td class="align-middle text-center">    
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal">Delete</button>
                                         </td>
-
                                     </tr>
                             </tbody>
 
@@ -86,4 +78,5 @@
             </div>
         </div>
     </div>
+    @include('auth.order.modal.delete_order')
 @endsection

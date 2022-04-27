@@ -59,17 +59,9 @@
                                                 href="{{ route('auth.dish.show', $dish->id) }}"
                                                 class="btn btn-info text-white">Visualizza</a>
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <form action="{{ route('auth.dish.destroy', $dish->id) }}" method="post">
-
-                                                @csrf
-                                                @method("DELETE")
-                                                <button type="submit" class="btn btn-danger"
-                                                    onclick="return confirm('Sei sicuro? Il prodotto verrà eliminato definitivamente.')">Delete</button>
-
-                                            </form>
+                                        <td class="align-middle text-center">    
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal">Delete</button>
                                         </td>
-
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -77,12 +69,12 @@
                     </div>
 
                     <div class="text-center mt-5 mb-1">
-                        <a href="{{ route('auth.dish.create') }}" class="btn btn-primary mr-2">Aggiungi piatto
-                            al menù</a>
+                        <a href="{{ route('auth.dish.create') }}" class="btn btn-primary mr-2">Aggiungi piatto al menù</a>
                         <a href="/dashboard" class="btn btn-danger">Indietro</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @include('auth.dish.modal.delete_dish')
 @endsection

@@ -48,17 +48,9 @@
                                                 href="{{ route('auth.order.show', $order) }}"
                                                 class="btn btn-info text-white">Visualizza</a>
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <form action="{{ route('auth.order.destroy', $order->id) }}" method="post">
-
-                                                @csrf
-                                                @method("DELETE")
-                                                <button type="submit" class="btn btn-danger"
-                                                    onclick="return confirm('Sei sicuro? Il prodotto verrà eliminato definitivamente.')">Delete</button>
-
-                                            </form>
+                                        <td class="align-middle text-center">    
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal">Delete</button>
                                         </td>
-
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -73,4 +65,5 @@
             </div>
         </div>
     </div>
+    @include('auth.order.modal.delete_order')
 @endsection
