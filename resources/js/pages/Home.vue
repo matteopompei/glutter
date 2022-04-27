@@ -31,7 +31,7 @@
                   placeholder="Es. Burger Thing"
                 />
 
-                <div @click="sendSearchInput()" class="input-group-append">
+                <div class="input-group-append">
                   <router-link
                     :to="{ name: 'search', query: { s: searchInput } }"
                     class="btn"
@@ -155,11 +155,6 @@ export default {
       all_categories: {},
       searchInput: "",
     };
-  },
-  methods: {
-    sendSearchInput() {
-      this.$root.$emit("SearchInputEvent", this.searchInput);
-    },
   },
   created() {
     axios

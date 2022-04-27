@@ -91,9 +91,17 @@ export default {
     return {
       all_categories: [],
       all_restaurants: [],
-      search: "",
+      search: this.$route.query.s,
       checkArray: [],
     };
+  },
+  watch: {
+    search(newVal) {
+      this.$router.push({ query: { ...this.$route.query, s: newVal } });
+    },
+    "$route.query.s": function (val) {
+      this.search = val;
+    },
   },
   methods: {
     //Ritorna ristoranti filtrati tramite search bar
@@ -166,12 +174,6 @@ export default {
       .catch((error) => {
         this.$router.push({ name: "error404" });
       });
-  },
-  mounted() {
-    this.$root.$on("SearchInputEvent", (data) => {
-      this.search = data;
-      //   this.searchRestaurant();
-    });
   },
 };
 </script>
