@@ -63,7 +63,7 @@
                             <ul>
                                 @foreach ($order->dishes as $dish)
                                     <li>
-                                        {{$dish->name}} | x {{$dish->pivot->quantity}} | € {{ $dish->price * $dish->pivot->quantity }}
+                                        {{$dish->name}} | € {{ $dish->price }} x {{$dish->pivot->quantity}} | € {{ $dish->price * $dish->pivot->quantity }}
                                     </li>
                                 @endforeach
                             </ul>
