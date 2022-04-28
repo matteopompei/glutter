@@ -60,7 +60,7 @@
 
                         <div>
                             <h3>Prodotti ordinati</h3>
-                            <table class="table table-white table-hover">
+                        <table class="table table-white table-hover">
                                     <thead class="thead-light">
 
                                 <tr>
