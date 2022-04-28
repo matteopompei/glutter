@@ -17,7 +17,6 @@
             <div class="row">
                 <div class="col left">
                     <div class="row">
-
                         @if ($dish->image)
                             <div class="col-md-4 text-center">
                                 <h3 class="mb-2">Foto piatto</h3>
@@ -33,16 +32,6 @@
                                 </div>
                             </div> 
                         @endif
-
-            @if ($dish->image)
-              <div class="col-md-4 text-center">
-                <h3 class="mb-2">Foto piatto</h3>
-                <div class="mb-4 avatar-container">
-                  <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}" class="img-food">
-                </div>
-              </div>
-            @endif
-
             <div class="col-md-8">
               <h3 class="mb-4">Ingredienti</h3>
               <div class="p-3 mb-5 bg-light text-body rounded">{{ $dish->ingredients }}</div>
