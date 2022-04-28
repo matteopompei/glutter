@@ -317,6 +317,35 @@ class DishesSeeder extends Seeder
                         'price' => 12,
                         'visible' => true
                     ],
+                    [
+                        'name' => 'Margherita',
+                        'image' => "/Glutter-foto-cibi/pizza-margherita.jpeg",
+                        'ingredients' => 'Pomodoro, Mozzarella, Farina 0, Basilico, Olio, Sale',
+                        'price' => 5,
+                        'visible' => true
+                    ],
+                    [
+                        'name' => 'Marinara',
+                        'image' => "/Glutter-foto-cibi/pizza-marinara.jpeg",
+                        'ingredients' => 'Pomodoro, Aglio, Origano, Farina 0, Sale, Olio',
+                        'price' => 4,
+                        'visible' => true
+                    ],
+                    [
+                        'name' => 'Diavola',
+                        'image' => "/Glutter-foto-cibi/pizza-diavola.png",
+                        'ingredients' => "Pomodoro, Mozzarella, Salame piccante, Farina 0, Olio",
+                        'price' => 8,
+                        'visible' => true
+                    ],
+                    [
+                        'name' => 'Alici',
+                        'image' => "/Glutter-foto-cibi/pizza-napoli.png",
+                        'ingredients' => "Pomodoro, Alici, Farina 0, Olio, Origano",
+                        'price' => 10,
+                        'visible' => true
+                    ],
+                    
                 ]
             ],
             [
