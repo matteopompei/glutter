@@ -213,65 +213,69 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/_variables.scss";
 
-.filters {
-    .search-bar {
-        border-color: $grey2;
-        box-shadow: inset 0 0 5px rgba($color: #000000, $alpha: 0.05);
+#search {
+    min-height: calc(100vh - 83.14px - 191.19px - 424.81px);
 
-        &:focus {
-            border-color: $color2;
-            box-shadow: 0 0 0 3px rgba($color: $color2, $alpha: 0.2);
+    .filters {
+        .search-bar {
+            border-color: $grey2;
+            box-shadow: inset 0 0 5px rgba($color: #000000, $alpha: 0.05);
+
+            &:focus {
+                border-color: $color2;
+                box-shadow: 0 0 0 3px rgba($color: $color2, $alpha: 0.2);
+            }
+        }
+
+        .category {
+            transition: 0.1s;
+
+            &:hover {
+                background: $grey1;
+            }
+
+            &:active {
+                background: $grey2;
+            }
+
+            label {
+                width: 100%;
+            }
+
+            * {
+                cursor: pointer;
+            }
         }
     }
 
-    .category {
-        transition: 0.1s;
+    .restaurant {
+        display: block;
+        height: 100%;
+        color: $black;
+        background: $white;
+        border: 0;
+        box-shadow: 0 5px 5px rgba($color: $grey3, $alpha: 0.1);
+        transition: 0.3s;
 
         &:hover {
-            background: $grey1;
+            text-decoration: none;
+            box-shadow: 0 10px 15px rgba($color: $grey3, $alpha: 0.2);
         }
 
-        &:active {
-            background: $grey2;
-        }
+        .avatar-container {
+            padding-top: 50%;
+            position: relative;
 
-        label {
-            width: 100%;
-        }
-
-        * {
-            cursor: pointer;
-        }
-    }
-}
-
-.restaurant {
-    display: block;
-    height: 100%;
-    color: $black;
-    background: $white;
-    border: 0;
-    box-shadow: 0 5px 5px rgba($color: $grey3, $alpha: 0.1);
-    transition: 0.3s;
-
-    &:hover {
-        text-decoration: none;
-        box-shadow: 0 10px 15px rgba($color: $grey3, $alpha: 0.2);
-    }
-
-    .avatar-container {
-        padding-top: 50%;
-        position: relative;
-
-        .img-restaurant {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            background-color: $grey1;
+            .img-restaurant {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                background-color: $grey1;
+            }
         }
     }
 }
