@@ -59,14 +59,29 @@
                         </table>
 
                         <div>
-                            <h5>Prodotti ordinati:</h5>
-                            <ul>
+                            <h3>Prodotti ordinati</h3>
+                            <table class="table table-white table-hover">
+                                    <thead class="thead-light">
+
+                                <tr>
+                                    <th class="align-middle text-center" scope="col">Piatto ordinato</th>
+                                    <th class="align-middle text-center" scope="col">Prezzo singolo piatto</th>
+                                    <th class="align-middle text-center" scope="col">Quantità piatto ordinata</th>
+                                    <th class="align-middle text-center" scope="col">Totale singolo piatto</th>
+                                </tr>
+                            </thead>
+                            
+                            <tbody>
                                 @foreach ($order->dishes as $dish)
-                                    <li>
-                                        {{$dish->name}} | € {{ $dish->price }} x {{$dish->pivot->quantity}} | € {{ $dish->price * $dish->pivot->quantity }}
-                                    </li>
+                                    <tr>
+                                        <td class="align-middle text-center">{{$dish->name}}</td>
+                                        <td class="align-middle text-center">{{ $dish->price }} €</td>
+                                        <td class="align-middle text-center">{{$dish->pivot->quantity}}</td>
+                                        <td class="align-middle text-center">{{ $dish->price * $dish->pivot->quantity }} €</td>
+                                    </tr>
                                 @endforeach
-                            </ul>
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                     <div class="text-center mt-5 mb-1">
