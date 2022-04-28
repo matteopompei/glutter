@@ -75,9 +75,9 @@
                                 @foreach ($order->dishes as $dish)
                                     <tr>
                                         <td class="align-middle text-center">{{$dish->name}}</td>
-                                        <td class="align-middle text-center">{{ $dish->price }} €</td>
+                                        <td class="align-middle text-center">{{ $dish->price }}€</td>
                                         <td class="align-middle text-center">{{$dish->pivot->quantity}}</td>
-                                        <td class="align-middle text-center">{{ $dish->price * $dish->pivot->quantity }} €</td>
+                                        <td class="align-middle text-center">{{ $dish->price * $dish->pivot->quantity }}€</td>
                                     </tr>
                                 @endforeach
                             </tbody>
