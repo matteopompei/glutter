@@ -207,6 +207,9 @@ export default {
             this.checkArray.push(this.$route.query.c);
         }
     },
+    mounted () {
+        window.scrollTo(0, 0)
+    },
 };
 </script>
 
