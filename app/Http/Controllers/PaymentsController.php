@@ -101,13 +101,19 @@ class PaymentsController extends Controller
                 $total += $unit_price * $quantity;
             }
 
+            $shipment = 2.50;
+            if ($total >= 15) {
+                $shipment = 0;
+            }
+            $total += $shipment;
+
             $new_order = new Order;
             $new_order->user()->associate($user);
             $new_order->name = $form_data["fullName"];
             $new_order->email = $form_data["email"];
             $new_order->phone = $form_data["phone"];
             $new_order->address = $this->getAddress($form_data['street'], $form_data['civic'], $form_data['city'], $form_data['state'], $form_data['cap']);
-            $new_order->shipment = 0; //todo
+            $new_order->shipment = $shipment;
             $new_order->total = $total;
             $new_order->payed = $total;
             $new_order->delivery_date = $form_data["delivery_date"];

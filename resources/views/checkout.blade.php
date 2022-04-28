@@ -239,13 +239,13 @@
                         <div class="font-italic">Spese di spedizione: <span id="shipment"></span>€</div>
                         <h5 class="font-weight-bold my-4">Totale <span id="total"
                                 class="rounded bg-info text-light font-weight-normal py-1 px-2"></span></h5>
-                                    {{-- imposto orario di consegna --}}
-                                    <div id="shipping_time">
-                                        @if (isset($form_data))
-                                        Il tuo ordine verrà consegnato alle: 
-                                        {{ explode(" ", $form_data['delivery_date'])[1] }}
-                                        @endif
-                                    </div>
+                        {{-- imposto orario di consegna --}}
+                        <div id="shipping_time">
+                            @if (isset($form_data))
+                                Il tuo ordine verrà consegnato alle:
+                                {{ explode(' ', $form_data['delivery_date'])[1] }}
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -272,32 +272,31 @@
         // Variabili carrello
         const cart = JSON.parse(window.localStorage.getItem('cart'));
         const userID = window.localStorage.getItem('userID');
+
         let total = 0;
-        //aggiungo variabile per le spese di spedizione
         let shipmentPrice = 2.50
+
         // Variabili elementi HTML
         const pageCart = document.getElementById("cart");
         const pageRestaurant = document.getElementById("restaurantName");
-        const shipment = document.getElementById("shipment");
+
         // Aggiunge nome ristorante alla pagina
         pageRestaurant.innerHTML = String(window.localStorage.getItem('businessName'));
-        console.log(cart)
-        // Aggiunge articoli acqustati alla pagina
+
+        // Aggiunge articoli acqustati alla pagina e calcola il totale
         for (let item of cart) {
             //aggiungo il prezzo del singolo item tra parentesi
-            pageCart.innerHTML += "<li>" + item.name + " (" + item.price + "€)" + " <em class=\"ml-1\">x" + item.quantity + "</em></li>";
-            
-            // ho spostato il calcolo delle spese totali qualche riga sotto per aggiungere le spese di spedizione al totale
-            console.log(item.totalPrice)
-            //imposto un controllo sulle spese di spedizione
-            if(item.totalPrice >= 15){
-                shipmentPrice = 0   
-            }
-            shipment.innerHTML = shipmentPrice;
-            total = parseFloat(item.totalPrice) + shipmentPrice;
+            pageCart.innerHTML += "<li>" + item.name + " (" + item.price + "€)" + " <em class=\"ml-1\">x" + item.quantity +
+                "</em></li>";
+            total += parseFloat(item.totalPrice);
         }
-        
-        // Aggiunge totale alla pagina
+
+        if (total >= 15) {
+            shipmentPrice = 0
+        }
+
+        // Aggiunge totale e spese di spedizione alla pagina
+        document.getElementById("shipment").innerHTML = shipmentPrice;
         document.querySelector('#total').innerHTML = total + " €";
 
         // Versione per chiamata ajax
