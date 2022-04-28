@@ -59,7 +59,7 @@
                         </table>
 
                         <div>
-                            <h3>Prodotti ordinati</h3>
+                            <h3 class="mt-5 mb-3">Prodotti ordinati</h3>
                         <table class="table table-white table-hover">
                                     <thead class="thead-light">
 
