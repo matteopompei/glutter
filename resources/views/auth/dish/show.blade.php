@@ -55,12 +55,13 @@
           </div>
 
           <div class="text-center mt-5 mb-1">
-            <a href="{{ route('auth.dish.edit', $dish->id) }}" class="btn btn btn-success mr-2">Modifica
-              piatto</a>
-            <a href="{{ route('auth.dish.index') }}" class="btn btn-secondary">Indietro</a>
+            <button type="submit" class="btn btn-danger mx-1" data-toggle="modal" data-target="#ModalModal{{$dish->id}}">Elimina</button>
+            <a href="{{ route('auth.dish.edit', $dish->id) }}" class="btn btn btn-success mx-1">Modifica piatto</a>
+            <a href="{{ route('auth.dish.index') }}" class="btn btn-secondary mx-1">Indietro</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+  @include('auth.dish.modal.delete_dish')
 @endsection
