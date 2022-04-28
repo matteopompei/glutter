@@ -185,6 +185,7 @@ nav {
                 border-bottom: 1px dotted $grey2;
 
                 .category {
+                    text-transform: lowercase;
                     &:not(.category:last-child)::after {
                         content: ", ";
                     }
