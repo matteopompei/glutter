@@ -147,6 +147,7 @@ nav {
         .thumbnail-food {
             .avatar-container {
                 padding-top: 56.25%;
+                margin-bottom: 0;
 
                 img {
                     position: absolute;
@@ -185,6 +186,7 @@ nav {
                 border-bottom: 1px dotted $grey2;
 
                 .category {
+                    text-transform: lowercase;
                     &:not(.category:last-child)::after {
                         content: ", ";
                     }
