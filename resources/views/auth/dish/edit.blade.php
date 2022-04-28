@@ -60,7 +60,13 @@
                                         <img src="{{ asset("storage/{$dish->image}") }}" alt="{{ $dish->name }}"
                                             class="img-food">
                                     </div>
+                                </div> 
+                            @else
+                            <div class="col-md-4 text-center">
+                                <div class="mb-4 avatar-container">
+                                    <img src="{{ asset("storage/uploads/dish-placeholder.png") }}" alt="dish-placeholder" class="img-food">
                                 </div>
+                            </div> 
                             @endif
                         </div>
 

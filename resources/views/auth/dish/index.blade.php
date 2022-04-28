@@ -34,7 +34,11 @@
                                     <tr>
                                         <td class="align-middle text-center">{{ $dish['name'] }}</td>
                                         <td class="align-middle text-center thumbnail-food">
-                                            @if ($dish->image)
+                                            @if (!$dish->image)
+                                            <div class="avatar-container">
+                                                <img src="{{ asset("storage/uploads/dish-placeholder.png") }}" alt="dish-placeholder" class="img-thumbnail">
+                                            </div> 
+                                            @else
                                                 <div class="avatar-container">
                                                     <img src="{{ asset("storage/{$dish->image}") }}"
                                                         alt="{{ $dish->name }}" class="img-thumbnail">
