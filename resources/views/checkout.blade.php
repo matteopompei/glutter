@@ -198,8 +198,9 @@
 
                         {{-- Campo Orario --}}
                         <div class="form-group row">
-                            <label for="delivery_date" class="col-md-4 col-form-label text-md-right">Orario di
-                                consegna (12-22):</label>
+                            <label for="delivery_date" class="col-md-4 col-form-label text-md-right">
+                                Orario di consegna (12-22):
+                            </label>
 
                             <div class="col-md-6">
                                 <input type="time" name="delivery_date" id="delivery_date" class="form-control"
@@ -238,7 +239,13 @@
                         <div class="font-italic">Spese di spedizione: <span id="shipment"></span>€</div>
                         <h5 class="font-weight-bold my-4">Totale <span id="total"
                                 class="rounded bg-info text-light font-weight-normal py-1 px-2"></span></h5>
-                        <div id="shipping_time">Il tuo ordine verrà consegnato alle:</div>
+                                    {{-- imposto orario di consegna --}}
+                                    <div id="shipping_time">
+                                        @if (isset($form_data))
+                                        Il tuo ordine verrà consegnato alle: 
+                                        {{ explode(" ", $form_data['delivery_date'])[1] }}
+                                        @endif
+                                    </div>
                     </div>
                 </div>
             </div>
