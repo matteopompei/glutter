@@ -201,6 +201,9 @@ export default {
             user: {},
         };
     },
+    mounted () {
+        window.scrollTo(0, 0)
+    },
     methods: {
         addToCart(dish) {
             let businessName = this.user.business_name;

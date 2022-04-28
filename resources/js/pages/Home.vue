@@ -229,6 +229,9 @@ export default {
                 this.$router.push({ name: "error404" });
             });
     },
+    mounted () {
+        window.scrollTo(0, 0)
+    },
 };
 </script>
 
