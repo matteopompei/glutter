@@ -204,7 +204,7 @@
                             <div class="col-md-6">
                                 <input type="time" name="delivery_date" id="delivery_date" class="form-control"
                                     value="@if (isset($form_data)) {{ $form_data['delivery_date'] }}@else{{ old('delivery_date') }} @endif"
-                                    step="600" min="{{ $minTime }}" max="22:00" required>
+                                    min="{{ $minTime }}" max="22:00" required>
 
                                 @error('delivery_date')
                                     <span class="invalid-feedback" role="alert">

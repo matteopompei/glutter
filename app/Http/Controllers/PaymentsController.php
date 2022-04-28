@@ -41,16 +41,18 @@ class PaymentsController extends Controller
     public function validateShippingInfo(Request $request)
     {
         $time = $request['delivery_date'];
+
         $today = Carbon::now()->format('Y-m-d');
         $request['delivery_date'] = $today . " " . $time;
 
         $minTime = Carbon::now()->addMinutes(40);
-        $this->validation['delivery_date'] = 'required|date|' . $minTime;
-
+        $this->validation['delivery_date'] = 'required|date|after:' . $minTime;
+        // dd($this->validation);
         $request->validate($this->validation);
         $form_data = $request->all();
 
-        return view('checkout', compact('form_data'));
+        $minTime->format('H:m');
+        return view('checkout', compact('form_data', 'minTime'));
     }
 
     // Versione per chiamata ajax
