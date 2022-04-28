@@ -307,6 +307,7 @@ export default {
     position: relative;
     z-index: 1;
     background: $grey1;
+    min-height: calc(100vh - 100px - 334.5px - 191.19px - 424.81px);
 
     .dish {
         display: block;

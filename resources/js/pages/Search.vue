@@ -214,7 +214,7 @@ export default {
 @import "../../sass/_variables.scss";
 
 #search {
-    min-height: calc(100vh - 83.14px - 191.19px - 424.81px);
+    min-height: calc(100vh - 100px - 191.19px - 424.81px);
 
     .filters {
         .search-bar {
