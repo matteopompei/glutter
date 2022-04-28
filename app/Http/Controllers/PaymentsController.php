@@ -123,7 +123,7 @@ class PaymentsController extends Controller
                 $new_order->dishes()->attach($db_dish, ['quantity' => $quantity, "unit_price" => $unit_price]);
             }
 
-            Mail::to("webmaster@foodglutter.com")->send(new ConfirmationMail());
+            // Mail::to("webmaster@foodglutter.com")->send(new ConfirmationMail());
 
         }
 
