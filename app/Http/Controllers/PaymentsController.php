@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Dish;
+use App\Mail\ConfirmationMail;
 use App\Order;
 use Braintree;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentsController extends Controller
 {
@@ -120,6 +122,9 @@ class PaymentsController extends Controller
 
                 $new_order->dishes()->attach($db_dish, ['quantity' => $quantity, "unit_price" => $unit_price]);
             }
+
+            Mail::to("webmaster@foodglutter.com")->send(new ConfirmationMail());
+
         }
 
         $response = response()->json($status);
