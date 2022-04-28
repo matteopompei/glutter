@@ -62,7 +62,8 @@
                             />
                         </div>
                     </div>
-                    <div class="col-md-7">
+                    <!-- diminuisco colonna da col-md-7 a col-md-6 per farci entrare il pulsante di ritorno alla vista search-->
+                    <div class="col-md-6">
                         <h1 class="display-4">{{ user.business_name }}</h1>
                         <h5>{{ user.address }}</h5>
                         <div class="categories">
@@ -74,6 +75,14 @@
                                 {{ category.name }}
                             </span>
                         </div>
+                    </div>
+                    <div class="col-md-1"> 
+                        <router-link 
+                            class="btn btn-light text-uppercase font-weight-bold m-2" 
+                            :to="{name: 'search', query:{s: ''}, }"
+                            > 
+                            torna alla ricerca 
+                        </router-link>
                     </div>
                 </div>
             </div>
