@@ -234,7 +234,8 @@
                     <div class="rounded bg-gradient-light p-4">
                         <h2 id="restaurantName" class="mb-3"></h2>
                         <ul id="cart" class="ml-4 mb-3"></ul>
-                        <div class="font-italic">Spese di spedizione??</div>
+                        {{-- aggiunto span in cui inserire prezzo di spedizione --}}
+                        <div class="font-italic">Spese di spedizione: <span id="shipment"></span>€</div>
                         <h5 class="font-weight-bold my-4">Totale <span id="total"
                                 class="rounded bg-info text-light font-weight-normal py-1 px-2"></span></h5>
                         <div id="shipping_time">Il tuo ordine verrà consegnato alle:</div>
@@ -265,20 +266,29 @@
         const cart = JSON.parse(window.localStorage.getItem('cart'));
         const userID = window.localStorage.getItem('userID');
         let total = 0;
-
+        //aggiungo variabile per le spese di spedizione
+        let shipmentPrice = 2.50
         // Variabili elementi HTML
         const pageCart = document.getElementById("cart");
         const pageRestaurant = document.getElementById("restaurantName");
-
+        const shipment = document.getElementById("shipment");
         // Aggiunge nome ristorante alla pagina
         pageRestaurant.innerHTML = String(window.localStorage.getItem('businessName'));
 
         // Aggiunge articoli acqustati alla pagina
         for (let item of cart) {
             pageCart.innerHTML += "<li>" + item.name + " <em class=\"ml-1\">x" + item.quantity + "</em></li>";
-            total += parseFloat(item.totalPrice);
+            
+            // ho spostato il calcolo delle spese totali qualche riga sotto per aggiungere le spese di spedizione al totale
+            console.log(item.totalPrice)
+            //imposto un controllo sulle spese di spedizione
+            if(item.totalPrice >= 15){
+                shipmentPrice = 0   
+            }
+            shipment.innerHTML = shipmentPrice;
+            total = parseFloat(item.totalPrice) + shipmentPrice;
         }
-
+        
         // Aggiunge totale alla pagina
         document.querySelector('#total').innerHTML = total + " €";
 
