@@ -99,21 +99,25 @@
                     <div class="row text-center mx">
                         <div class="col-lg">
                             <a href="/"><i class="fa-solid fa-house"></i>
-                                Home</a>
+                                Home
+                            </a>
                         </div>
                         <div class="col-lg">
                             <a href="/restaurant/{{ $id }}"><i class="fa-solid fa-eye"></i>
-                                Anteprima attività</a>
+                                Pagina ristorante
+                            </a>
                         </div>
                     </div>
                     <div class="row text-center">
                         <div class="col-lg">
                             <a href="{{ route('auth.dish.index') }}"><i class="fa-solid fa-utensils"></i>
-                                Visualizza menù</a>
+                                Visualizza menù
+                            </a>
                         </div>
                         <div class="col-lg">
                             <a href="/auth/order"><i class="fa-solid fa-list-check"></i>
-                                Visualizza ordini</a>
+                                Visualizza ordini
+                            </a>
                         </div>
                     </div>
                 </div>
