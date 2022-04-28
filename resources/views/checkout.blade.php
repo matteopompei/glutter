@@ -274,10 +274,11 @@
         const shipment = document.getElementById("shipment");
         // Aggiunge nome ristorante alla pagina
         pageRestaurant.innerHTML = String(window.localStorage.getItem('businessName'));
-
+        console.log(cart)
         // Aggiunge articoli acqustati alla pagina
         for (let item of cart) {
-            pageCart.innerHTML += "<li>" + item.name + " <em class=\"ml-1\">x" + item.quantity + "</em></li>";
+            //aggiungo il prezzo del singolo item tra parentesi
+            pageCart.innerHTML += "<li>" + item.name + " (" + item.price + "€)" + " <em class=\"ml-1\">x" + item.quantity + "</em></li>";
             
             // ho spostato il calcolo delle spese totali qualche riga sotto per aggiungere le spese di spedizione al totale
             console.log(item.totalPrice)
