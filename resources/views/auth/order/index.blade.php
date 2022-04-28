@@ -46,8 +46,9 @@
                                                 href="{{ route('auth.order.show', $order) }}"
                                                 class="btn btn-info text-white">Visualizza</a>
                                         </td>
-                                        <td class="align-middle text-center">    
-                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal">Elimina</button>
+                                        <td class="align-middle text-center">
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal"
+                                                data-target="#ModalModal">Elimina</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -63,5 +64,7 @@
             </div>
         </div>
     </div>
-    @include('auth.order.modal.delete_order')
+    @if ($orders->count() > 0)
+        @include('auth.order.modal.delete_order')
+    @endif
 @endsection
