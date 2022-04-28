@@ -28,6 +28,6 @@ class ConfirmationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.confirmation');
+        return $this->view('auth.mail.confirmation');
     }
 }
