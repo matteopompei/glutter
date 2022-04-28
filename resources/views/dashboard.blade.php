@@ -16,7 +16,8 @@
           </button>
         </div>
         <div class="modal-body">
-          È possibile caricare solo file jpeg, jpg o png con un peso massimo di 2mb!
+          È possibile caricare solo file con estensione <em>.jpeg</em>, <em>.jpg</em> o <em>.png</em> con un peso massimo
+          di 2 MB!
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">
