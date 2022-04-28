@@ -11206,6 +11206,7 @@ nav .user a:hover {
 
 .dashboard .left .thumbnail-food .avatar-container {
   padding-top: 56.25%;
+  margin-bottom: 0;
 }
 
 .dashboard .left .thumbnail-food .avatar-container img {
