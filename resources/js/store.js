@@ -25,8 +25,19 @@ let store = {
             for (let dish of state.cart) {
                 total = total + parseFloat(dish.totalPrice);
             }
+
+            if (total < 15) {
+                total += 2.5;
+            }
             return Number(total).toFixed(2);
         },
+
+        getShippingCost(state, getters) {
+            if (getters.getTotal < 15) {
+                return 2.5;
+            }
+            return 0;
+        }
     },
 
     mutations: {

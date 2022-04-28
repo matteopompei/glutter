@@ -295,9 +295,11 @@
             shipmentPrice = 0
         }
 
+        total += shipmentPrice;
+
         // Aggiunge totale e spese di spedizione alla pagina
         document.getElementById("shipment").innerHTML = shipmentPrice;
-        document.querySelector('#total').innerHTML = total + " €";
+        document.querySelector('#total').innerHTML = String(total).replace(".", ",") + " €";
 
         // Versione per chiamata ajax
         // $.ajaxSetup({

@@ -51,7 +51,7 @@
                                           @endif
                                         </td>
                                         <td class="align-middle text-center">    
-                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal">Elimina</button>
+                                            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#ModalModal{{$order->id}}">Elimina</button>
                                         </td>
                                     </tr>
                             </tbody>

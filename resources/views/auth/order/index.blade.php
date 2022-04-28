@@ -50,7 +50,7 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <button type="submit" class="btn btn-danger" data-toggle="modal"
-                                                data-target="#ModalModal">Elimina</button>
+                                                data-target="#ModalModal{{ $order->id }}">Elimina</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -67,6 +67,8 @@
         </div>
     </div>
     @if ($orders->count() > 0)
-        @include('auth.order.modal.delete_order')
+        @foreach ($orders as $order)
+            @include('auth.order.modal.delete_order')
+        @endforeach
     @endif
 @endsection
