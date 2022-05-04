@@ -23,6 +23,7 @@
                   <th class="align-middle text-center" scope="col">Nome cliente</th>
                   <th class="align-middle text-center" scope="col">Incasso</th>
                   <th class="align-middle text-center" scope="col">Pagamento ricevuto</th>
+                  <th class="align-middle text-center" scope="col">Orario di consegna</th>
                   <th class="align-middle text-center" scope="col">Visualizza ordine</th>
                   <th class="align-middle text-center" scope="col">Elimina ordine</th>
                 </tr>
@@ -32,7 +33,7 @@
                 @foreach ($orders as $order)
                   <tr>
                     <td class="align-middle text-center">{{ $order->name }}</td>
-                    <td class="align-middle text-center">{{ $order['total'] }}€</td>
+                    <td class="align-middle text-center">{{ $order->total }}€</td>
                     <td class="align-middle text-center">
                       @if ($order->payed == 0)
                         <div>
@@ -44,6 +45,7 @@
                         </div>
                       @endif
                     </td>
+                    <td class="align-middle text-center">{{ $order->delivery_date }}</td>
                     <td class="align-middle text-center"><a href="{{ route('auth.order.show', $order) }}"
                         class="btn btn-info text-white">Visualizza</a>
                     </td>
