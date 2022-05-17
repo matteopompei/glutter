@@ -16,7 +16,7 @@
       </div>
       <div class="row">
         <div class="col left">
-          <div>
+          <div class="table-responsive">
             <table class="table table-white table-hover">
               <thead class="thead-light">
                 <tr>
@@ -26,7 +26,8 @@
                   <th class="align-middle text-center" scope="col">Indirizzo</th>
                   <th class="align-middle text-center" scope="col">Spese di spedizione</th>
                   <th class="align-middle text-center" scope="col">Totale ordine</th>
-                  <th class="align-middle text-center" scope="col">Pagato</th>
+                  <th class="align-middle text-center" scope="col">Orario di consegna</th>
+                  <th class="align-middle text-center" scope="col">Pagamento ricevuto</th>
                   <th class="align-middle text-center" scope="col">Elimina ordine</th>
                 </tr>
               </thead>
@@ -37,8 +38,9 @@
                   <td class="align-middle text-center">{{ $order->name }}</td>
                   <td class="align-middle text-center">{{ $order->phone }}</td>
                   <td class="align-middle text-center">{{ $order->address }}</td>
-                  <td class="align-middle text-center">{{ $order->shipment }}</td>
+                  <td class="align-middle text-center">{{ $order->shipment }}€</td>
                   <td class="align-middle text-center">{{ $order->total }}€</td>
+                  <td class="align-middle text-center">{{ $order->delivery_date }}</td>
                   <td class="align-middle text-center">
                     @if ($order->payed == 0)
                       <div>
