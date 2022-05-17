@@ -59,7 +59,7 @@
                             <div class="col-md-6">
                                 <input id="fullName" type="text"
                                     class="form-control @error('fullName') is-invalid @enderror" name="fullName"
-                                    value="@if (isset($form_data)) {{ $form_data['fullName'] }}@else{{ old('fullName') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['fullName'] }}@else{{ old('fullName') }}@endif"
                                     minlength="3" required>
 
                                 @error('fullName')
@@ -77,7 +77,7 @@
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email"
-                                    value="@if (isset($form_data)) {{ $form_data['email'] }}@else{{ old('email') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['email'] }}@else{{ old('email') }}@endif"
                                     required autocomplete="email">
 
                                 @error('email')
@@ -95,7 +95,7 @@
                             <div class="col-md-6">
                                 <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror"
                                     name="phone"
-                                    value="@if (isset($form_data)) {{ $form_data['phone'] }}@else{{ old('phone') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['phone'] }}@else{{ old('phone') }}@endif"
                                     required>
 
                                 @error('phone')
@@ -113,7 +113,7 @@
                             <div class="col-md-6">
                                 <input id="street" type="text"
                                     class="form-control @error('street') is-invalid @enderror" name="street"
-                                    value="@if (isset($form_data)) {{ $form_data['street'] }}@else{{ old('street') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['street'] }}@else{{ old('street') }}@endif"
                                     required>
 
                                 @error('street')
@@ -131,7 +131,7 @@
                             <div class="col-md-6">
                                 <input id="civic" type="text" class="form-control @error('civic') is-invalid @enderror"
                                     name="civic"
-                                    value="@if (isset($form_data)) {{ $form_data['civic'] }}@else{{ old('civic') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['civic'] }}@else{{ old('civic') }}@endif"
                                     required>
 
                                 @error('civic')
@@ -149,7 +149,7 @@
                             <div class="col-md-6">
                                 <input id="city" type="text" class="form-control @error('city') is-invalid @enderror"
                                     name="city"
-                                    value="@if (isset($form_data)) {{ $form_data['city'] }}@else{{ old('city') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['city'] }}@else{{ old('city') }}@endif"
                                     required>
 
                                 @error('city')
@@ -167,7 +167,7 @@
                             <div class="col-md-6">
                                 <input id="state" type="text" class="form-control @error('state') is-invalid @enderror"
                                     name="state"
-                                    value="@if (isset($form_data)) {{ $form_data['state'] }}@else{{ old('state') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['state'] }}@else{{ old('state') }}@endif"
                                     required>
 
                                 @error('state')
@@ -185,7 +185,7 @@
                             <div class="col-md-6">
                                 <input id="cap" type="text" class="form-control @error('cap') is-invalid @enderror"
                                     name="cap"
-                                    value="@if (isset($form_data)) {{ $form_data['cap'] }}@else{{ old('cap') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['cap'] }}@else{{ old('cap') }}@endif"
                                     minlength="5" maxlength="5" required>
 
                                 @error('cap')
@@ -204,7 +204,7 @@
 
                             <div class="col-md-6">
                                 <input type="time" name="delivery_date" id="delivery_date" class="form-control"
-                                    value="@if (isset($form_data)) {{ $form_data['delivery_date'] }}@else{{ old('delivery_date') }} @endif"
+                                    value="@if (isset($form_data)) {{ $form_data['delivery_date'] }}@else{{ old('delivery_date') }}@endif"
                                     min="{{ $minTime }}" max="22:00" required>
 
                                 @error('delivery_date')
